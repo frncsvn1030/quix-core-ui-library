@@ -1,0 +1,81 @@
+
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.banner {
+    position: relative;
+    background-color: $purple-10;
+    height: 71.67vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+ 
+
+    .banner-info {
+        position: relative;
+        z-index: 2;
+
+
+        h1 {
+            font-weight: $font-weight-bold;
+            font-size: 48px;
+            color: #18181b;
+    
+            span {
+                color: $purple-300;
+            }
+        }
+    
+        p {
+            font-size: 18px;
+        }
+    
+        .banner-btns {
+    
+            .get-started-btn, .see-components-btn {
+                display: inline-block;
+                width: 183px; height: 52px;
+                font-size: 16px;
+                font-family: $poppins;
+                border: none;   
+                border-radius: 999px; //temporary
+                font-weight: $font-weight-medium;
+                color: #18181b;
+                cursor: pointer;
+            }
+        
+            .get-started-btn {
+                background-color: $purple-300; //temporary
+                color: #ffffff;
+                margin-right: 10px;
+            }
+        
+            .see-components-btn {
+                background-color: #ffffff;
+            }
+        }
+    }
+
+    .banner-image {
+        position: absolute;
+        bottom: 0;  
+        right: 300px;
+        transform: translateX(50%);
+        width: 80%;
+        max-width: 1100px;
+        z-index: 1;
+    }
+    
+    
+    .banner-image img {
+        width: 100%;
+        height: auto;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        box-shadow: 
+        -20px -15px 30px rgba($purple-300, 0.08),
+        0px 10px 30px rgba(255, 255, 255, 0.15); /* Bottom shadow with white color */
+
+                
+    }
+}

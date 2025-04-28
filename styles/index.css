@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Poppins", sans-serif;
+  color: #18181b;
+}
+
+.banner {
+  position: relative;
+  background-color: rgba(68, 13, 159, 0.05);
+  height: 71.67vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.banner .banner-info {
+  position: relative;
+  z-index: 2;
+}
+.banner .banner-info h1 {
+  font-weight: 700;
+  font-size: 48px;
+  color: #18181b;
+}
+.banner .banner-info h1 span {
+  color: #440D9F;
+}
+.banner .banner-info p {
+  font-size: 18px;
+}
+.banner .banner-info .banner-btns .get-started-btn, .banner .banner-info .banner-btns .see-components-btn {
+  display: inline-block;
+  width: 183px;
+  height: 52px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  border-radius: 999px;
+  font-weight: 500;
+  color: #18181b;
+  cursor: pointer;
+}
+.banner .banner-info .banner-btns .get-started-btn {
+  background-color: #440D9F;
+  color: #ffffff;
+  margin-right: 10px;
+}
+.banner .banner-info .banner-btns .see-components-btn {
+  background-color: #ffffff;
+}
+.banner .banner-image {
+  position: absolute;
+  bottom: 0;
+  right: 300px;
+  transform: translateX(50%);
+  width: 80%;
+  max-width: 1100px;
+  z-index: 1;
+}
+.banner .banner-image img {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: -20px -15px 30px rgba(68, 13, 159, 0.08), 0px 10px 30px rgba(255, 255, 255, 0.15); /* Bottom shadow with white color */
+}/*# sourceMappingURL=index.css.map */

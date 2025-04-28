@@ -1,0 +1,18 @@
+// theme pallete
+$purple-400: #390B87;           // dark
+$purple-300: #440D9F;           // base
+$purple-200: rgba($purple-300, 0.7);  // 70% opacity
+$purple-100: rgba($purple-300, 0.3);  // 30% opacity
+$purple-50:  rgba($purple-300, 0.1);  // 10% opacity
+$purple-10:  rgba($purple-300, 0.05); // 5% opacity
+
+// font weight
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+
+// font family
+$poppins: 'Poppins', sans-serif;
+$inter: 'Inter', sans-serif;
