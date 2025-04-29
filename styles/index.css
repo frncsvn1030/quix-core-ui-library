@@ -5,7 +5,7 @@
 }
 
 html, body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   color: #18181b;
 }
 
@@ -17,6 +17,24 @@ html, body {
   align-items: center;
   overflow: hidden;
 }
+@media (max-width: 1024px) {
+  .banner {
+    height: auto;
+    padding: 60px 0;
+  }
+}
+@media (max-width: 768px) {
+  .banner {
+    padding: 40px 0;
+  }
+}
+.banner.with-background {
+  background-image: url("/imgs/qstrike-logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-position: 100px center;
+}
 .banner .banner-info {
   position: relative;
   z-index: 2;
@@ -24,7 +42,7 @@ html, body {
 .banner .banner-info h1 {
   font-weight: 700;
   font-size: 48px;
-  color: #18181b;
+  color: #18181B;
 }
 .banner .banner-info h1 span {
   color: #440D9F;
@@ -37,20 +55,20 @@ html, body {
   width: 183px;
   height: 52px;
   font-size: 16px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   border: none;
   border-radius: 999px;
   font-weight: 500;
-  color: #18181b;
+  color: #18181B;
   cursor: pointer;
 }
 .banner .banner-info .banner-btns .get-started-btn {
   background-color: #440D9F;
-  color: #ffffff;
+  color: #FFFFFF;
   margin-right: 10px;
 }
 .banner .banner-info .banner-btns .see-components-btn {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
 }
 .banner .banner-image {
   position: absolute;
@@ -61,10 +79,31 @@ html, body {
   max-width: 1100px;
   z-index: 1;
 }
+@media (max-width: 1600px) {
+  .banner .banner-image {
+    width: 60%;
+    max-width: 1000px;
+  }
+}
+@media (max-width: 1200px) {
+  .banner .banner-image {
+    display: none;
+  }
+}
 .banner .banner-image img {
   width: 100%;
   height: auto;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  box-shadow: -20px -15px 30px rgba(68, 13, 159, 0.08), 0px 10px 30px rgba(255, 255, 255, 0.15); /* Bottom shadow with white color */
+  box-shadow: -20px -15px 30px rgba(68, 13, 159, 0.08), 0px 10px 30px rgba(255, 255, 255, 0.15);
+}
+
+.navbar {
+  background-color: #FFFFFF !important;
+}
+.navbar li a {
+  font-family: "Poppins", sans-serif !important;
+}
+.navbar .search {
+  border-radius: 999px;
 }/*# sourceMappingURL=index.css.map */

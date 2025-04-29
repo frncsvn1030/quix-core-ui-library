@@ -23,10 +23,50 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- navbar -->
+    <nav class="navbar uk-navbar-container">
+        <div class="uk-container uk-container-xlarge">
+            <div uk-navbar>
+
+                <div class="uk-navbar-left">
+                    <a class="uk-navbar-item uk-logo" href="#" aria-label="Back to Home">
+                        <img src="/imgs/logo.png" alt="Quix Core UI Logo" style="height: 52px;">
+                    </a>
+                </div>                
+
+                <div class="uk-navbar-center">
+                    <form action="javascript:void(0)">
+                        <div class="uk-inline">
+                            <span class="uk-form-icon" uk-icon="icon: search"></span>
+                            <input class="search uk-input uk-width-1-1" type="text" placeholder="Type keywords..." aria-label="Type keywords">
+                        </div>
+                    </form>
+                </div>
+                
+
+                <div class="uk-navbar-right">
+                    <div class="uk-navbar-nav">
+                        <li>
+                            <a href="#">
+                                Documentation
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="/imgs/github-logo.png" alt="GitHub" style="height: 23px; width: 23px; vertical-align: middle; margin-right: 6px;">
+                            </a>
+                        </li>
+                    </div>
+                </div>
+                
+            </div>    
+        </div>
+    </nav>
+
     <!-- banner -->
-    <section class="banner">
+    <section class="banner with-background">
         <div class="uk-container">
-            <div class="banner-info uk-width-1-2@m">
+            <div class="banner-info uk-width-1-2@l">
                 <h1>Design Better, Develop Faster with <span>Quix Core UI</span></h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut eiusmod tempor labore et dolore magna aliqua.</p>
                 <div class="banner-btns">
