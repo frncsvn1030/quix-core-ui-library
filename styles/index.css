@@ -12,19 +12,27 @@ html, body {
 .banner {
   position: relative;
   background-color: rgba(68, 13, 159, 0.05);
-  height: 71.67vh;
+  min-height: 71.67vh;
   display: flex;
   align-items: center;
   overflow: hidden;
+  padding: 80px 0;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .banner {
-    height: auto;
+    min-height: 60vh;
     padding: 60px 0;
   }
 }
 @media (max-width: 768px) {
   .banner {
+    min-height: 50vh;
+    padding: 50px 0;
+  }
+}
+@media (max-width: 480px) {
+  .banner {
+    min-height: 40vh;
     padding: 40px 0;
   }
 }
@@ -34,6 +42,17 @@ html, body {
   background-repeat: no-repeat;
   background-position: left;
   background-position: 100px center;
+}
+@media (max-width: 1200px) {
+  .banner.with-background {
+    background-position: center;
+  }
+}
+@media (max-width: 768px) {
+  .banner.with-background {
+    background-position: center;
+    background-size: 650px auto;
+  }
 }
 .banner .banner-info {
   position: relative;
@@ -47,12 +66,27 @@ html, body {
 .banner .banner-info h1 span {
   color: #440D9F;
 }
+@media (max-width: 768px) {
+  .banner .banner-info h1 {
+    font-size: 36px;
+  }
+}
+@media (max-width: 480px) {
+  .banner .banner-info h1 {
+    font-size: 28px;
+  }
+}
 .banner .banner-info p {
   font-size: 18px;
 }
-.banner .banner-info .banner-btns .get-started-btn, .banner .banner-info .banner-btns .see-components-btn {
+@media (max-width: 768px) {
+  .banner .banner-info p {
+    font-size: 16px;
+  }
+}
+.banner .banner-info .get-started-btn,
+.banner .banner-info .see-components-btn {
   display: inline-block;
-  width: 183px;
   height: 52px;
   font-size: 16px;
   font-family: "Poppins", sans-serif !important;
@@ -61,28 +95,54 @@ html, body {
   font-weight: 500;
   color: #18181B;
   cursor: pointer;
+  text-transform: none !important;
 }
-.banner .banner-info .banner-btns .get-started-btn {
+@media (max-width: 480px) {
+  .banner .banner-info .get-started-btn,
+  .banner .banner-info .see-components-btn {
+    height: 46px;
+    font-size: 14px;
+  }
+}
+.banner .banner-info .get-started-btn {
   background-color: #440D9F;
   color: #FFFFFF;
   margin-right: 10px;
 }
-.banner .banner-info .banner-btns .see-components-btn {
+.banner .banner-info .see-components-btn {
   background-color: #FFFFFF;
 }
 .banner .banner-image {
   position: absolute;
   bottom: 0;
-  right: 300px;
-  transform: translateX(50%);
-  width: 80%;
+  right: -300px;
+  width: 100%;
   max-width: 1100px;
   z-index: 1;
+  transition: all 0.3s ease-in-out;
 }
-@media (max-width: 1600px) {
+@media (min-width: 1901px) {
   .banner .banner-image {
-    width: 60%;
-    max-width: 1000px;
+    right: -200px;
+    max-width: 1100px;
+  }
+}
+@media (min-width: 1601px) and (max-width: 1900px) {
+  .banner .banner-image {
+    right: -450px;
+    max-width: 1300px;
+  }
+}
+@media (min-width: 1348px) and (max-width: 1600px) {
+  .banner .banner-image {
+    right: -500px;
+    max-width: 1200px;
+  }
+}
+@media (min-width: 1201px) and (max-width: 1347px) {
+  .banner .banner-image {
+    right: -550px;
+    max-width: 1150px;
   }
 }
 @media (max-width: 1200px) {
