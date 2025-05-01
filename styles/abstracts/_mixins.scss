@@ -1,0 +1,28 @@
+@mixin font-style($family: null, $size: null, $weight: null, $color: null) {
+    @if $family != null {
+      font-family: $family, sans-serif;
+    }
+    @if $size != null {
+      font-size: $size;
+    }
+    @if $weight != null {
+      font-weight: $weight;
+    }
+    @if $color != null {
+      color: $color;
+    }
+  }
+
+@mixin text-purple {
+  color: $purple-300;
+}
+
+@mixin responsive-font-size($md-size, $sm-size) {
+  @media (max-width: 768px) {
+    font-size: $md-size;
+  }
+
+  @media (max-width: 480px) {
+    font-size: $sm-size;
+  }
+}

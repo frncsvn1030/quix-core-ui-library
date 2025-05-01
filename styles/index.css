@@ -5,18 +5,18 @@
 }
 
 html, body {
-  font-family: "Poppins", sans-serif !important;
+  font-family: "Poppins", sans-serif;
   color: #18181b;
 }
 
 .banner {
   position: relative;
-  background-color: rgba(68, 13, 159, 0.05);
-  min-height: 71.67vh;
   display: flex;
   align-items: center;
   overflow: hidden;
+  min-height: 71.67vh;
   padding: 80px 0;
+  background-color: #EDE7F6;
 }
 @media (max-width: 1200px) {
   .banner {
@@ -40,7 +40,6 @@ html, body {
   background-image: url("/imgs/qstrike-logo.png");
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: left;
   background-position: 100px center;
 }
 @media (max-width: 1200px) {
@@ -59,12 +58,10 @@ html, body {
   z-index: 2;
 }
 .banner .banner-info h1 {
-  font-weight: 700;
+  font-family: "Poppins", sans-serif, sans-serif;
   font-size: 48px;
+  font-weight: 600;
   color: #18181B;
-}
-.banner .banner-info h1 span {
-  color: #440D9F;
 }
 @media (max-width: 768px) {
   .banner .banner-info h1 {
@@ -76,26 +73,36 @@ html, body {
     font-size: 28px;
   }
 }
+.banner .banner-info h1 span {
+  color: #440D9F;
+}
 .banner .banner-info p {
+  font-family: "Poppins", sans-serif, sans-serif;
   font-size: 18px;
+  color: #464649;
 }
 @media (max-width: 768px) {
   .banner .banner-info p {
     font-size: 16px;
   }
 }
+@media (max-width: 480px) {
+  .banner .banner-info p {
+    font-size: 14px;
+  }
+}
 .banner .banner-info .get-started-btn,
 .banner .banner-info .see-components-btn {
   display: inline-block;
   height: 52px;
-  font-size: 16px;
-  font-family: "Poppins", sans-serif !important;
   border: none;
   border-radius: 999px;
-  font-weight: 500;
-  color: #18181B;
   cursor: pointer;
   text-transform: none !important;
+  font-family: "Poppins", sans-serif, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #18181B;
 }
 @media (max-width: 480px) {
   .banner .banner-info .get-started-btn,
@@ -121,21 +128,15 @@ html, body {
   z-index: 1;
   transition: all 0.3s ease-in-out;
 }
-@media (min-width: 1901px) {
-  .banner .banner-image {
-    right: -200px;
-    max-width: 1100px;
-  }
-}
 @media (min-width: 1601px) and (max-width: 1900px) {
   .banner .banner-image {
-    right: -450px;
+    right: -500px;
     max-width: 1300px;
   }
 }
 @media (min-width: 1348px) and (max-width: 1600px) {
   .banner .banner-image {
-    right: -500px;
+    right: -450px;
     max-width: 1200px;
   }
 }
@@ -162,8 +163,58 @@ html, body {
   background-color: #FFFFFF !important;
 }
 .navbar li a {
-  font-family: "Poppins", sans-serif !important;
+  font-family: "Poppins", sans-serif;
 }
 .navbar .search {
   border-radius: 999px;
+}
+
+.main-content {
+  padding-top: 8vw;
+  padding-bottom: 8vw;
+}
+.main-content h2 {
+  font-family: "Poppins", sans-serif, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  color: #18181B;
+}
+@media (max-width: 768px) {
+  .main-content h2 {
+    font-size: 36px;
+  }
+}
+@media (max-width: 480px) {
+  .main-content h2 {
+    font-size: 28px;
+  }
+}
+.main-content span {
+  color: #440D9F;
+}
+.main-content p, .main-content li {
+  font-family: "Poppins", sans-serif, sans-serif;
+  font-size: 18px;
+  color: #464649;
+}
+@media (max-width: 768px) {
+  .main-content p, .main-content li {
+    font-size: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .main-content p, .main-content li {
+    font-size: 14px;
+  }
+}
+.main-content .icon-circle {
+  background-color: #440D9F;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  margin-right: 23px;
+}
+.main-content .icon-circle span[uk-icon] {
+  color: #FFFFFF !important;
 }/*# sourceMappingURL=index.css.map */

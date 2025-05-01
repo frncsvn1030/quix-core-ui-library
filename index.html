@@ -34,7 +34,7 @@
                     </a>
                 </div>                
 
-                <div class="uk-navbar-center">
+                <div class="uk-navbar-center uk-visible@m">
                     <form action="javascript:void(0)">
                         <div class="uk-inline">
                             <span class="uk-form-icon" uk-icon="icon: search"></span>
@@ -43,13 +43,10 @@
                     </form>
                 </div>
                 
-
                 <div class="uk-navbar-right">
                     <div class="uk-navbar-nav">
                         <li>
-                            <a href="#">
-                                Documentation
-                            </a>
+                            <a href="#">Documentation</a>
                         </li>
                         <li>
                             <a href="#">
@@ -67,7 +64,7 @@
     <section class="banner with-background">
         <div class="uk-container">
             <div class="banner-info uk-width-1-2@l">
-                <h1>Design Better, Develop Faster with <span>Quix Core UI</span></h1>
+                <h1 class="uk-heading-small">Design Better, Develop Faster with <span>Quix Core UI</span></h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut eiusmod tempor labore et dolore magna aliqua.</p>
                 <div class="banner-btns">
                     <button class="uk-button get-started-btn">Get Started</button>
@@ -82,7 +79,47 @@
 
     <!-- main content -->
     <section class="main-content">
+            <div class="uk-container">
+                <div class="uk-grid-large uk-child-width-1-2@m uk-flex-middle" uk-grid>
 
+                    <!-- image -->
+                    <div>
+                        <div class="uk-flex uk-flex-center uk-flex-middle">
+                            <img src="./imgs/ui-sample.png" alt="UI Sample" />
+                        </div>
+                    </div>
+
+                    <!-- info -->
+                    <div>
+                        <h2 class="uk-heading-small">
+                            Crafting Intuitive Interfaces Shouldn't Be
+                            <span>Complicated</span>
+                        </h2>
+                        <p>
+                            Craft beautiful, high-performance interfaces with components<br />
+                            made for customization and ease.
+                        </p>
+                        
+                        <ul class="uk-list uk-list-large uk-margin-top">
+                            <li class="uk-flex">
+                                <span class="icon-circle uk-flex uk-flex-center uk-flex-middle">
+                                    <span uk-icon="icon: check; ratio: 1.2" class="uk-text-primary"></span>
+                                </span>
+                                Professionally designed components that streamline your workflow while maintaining complete flexibility
+                            </li>
+                            <li class="uk-flex">
+                                <span class="icon-circle uk-flex uk-flex-center uk-flex-middle">
+                                    <span uk-icon="icon: check; ratio: 1.2" class="uk-text-primary"></span>
+                                </span>
+                                Lightweight, accessible elements that help you deliver exceptional user experiences with minimal effort
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
     </section>
 
     <!-- footer -->

@@ -1,0 +1,35 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.main-content {
+        padding-top: 8vw;
+        padding-bottom: 8vw;
+    
+    h2 {
+        @include font-style($poppins, 40px, $font-weight-semi-bold, $text-default);
+        @include responsive-font-size(36px, 28px);
+    }
+
+    span {
+        @include text-purple;
+    }
+
+    p, li {
+        @include font-style($poppins, 18px, null, $text-muted);
+        @include responsive-font-size(16px, 14px);
+    }
+
+    .icon-circle {
+        background-color: $purple-300;
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        margin-right: 23px;
+
+        span[uk-icon] {
+            @include font-style(null, null, null, $white !important);
+        }
+
+    }    
+}
