@@ -217,4 +217,44 @@ html, body {
 }
 .main-content .icon-circle span[uk-icon] {
   color: #FFFFFF !important;
+}
+.main-content .components {
+  padding-top: 8vw;
+}
+.main-content .components .component-card {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid #eeeeee;
+  text-align: center;
+  transition: transform 0.3s ease;
+  box-shadow: 0 10px 20px rgba(150, 100, 255, 0.1);
+}
+.main-content .components .component-card .component-img {
+  border-radius: 12px 12px 0 0;
+}
+.main-content .components .component-card:hover {
+  transform: translateY(-5px);
+}
+
+.footer {
+  background-color: #EDE7F6;
+}
+.footer h4 {
+  font-weight: 500;
+  color: #464649 !important;
+  text-align: left;
+}
+.footer p, .footer a {
+  color: #4A4A4A;
+  text-align: left;
+}
+.footer ul.uk-list {
+  text-align: left;
+}
+.footer .uk-grid-medium > div {
+  text-align: left;
+}
+.footer .credits p, .footer .credits a {
+  color: #777777;
+  text-align: center;
 }/*# sourceMappingURL=index.css.map */

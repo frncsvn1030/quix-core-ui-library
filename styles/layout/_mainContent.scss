@@ -30,6 +30,56 @@
         span[uk-icon] {
             @include font-style(null, null, null, $white !important);
         }
+    }  
+    
+    
+    .components {
+        padding-top: 8vw;
+        
+        .component-card {
+            background-color: $white;
+            border-radius: 12px;
+            border: 1px solid #eeeeee;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 20px rgba(150, 100, 255, 0.1);
 
-    }    
+            .component-img {
+                border-radius: 12px 12px 0 0;
+            }
+          }
+      
+          .component-card:hover {
+            transform: translateY(-5px);
+          }
+    }
+}
+
+.footer {
+    background-color: $purple-10;
+    
+    h4 {
+        @include font-style(null, null, $font-weight-medium, $text-muted !important);
+        text-align: left;
+    }
+    
+    p, a {
+        color: #4A4A4A	;
+        text-align: left;
+    }
+    
+    ul.uk-list {
+        text-align: left;
+    }
+
+    .uk-grid-medium > div {
+        text-align: left;
+    }
+    
+    .credits {
+        p, a {
+            color: #777777;
+            text-align: center;
+        }
+    }
 }
