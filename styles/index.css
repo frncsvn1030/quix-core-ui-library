@@ -233,28 +233,33 @@ html, body {
   border-radius: 12px 12px 0 0;
 }
 .main-content .components .component-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
 }
 
 .footer {
-  background-color: #EDE7F6;
+  background-color: #EDE7F6 !important;
+  padding: 30px 0 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-family: "Inter", sans-serif, sans-serif;
+  font-size: 16px;
+  color: #555555 !important;
 }
-.footer h4 {
-  font-weight: 500;
-  color: #464649 !important;
-  text-align: left;
+.footer .footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
-.footer p, .footer a {
-  color: #4A4A4A;
-  text-align: left;
+.footer .footer-content .footer-links {
+  display: flex;
+  gap: 35px;
 }
-.footer ul.uk-list {
-  text-align: left;
+.footer .footer-content .footer-links a {
+  color: #555555;
+  text-decoration: none;
+  transition: color 0.3s;
 }
-.footer .uk-grid-medium > div {
-  text-align: left;
-}
-.footer .credits p, .footer .credits a {
-  color: #777777;
-  text-align: center;
+.footer .footer-content .footer-links a:hover {
+  color: #440D9F;
 }/*# sourceMappingURL=index.css.map */
