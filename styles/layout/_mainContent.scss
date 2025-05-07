@@ -54,34 +54,4 @@
           }
     }
 }
-
-.footer {
-  background-color: $purple-10 !important;
-  padding: 30px 0 10px;
-  font-family: $inter;
-  font-size: 14px;
-  @include font-style($inter, 16px, null, $text-footer !important);
-
-  .footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  
-    .footer-links {
-      display: flex;
-      gap: 35px;
-  
-      a {
-        color: $text-footer;
-        text-decoration: none;
-        transition: color 0.3s;
-  
-        &:hover {
-          color: $purple-300;
-        }
-      }
-    }
-  }
-}
  

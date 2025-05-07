@@ -5,6 +5,7 @@
 }
 
 html, body {
+  height: 100%;
   font-family: "Poppins", sans-serif;
   color: #18181b;
 }
@@ -159,14 +160,22 @@ html, body {
   box-shadow: -20px -15px 30px rgba(68, 13, 159, 0.08), 0px 10px 30px rgba(255, 255, 255, 0.15);
 }
 
-.navbar {
+.navbar, .navbar-docs {
   background-color: #FFFFFF !important;
 }
-.navbar li a {
+.navbar li a, .navbar-docs li a {
   font-family: "Poppins", sans-serif;
 }
-.navbar .search {
+.navbar .search, .navbar-docs .search {
   border-radius: 999px;
+}
+
+.navbar-docs {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 1px dotted #DEDEDE;
 }
 
 .main-content {
@@ -248,7 +257,6 @@ html, body {
 .footer .footer-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 20px;
 }
 .footer .footer-content .footer-links {
@@ -262,4 +270,76 @@ html, body {
 }
 .footer .footer-content .footer-links a:hover {
   color: #440D9F;
+}
+
+/* Sidebar fix */
+.sidebar {
+  position: fixed;
+  top: 100px;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e5e5;
+  z-index: 1000;
+}
+
+/* Push the main content away from the fixed sidebar */
+.haha {
+  margin-left: 500px !important; /* same as sidebar width */
+  padding: 2rem; /* optional, for spacing */
+}
+
+.docs {
+  min-height: 100vh;
+}
+
+.left-sidebar, .right-sidebar {
+  position: sticky;
+  height: 100vh;
+  top: 0;
+}
+
+.left-sidebar {
+  border-right: 1px dotted #DEDEDE;
+}
+.left-sidebar ul .all-components-btn a, .left-sidebar ul li a {
+  color: #464649;
+  text-decoration: none;
+  padding-left: 10px;
+}
+.left-sidebar ul .all-components-btn a:hover, .left-sidebar ul li a:hover {
+  font-weight: 500;
+  color: #390B87;
+  background-color: #EDE7F6;
+  border-radius: 5px;
+}
+.left-sidebar ul .uk-nav-header {
+  font-weight: 500;
+  color: #18181B;
+  padding-left: 10px;
+}
+
+.right-sidebar {
+  border-left: 1px dotted #DEDEDE;
+}
+
+.docs-content {
+  padding: 6rem 0;
+}
+
+@media (min-width: 1000px) {
+  .left-sidebar, .right-sidebar {
+    padding: 7rem 0;
+  }
+  .docs-content {
+    padding: 7rem 2.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .left-sidebar, .right-sidebar {
+    padding: 8rem 0;
+  }
+  .docs-content {
+    padding: 8rem 4rem;
+  }
 }/*# sourceMappingURL=index.css.map */
