@@ -20,42 +20,15 @@
     
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/5b979b397d.js" crossorigin="anonymous"></script>
+
+    <!-- partials -->
+    <script src="js/navbarMain.js"></script>
+    <script src="js/footer.js"></script>
+
 </head>
 <body>
     <!-- navbar -->
-    <nav class="navbar uk-navbar-container">
-        <div class="uk-container uk-container-xlarge">
-            <div uk-navbar>
-                <div class="uk-navbar-left">
-                    <a class="uk-navbar-item uk-logo" href="#" aria-label="Back to Home">
-                        <img src="./imgs/logo.png" alt="Quix Core UI Logo" style="height: 52px;">
-                    </a>
-                </div>
-
-                <div class="uk-navbar-center uk-visible@m">
-                    <form action="javascript:void(0)">
-                        <div class="uk-inline">
-                            <span class="uk-form-icon" uk-icon="icon: search"></span>
-                            <input class="search uk-input uk-width-1-1" type="text" placeholder="Type keywords..." aria-label="Type keywords">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="uk-navbar-right">
-                    <ul class="uk-navbar-nav">
-                        <li>
-                            <a href="#">Documentation</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="./imgs/github-logo.png" alt="GitHub" style="height: 23px; width: 23px; vertical-align: middle; margin-right: 6px;">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <div id="navbar-container"></div>
 
     <!-- hero banner -->
     <section class="banner with-background">
@@ -67,7 +40,9 @@
                 </h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut eiusmod tempor labore et dolore magna aliqua.</p>
                 <div class="banner-btns">
-                    <button class="uk-button get-started-btn">Get Started</button>
+                    <a href="docs.html">
+                        <button class="uk-button get-started-btn">Get Started</button>
+                    </a>
                     <button class="uk-button see-components-btn" onclick="document.getElementById('components').scrollIntoView({ behavior: 'smooth' });">
                         See Components
                     </button>                    
@@ -205,17 +180,7 @@
     </section>
 
     <!-- footer -->
-    <footer class="uk-section uk-section-muted uk-section-small footer">
-        <div class="footer-content uk-container">
-          <div class="footer-links uk-flex uk-flex-center uk-flex-wrap uk-grid-small" uk-grid>
-            <a href="#" uk-scroll>Getting Started</a>
-            <a href="#">Documentation</a>
-            <a href="#">Github</a>
-            <a href="#">Contact Us</a>
-          </div>
-          <p class="uk-text-center">Qstrike UIUX Interns Project &copy; 2025</p>
-        </div>
-      </footer>
+    <div id="footer-container"></div>
       
 </body>
 </html>
