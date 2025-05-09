@@ -257,6 +257,7 @@ html, body {
 .footer .footer-content {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
 }
 .footer .footer-content .footer-links {
@@ -270,23 +271,6 @@ html, body {
 }
 .footer .footer-content .footer-links a:hover {
   color: #440D9F;
-}
-
-/* Sidebar fix */
-.sidebar {
-  position: fixed;
-  top: 100px;
-  height: 100vh;
-  overflow-y: auto;
-  background-color: #ffffff;
-  border-right: 1px solid #e5e5e5;
-  z-index: 1000;
-}
-
-/* Push the main content away from the fixed sidebar */
-.haha {
-  margin-left: 500px !important; /* same as sidebar width */
-  padding: 2rem; /* optional, for spacing */
 }
 
 .docs {
