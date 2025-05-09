@@ -1,0 +1,15 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.qx-btn {
+  @include font-style (null, 16px, $font-weight-semi-bold, $text-default);
+  padding: $padding-md;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+
+
+
+

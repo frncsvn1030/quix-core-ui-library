@@ -326,4 +326,66 @@ html, body {
   .docs-content {
     padding: 8rem 4rem;
   }
+}
+.qx-btn {
+  font-size: 16px;
+  font-weight: 600;
+  color: #18181B;
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.buttons {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background-color: #000000;
+}
+
+.qx-btn-primary {
+  color: #FFFFFF;
+  background-color: #440D9F;
+  border: none;
+}
+
+.qx-btn-secondary {
+  color: #FFFFFF;
+  background-color: #14B8A6;
+  border: none;
+}
+
+.qx-btn-success {
+  color: #FFFFFF;
+  background-color: #138636;
+  border: none;
+}
+
+.qx-btn-warning {
+  color: #FFFFFF;
+  background-color: #FFBC11;
+  border: none;
+}
+
+.qx-btn-error {
+  color: #FFFFFF;
+  background-color: #C91432;
+  border: none;
+}
+
+.qx-btn-info {
+  color: #FFFFFF;
+  background-color: #4976BA;
+  border: none;
+}
+
+.qx-btn-sm {
+  padding: 6px 12px;
+  font-size: 14px;
 }/*# sourceMappingURL=index.css.map */
