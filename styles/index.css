@@ -388,4 +388,40 @@ html, body {
 .qx-btn-sm {
   padding: 6px 12px;
   font-size: 14px;
+}
+
+.qx-btn-primary-inverted {
+  color: #440D9F;
+  background-color: rgba(68, 13, 159, 0.1);
+  border: none;
+}
+
+.qx-btn-secondary-inverted {
+  color: #14B8A6;
+  background-color: rgba(20, 184, 166, 0.1);
+  border: none;
+}
+
+.qx-btn-success-inverted {
+  color: #138636;
+  background-color: rgba(19, 134, 54, 0.1);
+  border: none;
+}
+
+.qx-btn-warning-inverted {
+  color: #FFBC11;
+  background-color: rgba(255, 188, 17, 0.1);
+  border: none;
+}
+
+.qx-btn-error-inverted {
+  color: #C91432;
+  background-color: rgba(201, 20, 50, 0.1);
+  border: none;
+}
+
+.qx-btn-info-inverted {
+  color: #4976BA;
+  background-color: rgba(73, 118, 186, 0.1);
+  border: none;
 }/*# sourceMappingURL=index.css.map */
