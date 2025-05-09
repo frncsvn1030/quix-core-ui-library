@@ -1,0 +1,7 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.qx-btn-sm {
+  padding: $padding-sm;
+  font-size: 14px;
+}

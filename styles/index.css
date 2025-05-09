@@ -326,4 +326,102 @@ html, body {
   .docs-content {
     padding: 8rem 4rem;
   }
+}
+.qx-btn {
+  font-size: 16px;
+  font-weight: 600;
+  color: #18181B;
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.buttons {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background-color: #000000;
+}
+
+.qx-btn-primary {
+  color: #FFFFFF;
+  background-color: #440D9F;
+  border: none;
+}
+
+.qx-btn-secondary {
+  color: #FFFFFF;
+  background-color: #14B8A6;
+  border: none;
+}
+
+.qx-btn-success {
+  color: #FFFFFF;
+  background-color: #138636;
+  border: none;
+}
+
+.qx-btn-warning {
+  color: #FFFFFF;
+  background-color: #FFBC11;
+  border: none;
+}
+
+.qx-btn-error {
+  color: #FFFFFF;
+  background-color: #C91432;
+  border: none;
+}
+
+.qx-btn-info {
+  color: #FFFFFF;
+  background-color: #4976BA;
+  border: none;
+}
+
+.qx-btn-sm {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.qx-btn-primary-inverted {
+  color: #440D9F;
+  background-color: rgba(68, 13, 159, 0.1);
+  border: none;
+}
+
+.qx-btn-secondary-inverted {
+  color: #14B8A6;
+  background-color: rgba(20, 184, 166, 0.1);
+  border: none;
+}
+
+.qx-btn-success-inverted {
+  color: #138636;
+  background-color: rgba(19, 134, 54, 0.1);
+  border: none;
+}
+
+.qx-btn-warning-inverted {
+  color: #FFBC11;
+  background-color: rgba(255, 188, 17, 0.1);
+  border: none;
+}
+
+.qx-btn-error-inverted {
+  color: #C91432;
+  background-color: rgba(201, 20, 50, 0.1);
+  border: none;
+}
+
+.qx-btn-info-inverted {
+  color: #4976BA;
+  background-color: rgba(73, 118, 186, 0.1);
+  border: none;
 }/*# sourceMappingURL=index.css.map */
