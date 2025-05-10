@@ -12,11 +12,12 @@
     padding: 2rem 0;
 }
 
+
+
 .left-sidebar {
     border-right: 1px dotted #DEDEDE;
 
     ul {
-
         .all-components-btn a, li a {
             color: $text-muted;
             text-decoration: none;
@@ -33,18 +34,60 @@
             @include font-style(null, null, $font-weight-medium, $text-default);
             padding-left: 10px;
         }
-        
     }     
 }
+
+
 
 .right-sidebar {
     border-left: 1px dotted #DEDEDE;
 }
 
+.sidebar-progress-container {
+  position: relative;
+  padding-left: 12px;
+
+  .progress-track {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background-color: #e0e0e0; 
+    border-radius: 2px;
+    overflow: hidden;
+
+    .progress-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 0;
+      background-color: $purple-200;
+      border-radius: 2px;
+      transition: height 0.2s ease;
+    }
+  }
+
+  ul.uk-nav {
+    padding-left: 16px; 
+  }
+
+  .nav-link.active {
+    font-weight: $font-weight-medium;
+    color: $purple-300;
+  }
+}
+
+.uk-nav-header {
+    text-transform: capitalize!important;
+    font-weight: $font-weight-semi-bold;
+} 
+
+
+
 .docs-content {
     padding: 2rem 0;
-
-   
 }
 
 @media (min-width: 1000px) {

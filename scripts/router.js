@@ -1,38 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
   const options = document.querySelectorAll('.option');
 
-  function loadContent(name) {
-    // load main content
+  function loadPage(name) {
+    // load main section
     fetch(`components/${name}.html`)
       .then(res => res.text())
-      .then(data => {
-        document.getElementById('main-content').innerHTML = data;
+      .then(html => {
+        document.getElementById('main-content').innerHTML = html;
+        setTimeout(initScrollAndProgress, 50); // re-run scroll logic
       });
 
-    // load right sidebar content (if it exists)
+    // load sidebar 
     fetch(`components/sidebars/${name}-right.html`)
       .then(res => res.text())
-      .then(data => {
-        document.getElementById('right-sidebar').innerHTML = data;
+      .then(html => {
+        document.getElementById('right-sidebar').innerHTML = html;
       })
       .catch(() => {
-        document.getElementById('right-sidebar').innerHTML = '';
+        document.getElementById('right-sidebar').innerHTML = ''; // clear if not found
       });
   }
 
-  // load default content (Button)
-  loadContent('button');
+  // default page button 
+  const lastPage = localStorage.getItem('currentPage') || 'button';
+  loadPage(lastPage);
 
-  // add click event to each option
+  // show page when clicked
   options.forEach(option => {
-    option.addEventListener('click', (e) => {
+    option.addEventListener('click', e => {
       e.preventDefault();
-      const name = option.textContent
-        .trim()
-        .toLowerCase()
-        .replace(/ & /g, '-')
-        .replace(/\s+/g, '-');
-      loadContent(name);
+      const name = option.textContent.trim().toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-');
+      localStorage.setItem('currentPage', name);
+      loadPage(name);
     });
   });
 });

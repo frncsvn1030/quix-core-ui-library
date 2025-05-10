@@ -23,16 +23,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- partials-->
-  <script src="scripts/navbarDocs.js"></script>
-  <script src="scripts/footer.js"></script>
-  <script src="scripts/componentNavigation.js"></script>
-  <script src="scripts/router.js"></script>
+  <script src="scripts/navbarDocs.js" defer></script>
+  <script src="scripts/footer.js" defer></script>
+  <script src="scripts/progressBar.js" defer></script>
+  <script src="scripts/router.js" defer></script>
+
 </head>
+
 <body>
     <!-- navbar -->
     <div id="navbar-container"></div>
 
-    <!-- switcher will refer to main -->
     <div class="uk-container uk-container-xlarge uk-flex uk-flex-center docs">
       <aside class="uk-width-1-6@m uk-visible@m left-sidebar">
         <ul class="uk-nav">
@@ -64,9 +65,7 @@
 
       <main class="uk-width-expand@m docs-content" id="main-content"></main>
 
-      <aside class="uk-width-1-6@m uk-visible@m right-sidebar">
-        <div class="uk-margin-medium-left" id="right-sidebar"></div>
-      </aside>
+      <aside class="uk-width-1-6@m uk-visible@m right-sidebar" id="right-sidebar"></aside>
     </div>
     
     <!-- offcanvas sidebar for sm-md screens -->
@@ -104,9 +103,6 @@
     <div id="footer-container"></div>
   </div>
 </div>
-  
-  
-  
 
 
 </body>

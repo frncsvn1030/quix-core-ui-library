@@ -304,6 +304,43 @@ html, body {
   border-left: 1px dotted #DEDEDE;
 }
 
+.sidebar-progress-container {
+  position: relative;
+  padding-left: 12px;
+}
+.sidebar-progress-container .progress-track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.sidebar-progress-container .progress-track .progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0;
+  background-color: rgba(68, 13, 159, 0.7);
+  border-radius: 2px;
+  transition: height 0.2s ease;
+}
+.sidebar-progress-container ul.uk-nav {
+  padding-left: 16px;
+}
+.sidebar-progress-container .nav-link.active {
+  font-weight: 500;
+  color: #440D9F;
+}
+
+.uk-nav-header {
+  text-transform: capitalize !important;
+  font-weight: 600;
+}
+
 .docs-content {
   padding: 2rem 0;
 }
