@@ -8,7 +8,7 @@
 .left-sidebar, .right-sidebar {
     position: sticky;
     height: 100vh;
-    top: 0;
+    top: 80px;
     padding: 2rem 0;
 }
 
@@ -43,6 +43,8 @@
 
 .docs-content {
     padding: 2rem 0;
+
+   
 }
 
 @media (min-width: 1000px) {

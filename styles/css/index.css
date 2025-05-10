@@ -276,7 +276,7 @@ html, body {
 .left-sidebar, .right-sidebar {
   position: sticky;
   height: 100vh;
-  top: 0;
+  top: 80px;
   padding: 2rem 0;
 }
 
