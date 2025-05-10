@@ -171,10 +171,6 @@ html, body {
 }
 
 .navbar-docs {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
   border-bottom: 1px dotted #DEDEDE;
 }
 
@@ -281,6 +277,7 @@ html, body {
   position: sticky;
   height: 100vh;
   top: 0;
+  padding: 2rem 0;
 }
 
 .left-sidebar {
@@ -308,22 +305,22 @@ html, body {
 }
 
 .docs-content {
-  padding: 6rem 0;
+  padding: 2rem 0;
 }
 
 @media (min-width: 1000px) {
   .left-sidebar, .right-sidebar {
-    padding: 7rem 0;
+    padding: 2rem 0;
   }
   .docs-content {
-    padding: 7rem 2.5rem;
+    padding: 2rem 2.5rem;
   }
 }
 @media (min-width: 1200px) {
   .left-sidebar, .right-sidebar {
-    padding: 8rem 0;
+    padding: 3rem 0;
   }
   .docs-content {
-    padding: 8rem 4rem;
+    padding: 3rem 4rem;
   }
 }/*# sourceMappingURL=index.css.map */
