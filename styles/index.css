@@ -390,6 +390,16 @@ html, body {
   font-size: 14px;
 }
 
+.qx-btn-md {
+  padding: 8px 16px;
+  font-size: 16px;
+}
+
+.qx-btn-lg {
+  padding: 12px 24px;
+  font-size: 18px;
+}
+
 .qx-btn-primary-inverted {
   color: #440D9F;
   background-color: rgba(68, 13, 159, 0.1);
@@ -424,4 +434,40 @@ html, body {
   color: #4976BA;
   background-color: rgba(73, 118, 186, 0.1);
   border: none;
+}
+
+.qx-btn-primary-outline {
+  color: #440D9F;
+  background-color: transparent;
+  border: 1px solid #440D9F;
+}
+
+.qx-btn-secondary-outline {
+  color: #14B8A6;
+  background-color: transparent;
+  border: 1px solid #14B8A6;
+}
+
+.qx-btn-success-outline {
+  color: #138636;
+  background-color: transparent;
+  border: 1px solid #138636;
+}
+
+.qx-btn-warning-outline {
+  color: #FFBC11;
+  background-color: transparent;
+  border: 1px solid #FFBC11;
+}
+
+.qx-btn-error-outline {
+  color: #C91432;
+  background-color: transparent;
+  border: 1px solid #C91432;
+}
+
+.qx-btn-info-outline {
+  color: #4976BA;
+  background-color: transparent;
+  border: 1px solid #4976BA;
 }/*# sourceMappingURL=index.css.map */
