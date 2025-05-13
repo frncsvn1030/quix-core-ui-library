@@ -25,11 +25,14 @@
             text-decoration: none;
             padding-left: 10px;
 
-            &:hover {
+            &:hover,
+            &.active {
                 @include font-style(null, null, $font-weight-medium, $purple-400);
                 background-color: $purple-50;
                 border-radius: 5px
             }
+
+           
         }
 
         .uk-nav-header {

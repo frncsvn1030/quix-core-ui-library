@@ -23,6 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(res => res.text())
       .then(html => sidebar.innerHTML = html)
       .catch(() => sidebar.innerHTML = '');
+
+    options.forEach(option => {
+      option.classList.remove('active');
+      const optionName = option.textContent.trim().toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-');
+      if (optionName === name) {
+        option.classList.add('active');
+      }
+    });
   };
 
   const defaultPage = localStorage.getItem('currentPage') || 'button';
