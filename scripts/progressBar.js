@@ -32,13 +32,22 @@ function initScrollAndProgress() {
     let currentIndex = -1;
 
     sections.forEach((section, index) => {
-      const top = section.offsetTop - 100;
+      const top = section.offsetTop - 300;
       const bottom = top + section.offsetHeight;
 
       if (scrollY >= top && scrollY < bottom) {
         currentIndex = index;
       }
     });
+
+    const isAtBottom = window.innerHeight + scrollY >= document.body.scrollHeight - 2;
+
+    if (isAtBottom) {
+      currentIndex = sections.length - 1;
+      navLinks[currentIndex].classList.add('active');
+      progressFill.style.height = '100%'; // Fill the full height
+      return;
+    }
 
     // higlight nav link and update progress
     if (currentIndex >= 0) {

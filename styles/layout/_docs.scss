@@ -5,13 +5,14 @@
     min-height: 100vh;
 }
 
-.left-sidebar, .right-sidebar {
+
+.left-sidebar, 
+.right-sidebar {
     position: sticky;
     height: 100vh;
     top: 80px;
     padding: 2rem 0;
 }
-
 
 
 .left-sidebar {
@@ -20,12 +21,13 @@
     ul {
         .all-components-btn a, li a {
             color: $text-muted;
+            font-size: 14px;
             text-decoration: none;
             padding-left: 10px;
 
             &:hover {
                 @include font-style(null, null, $font-weight-medium, $purple-400);
-                background-color: $purple-10;
+                background-color: $purple-50;
                 border-radius: 5px
             }
         }
@@ -36,7 +38,6 @@
         }
     }     
 }
-
 
 
 .right-sidebar {
@@ -85,7 +86,6 @@
 } 
 
 
-
 .docs-content {
     padding: 2rem 0;
 }
@@ -96,7 +96,7 @@
     }
 
     .docs-content {
-        padding: 2rem 2.5rem;
+        padding: 2rem 3rem;
     }  
 }
   
@@ -106,6 +106,99 @@
     }
 
     .docs-content {
-      padding: 3rem 4rem;
+      padding: 3rem 5.5rem;
     }  
+}
+
+.header {
+    font-weight: $font-weight-semi-bold;
+    @include font-style($poppins, 38px, $font-weight-semi-bold, $text-default);
+}
+
+.section {
+    margin-top: 48px;
+
+    .hashtag {
+        color: $purple-200;
+        font-size: 18px;
+        font-weight: bold;
+        margin-right: 8px;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+
+    h2 {
+        margin: 0;
+        @include font-style($poppins, 26px, $font-weight-semi-bold, $text-default);
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 16px;
+        font-size: 18px;
+    }
+}
+
+.code-container {
+  margin: 25px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+
+  .code-preview {
+    padding: 12px 20px;
+    background-color: $white;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 500;
+  }
+
+  .code-content {
+    padding: 15px 20px;
+    background-color: $purple-10; 
+    position: relative;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+
+    .code-tag {
+      color: #673ab7;
+    }
+
+    .code-attr {
+      color: #2196f3;
+    }
+
+    .code-string {
+      color: #4caf50;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      display: flex;
+      align-items: center;
+      padding: 6px 10px;
+
+      background-color: transparent !important;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+
+      font-size: 14px;
+      cursor: pointer;
+      @include font-style($poppins, 12px, $font-weight-semi-bold, $text-default);
+
+      &:hover {
+        background-color: $purple-100 !important;
+      }
+
+      svg {
+        margin-right: 3px;
+      }
+    }
+  }
+}
+
+.uk-button {
+  display: inline-block;
 }
