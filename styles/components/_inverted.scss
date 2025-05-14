@@ -1,0 +1,40 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.qx-btn-primary-inverted{
+  @include font-style (null, null, null, $purple-300);
+  background-color: $purple-50;
+  border: none;
+}
+
+.qx-btn-secondary-inverted {
+  @include font-style (null, null, null, $teal-300);
+  background-color: $teal-50;
+  border: none;
+}
+
+.qx-btn-success-inverted {
+  @include font-style (null, null, null, $green-300);
+  background-color: $green-50;
+  border: none;
+}
+
+.qx-btn-warning-inverted {
+  @include font-style (null, null, null, $orange-300);
+  background-color: $orange-50;
+  border: none;
+ 
+}
+
+.qx-btn-error-inverted {
+  @include font-style (null, null, null, $red-300);
+  background-color: $red-50;
+  border: none;
+}
+
+.qx-btn-info-inverted {
+  @include font-style (null, null, null, $blue-300);
+  background-color: $blue-50;
+  border: none;
+  
+}

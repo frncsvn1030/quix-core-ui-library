@@ -1,0 +1,41 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.qx-btn-primary{
+  @include font-style (null, null, null, $white);
+  background-color: $purple-300;
+  border: none;
+}
+
+.qx-btn-secondary {
+  @include font-style (null, null, null, $white);
+  background-color: $teal-300;
+  border: none;
+}
+
+.qx-btn-success {
+  @include font-style (null, null, null, $white);
+  background-color: $green-300;
+  border: none;
+}
+
+.qx-btn-warning {
+  @include font-style (null, null, null, $white);
+  background-color: $orange-300;
+  border: none;
+ 
+}
+
+.qx-btn-error {
+  @include font-style (null, null, null, $white);
+  background-color: $red-300;
+  border: none;
+  
+}
+
+.qx-btn-info {
+  @include font-style (null, null, null, $white);
+  background-color: $blue-300;
+  border: none;
+  
+}

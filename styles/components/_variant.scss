@@ -1,0 +1,101 @@
+
+
+/* Base button styles */
+.quix-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s, color 0.2s;
+  
+    &.quix-btn-disabled,
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+  
+  /* Solid button styles (default) */
+  .quix-btn-primary {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+
+    &:hover:not(:disabled):not(.quix-btn-disabled) {
+      background-color: #1565c0;
+    }
+  
+    &:active:not(:disabled):not(.quix-btn-disabled) {
+      background-color: #0d47a1;
+    }
+  
+    &.quix-btn-disabled,
+    &:disabled {
+      background-color: #90caf9;
+    }
+  }
+
+  
+  
+  .quix-btn-secondary {
+    background-color: #616161;
+    color: white;
+    border: none;
+  
+    &:hover:not(:disabled):not(.quix-btn-disabled) {
+      background-color: #757575;
+    }
+  
+    &:active:not(:disabled):not(.quix-btn-disabled) {
+      background-color: #424242;
+    }
+  
+    &.quix-btn-disabled,
+    &:disabled {
+      background-color: #e0e0e0;
+    }
+  }
+  
+  /* Outline button styles */
+  .quix-btn-outline-primary {
+    background-color: transparent;
+    border: 1px solid #1976d2;
+    color: #1976d2;
+  
+    &:hover:not(:disabled):not(.quix-btn-disabled) {
+      background-color: #1976d2;
+      color: white;
+    }
+  
+    &:active:not(:disabled):not(.quix-btn-disabled) {
+      background-color: #1565c0;
+      color: white;
+    }
+  
+    &.quix-btn-disabled,
+    &:disabled {
+      color: #90caf9;
+      border-color: #90caf9;
+    }
+  }
+  
+  .quix-btn-outline-secondary {
+    background-color: transparent;
+    border: 1px solid #616161;
+    color: #616161;
+  
+    &:hover:not(:disabled):not(.quix-btn-disabled) {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  
+    &:active:not(:disabled):not(.quix-btn-disabled) {
+      background-color: rgba(0, 0, 0, 0.08);
+    }
+  
+    &.quix-btn-disabled,
+    &:disabled {
+      color: #e0e0e0;
+      border-color: #e0e0e0;
+    }
+  }
+  

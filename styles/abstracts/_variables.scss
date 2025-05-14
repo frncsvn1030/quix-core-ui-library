@@ -27,4 +27,50 @@ $font-weight-bold: 700;
 $poppins: 'Poppins', sans-serif;
 $inter: 'Inter', sans-serif;
 
+//padding
+$padding-sm: 6px 12px;
+$padding-md: 8px 16px;
+$padding-lg: 12px 24px;
 
+//corner radius
+$border-radius-sm: 2px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-pill: 9999px;
+
+//button
+
+//secondary palette
+$teal-400: #0F7A75;             // darker-pressed
+$teal-300: #14B8A6;               // base - default
+$teal-200: rgba($teal-300, 0.7);  // 70% opacity - hovered
+$teal-100: rgba($teal-300, 0.3);  // 30% opacity - disabled
+$teal-50:  rgba($teal-300, 0.1);  // 10% opacity - subtle
+
+//success palette
+$green-400: #107430;             // darker-pressed
+$green-300: #138636;               // base - default
+$green-200: rgba($green-300, 0.7);  // 70% opacity - hovered
+$green-100: rgba($green-300, 0.3);  // 30% opacity - disabled
+$green-50:  rgba($green-300, 0.1);  // 10% opacity - subtle
+
+//warning palette
+$orange-400: #E6A800;             // darker-pressed
+$orange-300: #FFBC11;               // base - default
+$orange-200: rgba($orange-300, 0.7);  // 70% opacity - hovered
+$orange-100: rgba($orange-300, 0.3);  // 30% opacity - disabled
+$orange-50:  rgba($orange-300, 0.1);  // 10% opacity - subtle
+
+//error palette
+$red-400: #AB112B;             // darker-pressed
+$red-300: #C91432;               // base - default
+$red-200: rgba($red-300, 0.7);  // 70% opacity - hovered
+$red-100: rgba($red-300, 0.3);  // 30% opacity - disabled
+$red-50:  rgba($red-300, 0.1);  // 10% opacity - subtle
+
+//info palette
+$blue-400: #3E649E;             // darker-pressed
+$blue-300: #4976BA;               // base - default
+$blue-200: rgba($blue-300, 0.7);  // 70% opacity - hovered
+$blue-100: rgba($blue-300, 0.3);  // 30% opacity - disabled
+$blue-50:  rgba($blue-300, 0.1);  // 10% opacity - subtle
