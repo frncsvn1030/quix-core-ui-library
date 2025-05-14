@@ -24,6 +24,7 @@
     <!-- partials -->
     <script src="scripts/navbarMain.js"></script>
     <script src="scripts/footer.js"></script>
+    <script src="scripts/componentTabs.js"></script>
 
 </head>
 <body>
@@ -33,7 +34,7 @@
     <!-- hero banner -->
     <section class="banner with-background">
         <div class="uk-container">
-            <div class="banner-info uk-width-1-2@l">
+            <div class="banner-info uk-width-1-2@l" uk-scrollspy="cls: uk-animation-slide-left; delay: 100; repeat: false">
                 <h1 class="uk-heading-small">
                     Design Better, Develop Faster with 
                     <span>Quix Core UI</span>
@@ -41,7 +42,10 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut eiusmod tempor labore et dolore magna aliqua.</p>
                 <div class="banner-btns">
                     <a href="docs.html">
-                        <button class="uk-button get-started-btn">Get Started</button>
+                        <button class="uk-button get-started-btn">
+                            <span uk-icon="icon: arrow-right; ratio: 1.2"></span>
+                            Get Started
+                        </button>
                     </a>
                     <button class="uk-button see-components-btn" onclick="document.getElementById('components').scrollIntoView({ behavior: 'smooth' });">
                         See Components
@@ -95,81 +99,92 @@
             </div>
 
             <!-- components -->
-            <div id="components" class="components">
+            <div id="components" class="components" uk-scrollspy="cls: uk-animation-fade; target: .component-card; delay: 200; repeat: false">
                 <h2 class="uk-text-center">
                     Quix Core UI <span class="text-purple">Components</span> 
                     help you build website faster with ready-to-use design elements.
                 </h2>
 
-                <div class="uk-child-width-1-1 uk-child-width-1-3@m uk-grid-medium uk-grid-match uk-margin-large-top" uk-grid>
+                 <div class="uk-flex uk-flex-center uk-margin-medium-top uk-visible@m">
+                    <ul class="component-tabs uk-tab uk-flex uk-border-rounded" uk-tab role="tablist">
+                        <li class="uk-active" data-filter="all"><a href="#">All Components</a></li>
+                        <li data-filter="actions"><a href="#">Actions</a></li>
+                        <li data-filter="data-display"><a href="#">Data Display</a></li>
+                        <li data-filter="data-input"><a href="#">Data Input</a></li>
+                        <li data-filter="navigation"><a href="#">Navigation</a></li>
+                        <li data-filter="feedback"><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+
+                <div class="uk-child-width-1-1 uk-child-width-1-3@m uk-grid-medium uk-grid-match uk-margin-medium-top" uk-grid>
                     <a href="docs.html#accordion">
-                        <div class="component-card">
+                        <div class="component-card" data-group="data-display">
                             <img src="./imgs/components/accordion.png" alt="Button Component" class="component-img">
                             <p>Accordion</p>
                         </div>
                     </a>
                     <a href="docs.html#button">
-                        <div class="component-card">
+                        <div class="component-card" data-group="actions">
                             <img src="./imgs/components/button.png" alt="Accordion Component" class="component-img">
                             <p>Button</p>
                         </div>
                     </a>
                     <a href="docs.html#card">
-                        <div class="component-card">
+                        <div class="component-card" data-group="data-display">
                             <img src="./imgs/components/card.png" alt="Card Component" class="component-img">
                             <p>Card</p>
                         </div>
                     </a>
                     <a href="docs.html#checkbox">
-                        <div class="component-card">
+                        <div class="component-card" data-group="data-input">
                             <img src="./imgs/components/checkbox.png" alt="Checkbox Component" class="component-img">
                             <p>Checkbox</p>
                         </div>
                     </a>
                     <a href="docs.html#radio">
-                        <div class="component-card">
+                        <div class="component-card" data-group="data-input">
                             <img src="./imgs/components/radio.png" alt="Radio Component" class="component-img">
                             <p>Radio</p>
                         </div>
                     </a>
                     <a href="docs.html#input-field">
-                        <div class="component-card">
+                        <div class="component-card" data-group="data-input">
                             <img src="./imgs/components/input-field.png" alt="Input Field Component" class="component-img">
                             <p>Input Field</p>
                         </div>
                     </a>
                     <a href="docs.html#navbar">
-                        <div class="component-card">
+                        <div class="component-card" data-group="navigation">
                             <img src="./imgs/components/navbar.png" alt="Navbar Component" class="component-img">
                             <p>Navigation Bar</p>
                         </div>
                     </a>
                     <a href="docs.html#progress">
-                        <div class="component-card">
+                        <div class="component-card" data-group="feedback">
                             <img src="./imgs/components/progress.png" alt="Progress Component" class="component-img">
                             <p>Progress</p>
                         </div>
                     </a>
                     <a href="docs.html#slider">
-                        <div class="component-card">
+                        <div class="component-card" data-group="data-display">
                             <img src="./imgs/components/slider.png" alt="Slider Component" class="component-img">
                             <p>Slider</p>
                         </div>
                     </a>
                     <a href="docs.html#tab">
-                        <div class="component-card">
+                        <div class="component-card" data-group="navigation">
                             <img src="./imgs/components/tab.png" alt="Tab Component" class="component-img">
                             <p>Tab</p>
                         </div>
                     </a>
                     <a href="docs.html#table">
-                        <div class="component-card">
+                        <div class="component-card" data-group="data-display">
                             <img src="./imgs/components/table.png" alt="Table Component" class="component-img">
                             <p>Table</p>
                         </div>
                     </a>
                     <a href="docs.html#toggle">
-                        <div class="component-card">
+                        <div class="component-card" data-group="data-input">
                             <img src="./imgs/components/toggle.png" alt="Toggle Component" class="component-img">
                             <p>Toggle</p>
                         </div>

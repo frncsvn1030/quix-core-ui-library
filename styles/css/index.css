@@ -17,7 +17,7 @@ html, body {
   overflow: hidden;
   min-height: 71.67vh;
   padding: 80px 0;
-  background-color: rgba(68, 13, 159, 0.05);
+  background-color: rgba(68, 13, 159, 0.1);
 }
 @media (max-width: 1200px) {
   .banner {
@@ -239,6 +239,38 @@ html, body {
 }
 .main-content .components .component-card:hover {
   transform: translateY(-8px);
+}
+.main-content .components a {
+  text-decoration: none;
+}
+
+.uk-tab {
+  background-color: rgba(212, 212, 216, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  list-style: none;
+  border-bottom: none;
+}
+.uk-tab li {
+  padding: 6px;
+  border-radius: 6px;
+}
+.uk-tab li a {
+  padding: 8px 10px !important;
+  border: none;
+  text-transform: none;
+}
+.uk-tab li a:hover {
+  background-color: white;
+  border-radius: 3px;
+}
+.uk-tab li.uk-active a {
+  background-color: white;
+  border-radius: 3px;
+  color: #18181B;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border: none;
 }
 
 .footer {
