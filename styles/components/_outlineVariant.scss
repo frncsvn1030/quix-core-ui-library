@@ -1,0 +1,38 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.qx-btn-primary-outline {
+  @include font-style (null, null, null, $purple-300);
+  background-color: transparent;
+  border: 1px solid $purple-300;
+}
+
+.qx-btn-secondary-outline {
+  @include font-style (null, null, null, $teal-300);
+  background-color: transparent;
+  border: 1px solid $teal-300;
+}
+
+.qx-btn-success-outline {
+  @include font-style (null, null, null, $green-300);
+  background-color: transparent;
+  border: 1px solid $green-300;
+}
+
+.qx-btn-warning-outline {
+  @include font-style (null, null, null, $orange-300);
+  background-color: transparent;
+  border: 1px solid $orange-300;
+}
+
+.qx-btn-error-outline {
+  @include font-style (null, null, null, $red-300);
+  background-color: transparent;
+  border: 1px solid $red-300;
+}
+
+.qx-btn-info-outline {
+  @include font-style (null, null, null, $blue-300);
+  background-color: transparent;
+  border: 1px solid $blue-300;
+}

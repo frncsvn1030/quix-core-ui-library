@@ -17,7 +17,7 @@ html, body {
   overflow: hidden;
   min-height: 71.67vh;
   padding: 80px 0;
-  background-color: #EDE7F6;
+  background-color: rgba(68, 13, 159, 0.05);
 }
 @media (max-width: 1200px) {
   .banner {
@@ -171,10 +171,6 @@ html, body {
 }
 
 .navbar-docs {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
   border-bottom: 1px dotted #DEDEDE;
 }
 
@@ -246,7 +242,7 @@ html, body {
 }
 
 .footer {
-  background-color: #EDE7F6 !important;
+  background-color: rgba(68, 13, 159, 0.05) !important;
   padding: 30px 0 10px;
   font-family: "Inter", sans-serif;
   font-size: 14px;
@@ -277,10 +273,12 @@ html, body {
   min-height: 100vh;
 }
 
-.left-sidebar, .right-sidebar {
+.left-sidebar,
+.right-sidebar {
   position: sticky;
   height: 100vh;
-  top: 0;
+  top: 80px;
+  padding: 2rem 0;
 }
 
 .left-sidebar {
@@ -288,13 +286,14 @@ html, body {
 }
 .left-sidebar ul .all-components-btn a, .left-sidebar ul li a {
   color: #464649;
+  font-size: 14px;
   text-decoration: none;
   padding-left: 10px;
 }
-.left-sidebar ul .all-components-btn a:hover, .left-sidebar ul li a:hover {
+.left-sidebar ul .all-components-btn a:hover, .left-sidebar ul .all-components-btn a.active, .left-sidebar ul li a:hover, .left-sidebar ul li a.active {
   font-weight: 500;
   color: #390B87;
-  background-color: #EDE7F6;
+  background-color: rgba(68, 13, 159, 0.1);
   border-radius: 5px;
 }
 .left-sidebar ul .uk-nav-header {
@@ -307,39 +306,159 @@ html, body {
   border-left: 1px dotted #DEDEDE;
 }
 
+.sidebar-progress-container {
+  position: relative;
+  padding-left: 12px;
+}
+.sidebar-progress-container .progress-track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.sidebar-progress-container .progress-track .progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0;
+  background-color: rgba(68, 13, 159, 0.7);
+  border-radius: 2px;
+  transition: height 0.2s ease;
+}
+.sidebar-progress-container ul.uk-nav {
+  padding-left: 16px;
+}
+.sidebar-progress-container .nav-link.active {
+  font-weight: 500;
+  color: #440D9F;
+}
+
+.uk-nav-header {
+  text-transform: capitalize !important;
+  font-weight: 600;
+}
+
 .docs-content {
-  padding: 6rem 0;
+  padding: 2rem 0;
 }
 
 @media (min-width: 1000px) {
   .left-sidebar, .right-sidebar {
-    padding: 7rem 0;
+    padding: 2rem 0;
   }
   .docs-content {
-    padding: 7rem 2.5rem;
+    padding: 2rem 3rem;
   }
 }
 @media (min-width: 1200px) {
   .left-sidebar, .right-sidebar {
-    padding: 8rem 0;
+    padding: 3rem 0;
   }
   .docs-content {
-    padding: 8rem 4rem;
+    padding: 3rem 5.5rem;
   }
 }
+.header {
+  font-weight: 600;
+  font-family: "Poppins", sans-serif, sans-serif;
+  font-size: 38px;
+  font-weight: 600;
+  color: #18181B;
+}
+
+.section {
+  margin-top: 48px;
+}
+.section .hashtag {
+  color: rgba(68, 13, 159, 0.7);
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 8px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.section h2 {
+  margin: 0;
+  font-family: "Poppins", sans-serif, sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #18181B;
+}
+.section p {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.code-container {
+  margin: 25px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.code-container .code-preview {
+  padding: 12px 20px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 500;
+}
+.code-container .code-content {
+  padding: 15px 20px;
+  background-color: rgba(68, 13, 159, 0.05);
+  position: relative;
+  font-family: "Courier New", monospace;
+  overflow-x: auto;
+}
+.code-container .code-content .code-tag {
+  color: #673ab7;
+}
+.code-container .code-content .code-attr {
+  color: #2196f3;
+}
+.code-container .code-content .code-string {
+  color: #4caf50;
+}
+.code-container .code-content .copy-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  background-color: transparent !important;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #18181B;
+}
+.code-container .code-content .copy-button:hover {
+  background-color: rgba(68, 13, 159, 0.3) !important;
+}
+.code-container .code-content .copy-button svg {
+  margin-right: 3px;
+}
+
+.uk-button {
+  display: inline-block;
+}
+
 .qx-btn {
   font-size: 16px;
   font-weight: 600;
   color: #18181B;
   padding: 8px 16px;
   border: none;
-  border-radius: 4px; /* Add a border radius for a smoother look */
   background: none;
   cursor: pointer;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 0.5em;
 }
 
 .buttons {
@@ -395,6 +514,16 @@ html, body {
   font-size: 14px;
 }
 
+.qx-btn-md {
+  padding: 8px 16px;
+  font-size: 16px;
+}
+
+.qx-btn-lg {
+  padding: 12px 24px;
+  font-size: 18px;
+}
+
 .qx-btn-primary-inverted {
   color: #440D9F;
   background-color: rgba(68, 13, 159, 0.1);
@@ -429,4 +558,40 @@ html, body {
   color: #4976BA;
   background-color: rgba(73, 118, 186, 0.1);
   border: none;
+}
+
+.qx-btn-primary-outline {
+  color: #440D9F;
+  background-color: transparent;
+  border: 1px solid #440D9F;
+}
+
+.qx-btn-secondary-outline {
+  color: #14B8A6;
+  background-color: transparent;
+  border: 1px solid #14B8A6;
+}
+
+.qx-btn-success-outline {
+  color: #138636;
+  background-color: transparent;
+  border: 1px solid #138636;
+}
+
+.qx-btn-warning-outline {
+  color: #FFBC11;
+  background-color: transparent;
+  border: 1px solid #FFBC11;
+}
+
+.qx-btn-error-outline {
+  color: #C91432;
+  background-color: transparent;
+  border: 1px solid #C91432;
+}
+
+.qx-btn-info-outline {
+  color: #4976BA;
+  background-color: transparent;
+  border: 1px solid #4976BA;
 }/*# sourceMappingURL=index.css.map */

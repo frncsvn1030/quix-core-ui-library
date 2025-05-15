@@ -10,11 +10,13 @@
 @import './layout/navbar';
 @import './layout/mainContent';
 @import './layout/footer';
+@import './layout/docs';
 
-@import './layout/document';
+// components
 
 @import './components/base';
 @import './components/components';
 @import './components/solidVariant';
 @import './components/sizes';
 @import './components/inverted';
+@import './components/outlineVariant';
