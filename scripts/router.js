@@ -33,7 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  const defaultPage = localStorage.getItem('currentPage') || 'button';
+  let defaultPage = 'button';
+  const hash = window.location.hash;
+  if (hash) {
+    defaultPage = hash.substring(1); // remove the #
+  }
   loadPage(defaultPage);
 
   options.forEach(option => {
@@ -41,7 +45,15 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const name = option.textContent.trim().toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-');
       localStorage.setItem('currentPage', name);
+      window.location.hash = name; 
       loadPage(name);
     });
+  });
+
+  // load the correct content when URL hash changes
+  window.addEventListener('hashchange', () => {
+    const newHash = window.location.hash.substring(1); // get updated hash
+    localStorage.setItem('currentPage', newHash);
+    loadPage(newHash);
   });
 });

@@ -16,7 +16,7 @@
 
 
 .left-sidebar {
-    border-right: 1px dotted #DEDEDE;
+    border-right: 1px dotted $border-gray;
 
     ul {
         .all-components-btn a, li a {
@@ -44,7 +44,7 @@
 
 
 .right-sidebar {
-    border-left: 1px dotted #DEDEDE;
+    border-left: 1px dotted $border-gray;
 }
 
 .sidebar-progress-container {
@@ -57,7 +57,7 @@
     top: 0;
     bottom: 0;
     width: 5px;
-    background-color: #e0e0e0; 
+    background-color: $border-gray; 
     border-radius: 2px;
     overflow: hidden;
 
@@ -144,14 +144,14 @@
 
 .code-container {
   margin: 25px 0;
-  border: 1px solid #e0e0e0;
+  border: 1px solid $border-gray;
   border-radius: 6px;
   overflow: hidden;
 
   .code-preview {
     padding: 12px 20px;
     background-color: $white;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid $border-gray;
     font-weight: 500;
   }
 
@@ -184,7 +184,7 @@
       padding: 6px 10px;
 
       background-color: transparent !important;
-      border: 1px solid #e0e0e0;
+      border: 1px solid $border-gray;
       border-radius: 4px;
 
       font-size: 14px;

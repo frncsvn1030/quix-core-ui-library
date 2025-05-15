@@ -4,6 +4,7 @@
 .main-content {
         padding-top: 8vw;
         padding-bottom: 8vw;
+
     
     h2 {
         @include font-style($poppins, 40px, $font-weight-semi-bold, $text-default);
@@ -38,7 +39,7 @@
         .component-card {
             background-color: $white;
             border-radius: 12px;
-            border: 1px solid #eeeeee;
+            border: 1px solid $border-light-gray;
             text-align: center;
             transition: transform 0.3s ease;
             box-shadow: 0 10px 20px rgba(150, 100, 255, 0.1);
@@ -51,6 +52,45 @@
           .component-card:hover {
             transform: translateY(-8px);
           }
+
+          a {
+            text-decoration: none;
+          }
+
     }
 }
- 
+
+.uk-tab {
+  background-color: #F7F7F7;
+  border-radius: 8px;
+  overflow: hidden;
+  list-style: none;
+  border-bottom:none;
+
+  li {
+    padding: 6px;
+    border-radius: 6px;
+
+    a {
+        padding: 8px 10px !important;
+        border: none;
+        text-transform: none;
+
+        &:hover {
+            background-color: $white;
+            border-radius: 3px;
+        }
+    }
+    
+    &.uk-active {
+        a {
+            background-color: $white;
+            border-radius: 3px;
+            color: $text-default;
+            font-weight: $font-weight-medium;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border: none;
+        }
+    }
+  }
+}
