@@ -497,6 +497,12 @@ html, body {
   gap: 0.5em;
 }
 
+.qx-btn-icon svg {
+  height: 20px;
+  width: 20px;
+  fill: #FFFFFF;
+}
+
 .qx-btn-primary {
   color: #FFFFFF;
   background-color: #440D9F;

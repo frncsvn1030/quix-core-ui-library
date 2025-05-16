@@ -8,10 +8,15 @@
   background: none;
   cursor: pointer;
 
-
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   gap: 0.5em;
 
+}
+
+.qx-btn-icon svg {
+  height: 20px;
+  width: 20px;
+  fill: $white;
 }
