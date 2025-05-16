@@ -489,7 +489,6 @@ html, body {
   color: #18181B;
   padding: 8px 16px;
   border: none;
-  border-radius: 4px; /* Add a border radius for a smoother look */
   background: none;
   cursor: pointer;
   display: inline-flex !important;
@@ -619,4 +618,20 @@ html, body {
   color: #4976BA;
   background-color: transparent;
   border: 1px solid #4976BA;
+}
+
+.qx-radius-sm {
+  border-radius: 4px;
+}
+
+.qx-radius-md {
+  border-radius: 8px;
+}
+
+.qx-radius-lg {
+  border-radius: 12px;
+}
+
+.qx-radius-pill {
+  border-radius: 9999px;
 }/*# sourceMappingURL=index.css.map */

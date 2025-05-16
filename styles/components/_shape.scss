@@ -1,0 +1,18 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.qx-radius-sm {
+   border-radius: 4px;
+}
+
+.qx-radius-md {
+    border-radius: 8px;
+}
+
+.qx-radius-lg {
+    border-radius: 12px;
+}
+
+.qx-radius-pill {
+     border-radius: 9999px;
+}
