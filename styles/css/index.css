@@ -6,7 +6,7 @@
 
 html, body {
   height: 100%;
-  font-family: "Poppins", sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   color: #18181b;
 }
 
@@ -444,13 +444,21 @@ html, body {
   background-color: #FFFFFF;
   border-bottom: 1px solid #e0e0e0;
   font-weight: 500;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.code-container .code-content-wrapper {
+  position: relative;
 }
 .code-container .code-content {
+  overflow-x: auto;
+  white-space: nowrap;
   padding: 15px 20px;
   background-color: rgba(68, 13, 159, 0.05);
   position: relative;
-  font-family: "Courier New", monospace;
-  overflow-x: auto;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 14px;
 }
 .code-container .code-content .code-tag {
   color: #673ab7;
@@ -461,7 +469,7 @@ html, body {
 .code-container .code-content .code-string {
   color: #4caf50;
 }
-.code-container .code-content .copy-button {
+.code-container .copy-button {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -478,10 +486,10 @@ html, body {
   font-weight: 600;
   color: #18181B;
 }
-.code-container .code-content .copy-button:hover {
+.code-container .copy-button:hover {
   background-color: rgba(68, 13, 159, 0.3) !important;
 }
-.code-container .code-content .copy-button svg {
+.code-container .copy-button svg {
   margin-right: 3px;
 }
 
@@ -490,23 +498,19 @@ html, body {
 }
 
 .qx-btn {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   color: #18181B;
   padding: 8px 16px;
   border: none;
   background: none;
   cursor: pointer;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 0.5em;
 }
 
-.qx-btn-icon svg {
-  height: 20px;
-  width: 20px;
-  fill: #FFFFFF;
+.qx-btn-icon i {
+  fill: currentColor;
+  margin-right: 3px;
 }
 
 .qx-btn-primary {
