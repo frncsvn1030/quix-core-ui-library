@@ -495,13 +495,18 @@ html, body {
   color: #18181B;
   padding: 8px 16px;
   border: none;
-  border-radius: 4px; /* Add a border radius for a smoother look */
   background: none;
   cursor: pointer;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   gap: 0.5em;
+}
+
+.qx-btn-icon svg {
+  height: 20px;
+  width: 20px;
+  fill: #FFFFFF;
 }
 
 .qx-btn-primary {
@@ -540,19 +545,40 @@ html, body {
   border: none;
 }
 
-.qx-btn-sm {
-  padding: 6px 12px;
-  font-size: 14px;
+.qx-btn-primary-outline {
+  color: #440D9F;
+  background-color: transparent;
+  border: 1px solid #440D9F;
 }
 
-.qx-btn-md {
-  padding: 8px 16px;
-  font-size: 16px;
+.qx-btn-secondary-outline {
+  color: #14B8A6;
+  background-color: transparent;
+  border: 1px solid #14B8A6;
 }
 
-.qx-btn-lg {
-  padding: 12px 24px;
-  font-size: 18px;
+.qx-btn-success-outline {
+  color: #138636;
+  background-color: transparent;
+  border: 1px solid #138636;
+}
+
+.qx-btn-warning-outline {
+  color: #FFBC11;
+  background-color: transparent;
+  border: 1px solid #FFBC11;
+}
+
+.qx-btn-error-outline {
+  color: #C91432;
+  background-color: transparent;
+  border: 1px solid #C91432;
+}
+
+.qx-btn-info-outline {
+  color: #4976BA;
+  background-color: transparent;
+  border: 1px solid #4976BA;
 }
 
 .qx-btn-primary-inverted {
@@ -591,38 +617,37 @@ html, body {
   border: none;
 }
 
-.qx-btn-primary-outline {
-  color: #440D9F;
-  background-color: transparent;
-  border: 1px solid #440D9F;
+.qx-btn-sm {
+  padding: 6px 12px;
+  font-size: 14px;
 }
 
-.qx-btn-secondary-outline {
-  color: #14B8A6;
-  background-color: transparent;
-  border: 1px solid #14B8A6;
+.qx-btn-md {
+  padding: 8px 16px;
+  font-size: 16px;
 }
 
-.qx-btn-success-outline {
-  color: #138636;
-  background-color: transparent;
-  border: 1px solid #138636;
+.qx-btn-lg {
+  padding: 12px 24px;
+  font-size: 18px;
 }
 
-.qx-btn-warning-outline {
-  color: #FFBC11;
-  background-color: transparent;
-  border: 1px solid #FFBC11;
+.qx-radius-sm {
+  border-radius: 4px;
 }
 
-.qx-btn-error-outline {
-  color: #C91432;
-  background-color: transparent;
-  border: 1px solid #C91432;
+.qx-radius-md {
+  border-radius: 8px;
 }
 
-.qx-btn-info-outline {
-  color: #4976BA;
-  background-color: transparent;
-  border: 1px solid #4976BA;
+.qx-radius-lg {
+  border-radius: 12px;
+}
+
+.qx-radius-pill {
+  border-radius: 9999px;
+}
+
+.qx-full-width {
+  width: 100%;
 }/*# sourceMappingURL=index.css.map */

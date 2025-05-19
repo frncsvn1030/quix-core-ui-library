@@ -16,6 +16,11 @@ $text-footer: #555555;
 $white: #FFFFFF;
 $black: #000000;
 
+// border color 
+$border-gray: #e0e0e0;
+$border-light-gray: #eeeeee;
+$light-gray: #f0f0f0;
+
 // font weight
 $font-weight-light: 300;
 $font-weight-regular: 400;
@@ -38,12 +43,8 @@ $border-radius-md: 8px;
 $border-radius-lg: 12px;
 $border-radius-pill: 9999px;
 
-// border color 
-$border-gray: #e0e0e0;
-$border-light-gray: #eeeeee;
 
-
-//button
+//BUTTON COMPONENT
 
 //secondary palette
 $teal-400: #0F7A75;             // darker-pressed
@@ -79,9 +80,4 @@ $blue-300: #4976BA;               // base - default
 $blue-200: rgba($blue-300, 0.7);  // 70% opacity - hovered
 $blue-100: rgba($blue-300, 0.3);  // 30% opacity - disabled
 $blue-50:  rgba($blue-300, 0.1);  // 10% opacity - subtle
-
-// border color 
-$border-gray: #e0e0e0;
-$border-light-gray: #eeeeee;
-$light-gray: #f0f0f0;
 

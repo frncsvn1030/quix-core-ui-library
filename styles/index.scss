@@ -12,10 +12,11 @@
 @import './layout/footer';
 @import './layout/docs';
 
-// components
-
-@import './components/base';
-@import './components/solidVariant';
-@import './components/sizes';
-@import './components/inverted';
-@import './components/outlineVariant';
+// button component
+@import './components/button/base';
+@import './components/button/solidVariant';
+@import './components/button/outlineVariant';
+@import './components/button/inverted';
+@import './components/button/sizes';
+@import './components/button/shape';
+@import './components/button/fullWidth'
