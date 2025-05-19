@@ -25,7 +25,11 @@
             text-decoration: none;
             padding-left: 10px;
 
-            &:hover,
+            &:hover {
+                @include font-style(null, null, $font-weight-medium, $text-default);
+                background-color: $light-gray;
+                border-radius: 5px
+            }
             &.active {
                 @include font-style(null, null, $font-weight-medium, $purple-400);
                 background-color: $purple-50;

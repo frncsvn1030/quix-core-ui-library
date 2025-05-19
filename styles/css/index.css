@@ -322,7 +322,13 @@ html, body {
   text-decoration: none;
   padding-left: 10px;
 }
-.left-sidebar ul .all-components-btn a:hover, .left-sidebar ul .all-components-btn a.active, .left-sidebar ul li a:hover, .left-sidebar ul li a.active {
+.left-sidebar ul .all-components-btn a:hover, .left-sidebar ul li a:hover {
+  font-weight: 500;
+  color: #18181B;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+.left-sidebar ul .all-components-btn a.active, .left-sidebar ul li a.active {
   font-weight: 500;
   color: #390B87;
   background-color: rgba(68, 13, 159, 0.1);
