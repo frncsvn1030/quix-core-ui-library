@@ -133,18 +133,21 @@ html, body {
   .banner .banner-image {
     right: -500px;
     max-width: 1300px;
+    height: 500px;
   }
 }
 @media (min-width: 1348px) and (max-width: 1600px) {
   .banner .banner-image {
-    right: -450px;
+    right: -600px;
     max-width: 1200px;
+    height: 500px;
   }
 }
 @media (min-width: 1201px) and (max-width: 1347px) {
   .banner .banner-image {
     right: -550px;
     max-width: 1150px;
+    height: 500px;
   }
 }
 @media (max-width: 1200px) {
