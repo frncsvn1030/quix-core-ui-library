@@ -26,3 +26,21 @@
     font-size: $sm-size;
   }
 }
+
+@mixin quix-button-states($hover-color, $active-color, $focus-color) {
+  &:hover:not(:disabled):not(.qx-btn-disabled) {
+    background-color: $hover-color;
+    color: $white;
+  }
+
+  &:active:not(:disabled):not(.quix-btn-disabled) {
+    background-color: $active-color;
+    color: $white;
+  }
+
+  &:focus-visible:not(:disabled):not(.quix-btn-disabled) {
+    // background-color: $focus-color;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($focus-color, 0.5);
+  }
+}
