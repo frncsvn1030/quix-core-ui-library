@@ -100,20 +100,23 @@
     @media (min-width: 1601px) and (max-width: 1900px) {
       right: -500px;
       max-width: 1300px;
+      height: 430px;
     }
 
     @media (min-width: 1348px) and (max-width: 1600px) {
-      right: -450px;
-      max-width: 1200px;
+      right: -600px;
+      max-width: 1230px;
+      height: 430px;
     }
 
     @media (min-width: 1201px) and (max-width: 1347px) {
       right: -550px;
       max-width: 1150px;
+      height: 430px;
     }
 
     @media (max-width: 1200px) {
-      display: none;
+      display: none;    
     }
 
     img {

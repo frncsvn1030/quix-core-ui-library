@@ -2,7 +2,7 @@ document.addEventListener('click', (e) => {
   const button = e.target.closest('.copy-button');
   if (!button) return;
 
-  const codeContent = button.closest('.code-content');
+  const codeContent = button.closest('.code-content-wrapper');
   const clone = codeContent.cloneNode(true);
   clone.querySelector('.copy-button').remove();
 
