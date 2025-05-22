@@ -133,21 +133,21 @@ html, body {
   .banner .banner-image {
     right: -500px;
     max-width: 1300px;
-    height: 500px;
+    height: 430px;
   }
 }
 @media (min-width: 1348px) and (max-width: 1600px) {
   .banner .banner-image {
     right: -600px;
-    max-width: 1200px;
-    height: 500px;
+    max-width: 1230px;
+    height: 430px;
   }
 }
 @media (min-width: 1201px) and (max-width: 1347px) {
   .banner .banner-image {
     right: -550px;
     max-width: 1150px;
-    height: 500px;
+    height: 430px;
   }
 }
 @media (max-width: 1200px) {
@@ -313,7 +313,9 @@ html, body {
   position: sticky;
   height: 100vh;
   top: 80px;
+  bottom: 100px;
   padding: 2rem 0;
+  overflow-y: auto;
 }
 
 .left-sidebar {
