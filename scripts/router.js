@@ -1,59 +1,89 @@
-document.addEventListener('DOMContentLoaded', () => {
+function loadPage(name) {
   const main = document.getElementById('main-content');
   const sidebar = document.getElementById('right-sidebar');
   const options = document.querySelectorAll('.option');
 
-  const loadPage = (name) => {
-    // load main content
-    fetch(`components/${name}.html`)
-      .then(res => res.text())
-      .then(html => {
-        main.innerHTML = html;
-        setTimeout(() => {
-          if (window.initScrollAndProgress) initScrollAndProgress();
-        }, 10);
-        const script = document.createElement('script');
-        script.src = `components/scripts/${name}.js`;
-        script.defer = true;
-        document.body.appendChild(script);
-      });
+  fetch(`components/${name}.html`)
+    .then(res => {
+      if (!res.ok) throw new Error("Page not found");
+      return res.text();
+    })
+    .then(html => {
+      main.innerHTML = html;
 
-    // load right sidebar
-    fetch(`components/sidebars/${name}-right.html`)
-      .then(res => res.text())
-      .then(html => sidebar.innerHTML = html)
-      .catch(() => sidebar.innerHTML = '');
+      setTimeout(() => {
+        if (window.initScrollAndProgress) initScrollAndProgress();
 
-    options.forEach(option => {
-      option.classList.remove('active');
-      const optionName = option.textContent.trim().toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-');
-      if (optionName === name) {
-        option.classList.add('active');
-      }
+        // Scroll to anchor (like #base) if present
+        const hash = window.location.hash;
+        if (hash && hash !== `#${name}`) {
+          const el = document.querySelector(hash);
+          if (el) {
+            const OFFSET = 100;
+            const targetOffset = el.offsetTop - OFFSET;
+            window.scrollTo({ top: targetOffset, behavior: 'smooth' });
+          }
+        }
+      }, 50);
+
+      // Handle dynamic script loading (same as before)
+      const oldScript = document.querySelector(`script[data-component="${name}"]`);
+      if (oldScript) oldScript.remove();
+
+      const script = document.createElement('script');
+      script.src = `components/scripts/${name}.js`;
+      script.defer = true;
+      script.dataset.component = name;
+      document.body.appendChild(script);
+    })
+    .catch(err => {
+      main.innerHTML = `<p>Error loading page: ${err.message}</p>`;
     });
-  };
 
-  let defaultPage = 'button';
+  // Load sidebar
+  fetch(`components/sidebars/${name}-right.html`)
+    .then(res => {
+      if (!res.ok) throw new Error("Sidebar not found");
+      return res.text();
+    })
+    .then(html => sidebar.innerHTML = html)
+    .catch(() => sidebar.innerHTML = '');
+
+  // Highlight sidebar option
+  options.forEach(option => {
+    option.classList.remove('active');
+    const optionName = option.textContent.trim().toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-');
+    if (optionName === name) {
+      option.classList.add('active');
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
   const hash = window.location.hash;
-  if (hash) {
-    defaultPage = hash.substring(1); // remove the #
-  }
+  const defaultPage = hash ? hash.substring(1).toLowerCase() : 'button';
   loadPage(defaultPage);
 
-  options.forEach(option => {
+  document.querySelectorAll('.option').forEach(option => {
     option.addEventListener('click', (e) => {
       e.preventDefault();
       const name = option.textContent.trim().toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-');
-      localStorage.setItem('currentPage', name);
-      window.location.hash = name; 
-      loadPage(name);
+      window.location.hash = name;
     });
   });
 
-  // load the correct content when URL hash changes
-  window.addEventListener('hashchange', () => {
-    const newHash = window.location.hash.substring(1); // get updated hash
+ const validPages = ['button', 'accordion', 'card', 'slider']; // Update with your valid page names
+
+window.addEventListener('hashchange', () => {
+  const newHash = window.location.hash.substring(1);
+
+  // If hash matches a valid page, load it
+  if (validPages.includes(newHash)) {
     localStorage.setItem('currentPage', newHash);
     loadPage(newHash);
-  });
+  }
+  // Else, assume it's an in-page anchor (like #base), let browser scroll handle it
+});
+  // Make loadPage available globally
+  window.loadPage = loadPage;
 });

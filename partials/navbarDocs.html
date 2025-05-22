@@ -1,38 +1,55 @@
 <nav class="navbar-docs uk-navbar-container" uk-sticky="offset: 0">
     <div class="uk-container uk-container-large">
       <div uk-navbar>
-          <div class="uk-navbar-left">
+        <div class="uk-navbar-left">
+          <a class="uk-navbar-toggle uk-hidden@m" uk-toggle="target: #offcanvas-slide">
+            <span uk-navbar-toggle-icon></span>
+          </a>
 
-              <a class="uk-navbar-toggle uk-hidden@m" uk-toggle="target: #offcanvas-slide">
-                <span uk-navbar-toggle-icon></span>
-              </a>
+          <a class="uk-navbar-item uk-logo" href="index.html" aria-label="Back to Home">
+            <img src="./imgs/logo.png" alt="Quix Core UI Logo" style="height: 52px;">
+          </a>
+        </div>
 
-              <a class="uk-navbar-item uk-logo" href="index.html" aria-label="Back to Home">
-                  <img src="./imgs/logo.png" alt="Quix Core UI Logo" style="height: 52px;">
-              </a>
-          </div>
+        <div class="uk-navbar-center uk-visible@m">
+          <form action="javascript:void(0)">
+            <div class="uk-inline">
+              <span class="uk-form-icon" uk-icon="icon: search"></span>
+              <input class="search uk-input uk-width-1-1" type="text" placeholder="Type keywords..." aria-label="Type keywords" onclick="UIkit.modal('#search-modal').show()">
+            </div>
+          </form>
+        </div>
 
-          <div class="uk-navbar-center uk-visible@m">
-              <form action="javascript:void(0)">
-                  <div class="uk-inline">
-                      <span class="uk-form-icon" uk-icon="icon: search"></span>
-                      <input class="search uk-input uk-width-1-1" type="text" placeholder="Type keywords..." aria-label="Type keywords">
-                  </div>
-              </form>
-          </div>
-
-          <div class="uk-navbar-right">
-              <ul class="uk-navbar-nav">
-                  <li>
-                      <a href="docs.html" uk-scroll>Documentation</a>
-                  </li>
-                  <li>
-                      <a href="#">
-                          <img src="./imgs/github-logo.png" alt="GitHub" style="height: 23px; width: 23px; vertical-align: middle; margin-right: 6px;">
-                      </a>
-                  </li>
-              </ul>
-          </div>
+        <div class="uk-navbar-right">
+          <ul class="uk-navbar-nav">
+            <li><a href="docs.html" uk-scroll>Documentation</a></li>
+            <li>
+              <a href="#"><img src="./imgs/github-logo.png" alt="GitHub" style="height: 23px; width: 23px; vertical-align: middle; margin-right: 6px;"></a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
+
+  <!-- Modal for Search -->
+  <div id="search-modal" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-width-1-1@s uk-width-1-2@m">
+      <button class="uk-modal-close-default" type="button" uk-close></button>
+      <h3 class="uk-modal-title">Search</h3>
+      <form onsubmit="handleSearchSubmit(event)">
+        <div class="uk-margin">
+          <input id="search-input" class="uk-input" type="text" placeholder="Search components, pages, etc..." autofocus />
+        </div>
+        <div class="uk-margin">
+          <button class="uk-button uk-button-primary" type="submit">Search</button>
+          <button type="button" class="uk-button uk-button-default uk-align-right" onclick="clearSearchHistory()">Clear History</button>
+        </div>
+      </form>
+
+      <hr>
+
+      <h4>Search History</h4>
+      <ul id="search-history" class="uk-list uk-list-divider uk-margin-small-top"></ul>
+    </div>
+  </div>
