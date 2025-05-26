@@ -29,7 +29,6 @@
   <script src="scripts/router.js" defer></script>
   <script src="scripts/copy.js" defer></script>
   <script src="scripts/activePage.js" defer></script>
-  <script src="scripts/search.js" defer></script>
 </head>
 
 <body>
@@ -69,13 +68,12 @@
 
       <aside class="uk-width-1-6@m uk-visible@m right-sidebar" id="right-sidebar"></aside>
     </div>
-
-
     
     <!-- offcanvas sidebar for sm-md screens -->
-    <div id="offcanvas-slide" uk-offcanvas="overlay: true">
+    <div id="offcanvas-slide" uk-offcanvas="overlay: true; bg-close: false; esc-close: false">
       <div class="uk-offcanvas-bar">
-        <ul class="uk-nav uk-nav-default" uk-switcher="connect: .docs-content > ul; toggle: li > .option">
+         <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <ul class="uk-nav uk-nav-default">
           <li><a href="index.html#components">ALL COMPONENTS</a></li>
 
           <li class="uk-nav-header">Actions</li>

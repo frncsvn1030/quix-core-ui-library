@@ -1,0 +1,53 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+
+#offcanvas-slide {
+ 
+  .uk-offcanvas-bar {
+    background-color: $white;
+    color: $black;
+
+    .uk-offcanvas-close { 
+        color: $text-muted;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+
+        &:active {
+        color: $white; 
+        background-color: $text-softest;
+        border-radius: 5px;
+                    }
+                }
+
+    .uk-nav-default {
+      padding-top: 20px;
+
+      li a {
+        
+            display: block;
+            color: $text-muted;
+            font-size: 14px;
+            text-decoration: none;
+            padding-left: 10px;
+
+            &.active {
+                @include font-style(null, null, $font-weight-medium, $purple-400);
+                background-color: $purple-50;
+                border-radius: 5px;
+            }
+        
+        }
+      }
+
+      .uk-nav-header {
+        color: $black;
+        margin-top: 20px;
+        padding-left: 10px;
+        font-size: 14px;
+      }
+    }
+}
+
