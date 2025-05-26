@@ -13,12 +13,19 @@ function handleSearchSubmit(event) {
     return;
   }
 
-  // If hash is already the same, call loadPage directly
-  if (window.location.hash.slice(1) === query) {
-    loadPage(query);
-  } else {
-    window.location.hash = query; // This triggers loadPage via hashchange event
-  }
+ // If on index.html, redirect to docs.html
+if (window.location.pathname.endsWith('/index.html') || window.location.pathname === '/' ) {
+  window.location.href = `docs.html#${query}`;
+  return; // Stop further execution
+}
+
+// If already on docs.html, load the page as usual
+if (window.location.hash.slice(1) === query) {
+  loadPage(query);
+} else {
+  window.location.hash = query;
+}
+
 
   saveToHistory(query);
   renderSearchHistory();
@@ -26,11 +33,13 @@ function handleSearchSubmit(event) {
   UIkit.modal('#search-modal').hide();
 }
 function fillSearch(term) {
-  console.log("fillSearch called with term:", term);  // <-- debug log
-  if (!term) return;
-
   const normalized = term.trim().toLowerCase();
   if (!normalized) return;
+
+  if (window.location.pathname.endsWith('/index.html') || window.location.pathname === '/') {
+    window.location.href = `docs.html#${normalized}`;
+    return;
+  }
 
   if (window.location.hash.slice(1) === normalized) {
     loadPage(normalized);
