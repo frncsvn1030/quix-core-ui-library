@@ -88,8 +88,9 @@
     }
   }
 
-  .banner-image {
+ .banner-image {
     position: absolute;
+    top: 40px;
     bottom: 0;
     right: -300px;
     width: 100%;
@@ -100,19 +101,16 @@
     @media (min-width: 1601px) and (max-width: 1900px) {
       right: -500px;
       max-width: 1300px;
-      height: 430px;
     }
 
     @media (min-width: 1348px) and (max-width: 1600px) {
       right: -600px;
       max-width: 1230px;
-      height: 430px;
     }
 
     @media (min-width: 1201px) and (max-width: 1347px) {
       right: -550px;
       max-width: 1150px;
-      height: 430px;
     }
 
     @media (max-width: 1200px) {
@@ -120,14 +118,14 @@
     }
 
     img {
-      width: 100%;
-      height: auto;
+      width: auto;
+      height: 100%; 
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
       box-shadow:
         -20px -15px 30px rgba($purple-300, 0.08),
         0px 10px 30px rgba(255, 255, 255, 0.15);
     }
-  }
+}
 }
 
