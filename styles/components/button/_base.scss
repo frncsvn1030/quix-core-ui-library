@@ -1,6 +1,15 @@
 @import '../../abstracts/variables';
 @import '../../abstracts/mixins';
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .qx-btn {
   @include font-style($default, 16px, $font-weight-medium, $text-default);
   padding: $padding-md;
@@ -13,3 +22,15 @@
   fill: currentColor;
   margin-right: 3px;
 }
+
+.qx-btn-group {
+  display: inline-flex;
+}
+
+.qx-btn-group button {
+  margin: 0;
+  border-radius: 0;
+}
+
+
+

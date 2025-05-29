@@ -541,6 +541,14 @@ html, body {
   font-size: 14px;
 }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .qx-btn {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
   font-size: 16px;
@@ -555,6 +563,15 @@ html, body {
 .qx-btn-icon i {
   fill: currentColor;
   margin-right: 3px;
+}
+
+.qx-btn-group {
+  display: inline-flex;
+}
+
+.qx-btn-group button {
+  margin: 0;
+  border-radius: 0;
 }
 
 .qx-btn-primary {
