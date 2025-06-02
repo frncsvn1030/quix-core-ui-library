@@ -16,6 +16,13 @@
   border: none;
   background: none;
   cursor: pointer;
+
+  &.qx-btn-disabled,
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+      pointer-events: none;
+    }
 }
 
 .qx-btn-icon i {
@@ -25,11 +32,11 @@
 
 .qx-btn-group {
   display: inline-flex;
-}
 
-.qx-btn-group button {
-  margin: 0;
-  border-radius: 0;
+  button {
+    margin: 0;
+    border-radius: 0;
+  }
 }
 
 

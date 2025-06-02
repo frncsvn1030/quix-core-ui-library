@@ -5,34 +5,40 @@
   @include font-style (null, null, null, $purple-300);
   background-color: transparent;
   border: 1px solid $purple-300;
+  @include quix-button-states($purple-300, $purple-400, $purple-200);
 }
 
 .qx-btn-secondary-outline {
   @include font-style (null, null, null, $teal-300);
   background-color: transparent;
   border: 1px solid $teal-300;
+  @include quix-button-states($teal-300, $teal-400, $teal-200);
 }
 
 .qx-btn-success-outline {
   @include font-style (null, null, null, $green-300);
   background-color: transparent;
   border: 1px solid $green-300;
+  @include quix-button-states($green-300, $green-400, $green-200);
 }
 
 .qx-btn-warning-outline {
   @include font-style (null, null, null, $orange-300);
   background-color: transparent;
   border: 1px solid $orange-300;
+  @include quix-button-states($orange-300, $orange-400, $orange-200);
 }
 
 .qx-btn-error-outline {
   @include font-style (null, null, null, $red-300);
   background-color: transparent;
   border: 1px solid $red-300;
+  @include quix-button-states($red-300, $red-400, $red-200);
 }
 
 .qx-btn-info-outline {
   @include font-style (null, null, null, $blue-300);
   background-color: transparent;
   border: 1px solid $blue-300;
+  @include quix-button-states($blue-300, $blue-400, $blue-200);
 }
