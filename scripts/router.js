@@ -1,14 +1,14 @@
 function loadPage(name) {
-  const main = document.getElementById('main-content');
-  const sidebar = document.getElementById('right-sidebar');
-  const options = document.querySelectorAll('.option');
+  const main = document.getElementById("main-content");
+  const sidebar = document.getElementById("right-sidebar");
+  const options = document.querySelectorAll(".option");
 
   fetch(`components/${name}.html`)
-    .then(res => {
+    .then((res) => {
       if (!res.ok) throw new Error("Page not found");
       return res.text();
     })
-    .then(html => {
+    .then((html) => {
       main.innerHTML = html;
 
       setTimeout(() => {
@@ -21,69 +21,79 @@ function loadPage(name) {
           if (el) {
             const OFFSET = 100;
             const targetOffset = el.offsetTop - OFFSET;
-            window.scrollTo({ top: targetOffset, behavior: 'smooth' });
+            window.scrollTo({ top: targetOffset, behavior: "smooth" });
           }
         }
       }, 50);
 
       // Handle dynamic script loading (same as before)
-      const oldScript = document.querySelector(`script[data-component="${name}"]`);
+      const oldScript = document.querySelector(
+        `script[data-component="${name}"]`
+      );
       if (oldScript) oldScript.remove();
 
-      const script = document.createElement('script');
+      const script = document.createElement("script");
       script.src = `components/scripts/${name}.js`;
       script.defer = true;
       script.dataset.component = name;
       document.body.appendChild(script);
     })
-    .catch(err => {
+    .catch((err) => {
       main.innerHTML = `<p>Error loading page: ${err.message}</p>`;
     });
 
   // Load sidebar
   fetch(`components/sidebars/${name}-right.html`)
-    .then(res => {
+    .then((res) => {
       if (!res.ok) throw new Error("Sidebar not found");
       return res.text();
     })
-    .then(html => sidebar.innerHTML = html)
-    .catch(() => sidebar.innerHTML = '');
+    .then((html) => (sidebar.innerHTML = html))
+    .catch(() => (sidebar.innerHTML = ""));
 
   // Highlight sidebar option
-  options.forEach(option => {
-    option.classList.remove('active');
-    const optionName = option.textContent.trim().toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-');
+  options.forEach((option) => {
+    option.classList.remove("active");
+    const optionName = option.textContent
+      .trim()
+      .toLowerCase()
+      .replace(/ & /g, "-")
+      .replace(/\s+/g, "-");
     if (optionName === name) {
-      option.classList.add('active');
+      option.classList.add("active");
     }
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const hash = window.location.hash;
-  const defaultPage = hash ? hash.substring(1).toLowerCase() : 'button';
+  const defaultPage = hash ? hash.substring(1).toLowerCase() : "button";
   loadPage(defaultPage);
 
-  document.querySelectorAll('.option').forEach(option => {
-    option.addEventListener('click', (e) => {
+  document.querySelectorAll(".option").forEach((option) => {
+    option.addEventListener("click", (e) => {
       e.preventDefault();
-      const name = option.textContent.trim().toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-');
+      const name = option.textContent
+        .trim()
+        .toLowerCase()
+        .replace(/ & /g, "-")
+        .replace(/\s+/g, "-");
       window.location.hash = name;
     });
   });
 
- const validPages = ['button', 'accordion', 'card', 'slider']; // Update with your valid page names
+  const validPages = ["button", "accordion", "card", "slider"]; // Update with your valid page names
 
-window.addEventListener('hashchange', () => {
-  const newHash = window.location.hash.substring(1);
+  window.addEventListener("hashchange", () => {
+    const newHash = window.location.hash.substring(1);
 
-  // If hash matches a valid page, load it
-  if (validPages.includes(newHash)) {
-    localStorage.setItem('currentPage', newHash);
-    loadPage(newHash);
-  }
-  // Else, assume it's an in-page anchor (like #base), let browser scroll handle it
-});
+    // If hash matches a valid page, load it
+    if (validPages.includes(newHash)) {
+      localStorage.setItem("currentPage", newHash);
+      loadPage(newHash);
+    }
+    // Else, assume it's an in-page anchor (like #base), let browser scroll handle it
+  });
   // Make loadPage available globally
   window.loadPage = loadPage;
 });

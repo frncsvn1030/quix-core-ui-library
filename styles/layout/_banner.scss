@@ -52,7 +52,7 @@
       span {
         @include text-purple;
       }
-      
+
     }
 
     p {
@@ -88,7 +88,7 @@
     }
   }
 
- .banner-image {
+  .banner-image {
     position: absolute;
     top: 40px;
     bottom: 0;
@@ -114,18 +114,17 @@
     }
 
     @media (max-width: 1200px) {
-      display: none;    
+      display: none;
     }
 
     img {
       width: auto;
-      height: 100%; 
+      height: 100%;
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
       box-shadow:
         -20px -15px 30px rgba($purple-300, 0.08),
         0px 10px 30px rgba(255, 255, 255, 0.15);
     }
+  }
 }
-}
-

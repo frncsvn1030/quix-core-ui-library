@@ -2,62 +2,63 @@
 @import '../abstracts/mixins';
 
 .main-content {
-        padding-top: 8vw;
-        padding-bottom: 8vw;
- 
-    h2 {
-        @include font-style($poppins, 2.5rem, $font-weight-semi-bold, $text-default);
-        @include responsive-font-size(2rem, 1.75rem);
+  padding-top: 8vw;
+  padding-bottom: 8vw;
+
+  h2 {
+    @include font-style($poppins, 2.5rem, $font-weight-semi-bold, $text-default);
+    @include responsive-font-size(2rem, 1.75rem);
+  }
+
+  span {
+    @include text-purple;
+  }
+
+  p,
+  li {
+    @include font-style($poppins, 1.125rem, null, $text-muted);
+    @include responsive-font-size(1rem, 0.875rem);
+
+  }
+
+  .icon-circle {
+    background-color: $purple-300;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    margin-right: 23px;
+
+    span[uk-icon] {
+      color: $white !important;
+    }
+  }
+
+  .components {
+    padding-top: 8vw;
+
+    .component-card {
+      background-color: $white;
+      border-radius: 12px;
+      border: 1px solid $border-light-gray;
+      text-align: center;
+      transition: transform 0.3s ease;
+      box-shadow: 0 10px 20px rgba(150, 100, 255, 0.1);
+
+      .component-img {
+        border-radius: 12px 12px 0 0;
+      }
     }
 
-    span {
-        @include text-purple;
+    .component-card:hover {
+      transform: translateY(-8px);
     }
 
-    p, li {
-        @include font-style($poppins, 1.125rem, null, $text-muted);
-        @include responsive-font-size(1rem, 0.875rem);
-        
+    a {
+      text-decoration: none;
     }
 
-    .icon-circle {
-        background-color: $purple-300;
-        border-radius: 50%;
-        width: 38px;
-        height: 38px;
-        min-width: 38px;
-        margin-right: 23px;
-
-        span[uk-icon] {
-            color: $white !important;
-        }
-    }  
-    
-    .components {
-        padding-top: 8vw;
-        
-        .component-card {
-            background-color: $white;
-            border-radius: 12px;
-            border: 1px solid $border-light-gray;
-            text-align: center;
-            transition: transform 0.3s ease;
-            box-shadow: 0 10px 20px rgba(150, 100, 255, 0.1);
-
-            .component-img {
-                border-radius: 12px 12px 0 0;
-            }
-          }
-      
-          .component-card:hover {
-            transform: translateY(-8px);
-          }
-
-          a {
-            text-decoration: none;
-          }
-
-    }
+  }
 }
 
 
@@ -67,7 +68,7 @@
   overflow: hidden;
   list-style: none;
   padding: 4px !important;
-  
+
   &::before,
   &::after {
     display: none;
@@ -78,25 +79,25 @@
     border-radius: 6px;
 
     a {
-        padding: 8px 10px;
-        border: none;
-        text-transform: none;
-        text-decoration: none;
+      padding: 8px 10px;
+      border: none;
+      text-transform: none;
+      text-decoration: none;
 
-        &:hover {
-            background-color: $white;
-            color: $text-default;
-            border-radius: 3px;
-        }
-    }
-    
-    &.uk-active a {
+      &:hover {
         background-color: $white;
-        border-radius: 3px;
         color: $text-default;
-        font-weight: $font-weight-medium;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-        border: none;
+        border-radius: 3px;
+      }
+    }
+
+    &.uk-active a {
+      background-color: $white;
+      border-radius: 3px;
+      color: $text-default;
+      font-weight: $font-weight-medium;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      border: none;
     }
   }
 }

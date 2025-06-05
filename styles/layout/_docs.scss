@@ -2,55 +2,58 @@
 @import '../abstracts/mixins';
 
 .docs {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 
-.left-sidebar, 
+.left-sidebar,
 .right-sidebar {
-    position: sticky;
-    height: 100vh;
-    top: 80px;
-    bottom: 100px;
-    padding: 2rem 0;
-    overflow-y: auto;
+  position: sticky;
+  height: 100vh;
+  top: 80px;
+  bottom: 100px;
+  padding: 2rem 0;
+  overflow-y: auto;
 }
 
 
 .left-sidebar {
-    border-right: 1px dotted $border-gray;
+  border-right: 1px dotted $border-gray;
 
-    ul {
-        .all-components-btn a, li a {
-            color: $text-muted;
-            font-size: 14px;
-            text-decoration: none;
-            padding-left: 10px;
+  ul {
 
-            &:hover {
-                @include font-style(null, null, $font-weight-medium, $text-default);
-                background-color: $light-gray;
-                border-radius: 5px
-            }
-            &.active {
-                @include font-style(null, null, $font-weight-medium, $purple-400);
-                background-color: $purple-50;
-                border-radius: 5px
-            }
+    .all-components-btn a,
+    li a {
+      color: $text-muted;
+      font-size: 14px;
+      text-decoration: none;
+      padding-left: 10px;
 
-           
-        }
+      &:hover {
+        @include font-style(null, null, $font-weight-medium, $text-default);
+        background-color: $light-gray;
+        border-radius: 5px
+      }
 
-        .uk-nav-header {
-            @include font-style(null, null, $font-weight-medium, $text-default);
-            padding-left: 10px;
-        }
-    }     
+      &.active {
+        @include font-style(null, null, $font-weight-medium, $purple-400);
+        background-color: $purple-50;
+        border-radius: 5px
+      }
+
+
+    }
+
+    .uk-nav-header {
+      @include font-style(null, null, $font-weight-medium, $text-default);
+      padding-left: 10px;
+    }
+  }
 }
 
 
 .right-sidebar {
-    border-left: 1px dotted $border-gray;
+  border-left: 1px dotted $border-gray;
 }
 
 .sidebar-progress-container {
@@ -63,7 +66,7 @@
     top: 0;
     bottom: 0;
     width: 5px;
-    background-color: $border-gray; 
+    background-color: $border-gray;
     border-radius: 2px;
     overflow: hidden;
 
@@ -80,7 +83,7 @@
   }
 
   ul.uk-nav {
-    padding-left: 16px; 
+    padding-left: 16px;
   }
 
   .nav-link.active {
@@ -90,62 +93,66 @@
 }
 
 .uk-nav-header {
-    text-transform: capitalize!important;
-    font-weight: $font-weight-semi-bold;
-} 
+  text-transform: capitalize !important;
+  font-weight: $font-weight-semi-bold;
+}
 
 
 .docs-content {
-    padding: 2rem 0;
+  padding: 2rem 0;
 }
 
 @media (min-width: 1000px) {
-    .left-sidebar, .right-sidebar {
-        padding: 2rem 0;
-    }
 
-    .docs-content {
-        padding: 2rem 3rem;
-    }  
+  .left-sidebar,
+  .right-sidebar {
+    padding: 2rem 0;
+  }
+
+  .docs-content {
+    padding: 2rem 3rem;
+  }
 }
-  
-@media (min-width: 1200px) {
-    .left-sidebar, .right-sidebar {
-        padding: 3rem 0;
-    }
 
-    .docs-content {
-      padding: 3rem 5.5rem;
-    }  
+@media (min-width: 1200px) {
+
+  .left-sidebar,
+  .right-sidebar {
+    padding: 3rem 0;
+  }
+
+  .docs-content {
+    padding: 3rem 5.5rem;
+  }
 }
 
 .header {
-    font-weight: $font-weight-semi-bold;
-    @include font-style($poppins, 38px, $font-weight-semi-bold, $text-default);
+  font-weight: $font-weight-semi-bold;
+  @include font-style($poppins, 38px, $font-weight-semi-bold, $text-default);
 }
 
 .section {
-    margin-top: 48px;
+  margin-top: 48px;
 
-    .hashtag {
-        color: $purple-200;
-        font-size: 18px;
-        font-weight: bold;
-        margin-right: 8px;
-        text-decoration: none;
-        transition: color 0.2s;
-    }
+  .hashtag {
+    color: $purple-200;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 8px;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
 
-    h2 {
-        margin: 0;
-        @include font-style($poppins, 26px, $font-weight-semi-bold, $text-default);
-    }
+  h2 {
+    margin: 0;
+    @include font-style($poppins, 26px, $font-weight-semi-bold, $text-default);
+  }
 
-    p {
-        margin-top: 0;
-        margin-bottom: 16px;
-        font-size: 18px;
-    }
+  p {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 18px;
+  }
 }
 
 .code-container {
@@ -164,15 +171,15 @@
     gap: 9px;
   }
 
-.code-content-wrapper {
-  position: relative;
-}
+  .code-content-wrapper {
+    position: relative;
+  }
 
   .code-content {
     overflow-x: auto;
     white-space: nowrap;
     padding: 15px 20px;
-    background-color: $purple-10; 
+    background-color: $purple-10;
     position: relative;
     font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 14px;

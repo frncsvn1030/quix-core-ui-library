@@ -1,18 +1,19 @@
 function initScrollAndProgress() {
-  const sections = document.querySelectorAll('.section');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const progressFill = document.getElementById('progressFill');
-  const navItems = document.querySelectorAll('.sidebar-nav li');
+  const sections = document.querySelectorAll(".section");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const progressFill = document.getElementById("progressFill");
+  const navItems = document.querySelectorAll(".sidebar-nav li");
 
-  if (!sections.length || !navLinks.length || !progressFill || !navItems.length) return;
+  if (!sections.length || !navLinks.length || !progressFill || !navItems.length)
+    return;
 
   // scroll to section w/o hiding it behind navbar
   const OFFSET = 100;
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
       e.preventDefault();
-      const targetId = this.getAttribute('href');
+      const targetId = this.getAttribute("href");
       const targetSection = document.querySelector(targetId);
 
       if (targetSection) {
@@ -20,7 +21,7 @@ function initScrollAndProgress() {
 
         window.scrollTo({
           top: targetOffset,
-          behavior: 'smooth'
+          behavior: "smooth",
         });
       }
     });
@@ -40,28 +41,29 @@ function initScrollAndProgress() {
       }
     });
 
-    const isAtBottom = window.innerHeight + scrollY >= document.body.scrollHeight - 2;
+    const isAtBottom =
+      window.innerHeight + scrollY >= document.body.scrollHeight - 2;
 
     if (isAtBottom) {
       currentIndex = sections.length - 1;
-      navLinks[currentIndex].classList.add('active');
-      progressFill.style.height = '100%'; // Fill the full height
+      navLinks[currentIndex].classList.add("active");
+      progressFill.style.height = "100%"; // Fill the full height
       return;
     }
 
     // higlight nav link and update progress
     if (currentIndex >= 0) {
-      navLinks.forEach(link => link.classList.remove('active'));
-      navLinks[currentIndex].classList.add('active');
+      navLinks.forEach((link) => link.classList.remove("active"));
+      navLinks[currentIndex].classList.add("active");
 
       const currentItem = navItems[currentIndex];
       const height = currentItem.offsetTop + currentItem.offsetHeight / 2;
-      progressFill.style.height = height + 'px';
+      progressFill.style.height = height + "px";
     }
   }
 
   // update on scroll
-  window.removeEventListener('scroll', updateProgress); // avoid duplicates
-  window.addEventListener('scroll', updateProgress);
+  window.removeEventListener("scroll", updateProgress); // avoid duplicates
+  window.addEventListener("scroll", updateProgress);
   updateProgress(); // run once on load
 }

@@ -1,7 +1,7 @@
 @import '../../abstracts/variables';
 @import '../../abstracts/mixins';
 
-.qx-btn-primary{
+.qx-btn-primary {
   @include font-style (null, null, null, $white);
   background-color: $purple-300;
   border: none;

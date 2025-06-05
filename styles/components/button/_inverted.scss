@@ -1,7 +1,7 @@
 @import '../../abstracts/variables';
 @import '../../abstracts/mixins';
 
-.qx-btn-primary-inverted{
+.qx-btn-primary-inverted {
   @include font-style (null, null, null, $purple-300);
   background-color: $purple-50;
   border: none;
