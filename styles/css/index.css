@@ -60,18 +60,18 @@ html, body {
 }
 .banner .banner-info h1 {
   font-family: "Poppins", sans-serif, sans-serif;
-  font-size: 48px;
+  font-size: 3rem;
   font-weight: 600;
   color: #18181B;
 }
 @media (max-width: 768px) {
   .banner .banner-info h1 {
-    font-size: 36px;
+    font-size: 2.6rem;
   }
 }
 @media (max-width: 480px) {
   .banner .banner-info h1 {
-    font-size: 28px;
+    font-size: 2rem;
   }
 }
 .banner .banner-info h1 span {
@@ -92,12 +92,13 @@ html, body {
     font-size: 14px;
   }
 }
-.banner .banner-info .get-started-btn,
-.banner .banner-info .see-components-btn {
+.banner .banner-info .banner-btns {
+  display: inline-flex;
+  gap: 9px;
+}
+.banner .banner-info .banner-btns .get-started-btn,
+.banner .banner-info .banner-btns .see-components-btn {
   display: inline-block;
-  height: 52px;
-  border: none;
-  border-radius: 999px;
   cursor: pointer;
   text-transform: none !important;
   font-family: "Poppins", sans-serif, sans-serif;
@@ -106,18 +107,16 @@ html, body {
   color: #18181B;
 }
 @media (max-width: 480px) {
-  .banner .banner-info .get-started-btn,
-  .banner .banner-info .see-components-btn {
-    height: 46px;
-    font-size: 14px;
+  .banner .banner-info .banner-btns .get-started-btn,
+  .banner .banner-info .banner-btns .see-components-btn {
+    height: 46px !important;
+    font-size: 0.875rem;
   }
 }
-.banner .banner-info .get-started-btn {
-  background-color: #440D9F;
+.banner .banner-info .banner-btns .get-started-btn {
   color: #FFFFFF;
-  margin-right: 10px;
 }
-.banner .banner-info .see-components-btn {
+.banner .banner-info .banner-btns .see-components-btn {
   background-color: #FFFFFF;
 }
 .banner .banner-image {
@@ -164,6 +163,16 @@ html, body {
 .navbar, .navbar-docs {
   background-color: #FFFFFF !important;
 }
+@media screen and (max-width: 460px) {
+  .navbar .uk-logo img, .navbar-docs .uk-logo img {
+    height: 45px !important;
+  }
+}
+@media screen and (max-width: 360px) {
+  .navbar .uk-logo img, .navbar-docs .uk-logo img {
+    display: none;
+  }
+}
 .navbar li a, .navbar-docs li a {
   font-family: "Poppins", sans-serif;
 }
@@ -181,18 +190,18 @@ html, body {
 }
 .main-content h2 {
   font-family: "Poppins", sans-serif, sans-serif;
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 600;
   color: #18181B;
 }
 @media (max-width: 768px) {
   .main-content h2 {
-    font-size: 36px;
+    font-size: 2rem;
   }
 }
 @media (max-width: 480px) {
   .main-content h2 {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 }
 .main-content span {
@@ -200,17 +209,17 @@ html, body {
 }
 .main-content p, .main-content li {
   font-family: "Poppins", sans-serif, sans-serif;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #464649;
 }
 @media (max-width: 768px) {
   .main-content p, .main-content li {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 @media (max-width: 480px) {
   .main-content p, .main-content li {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }
 .main-content .icon-circle {
@@ -285,8 +294,13 @@ html, body {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-family: "Inter", sans-serif, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   color: #555555 !important;
+}
+@media screen and (max-width: 460px) {
+  .footer {
+    font-size: 0.85rem;
+  }
 }
 .footer .footer-content {
   display: flex;

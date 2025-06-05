@@ -1,6 +1,18 @@
 .navbar, .navbar-docs {
     background-color: $white!important;
 
+    @media screen and (max-width: 460px) {
+        .uk-logo img {
+            height: 45px !important;
+        }
+    }
+
+    @media screen and (max-width: 360px) {
+        .uk-logo img {
+            display: none;
+        }
+    }
+
     li a {
         font-family: $poppins;
     }

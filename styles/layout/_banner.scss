@@ -46,8 +46,8 @@
     z-index: 2;
 
     h1 {
-      @include font-style($poppins, 48px, $font-weight-semi-bold, $text-default);
-      @include responsive-font-size(36px, 28px);
+      @include font-style($poppins, 3rem, $font-weight-semi-bold, $text-default);
+      @include responsive-font-size(2.6rem, 2rem);
 
       span {
         @include text-purple;
@@ -60,31 +60,31 @@
       @include responsive-font-size(16px, 14px);
     }
 
-    .get-started-btn,
-    .see-components-btn {
-      display: inline-block;
-      height: 52px;
-      border: none;
-      border-radius: 999px;
-      cursor: pointer;
-      text-transform: none !important;
+    .banner-btns {
+      display: inline-flex;
+      gap: 9px;
 
-      @include font-style($poppins, 16px, $font-weight-medium, $text-default);
+      .get-started-btn,
+      .see-components-btn {
+        display: inline-block;
+        cursor: pointer;
+        text-transform: none !important;
 
-      @media (max-width: 480px) {
-        height: 46px;
-        font-size: 14px;
+        @include font-style($poppins, 16px, $font-weight-medium, $text-default);
+
+        @media (max-width: 480px) {
+          height: 46px !important;
+          font-size: 0.875rem;
+        }
       }
-    }
 
-    .get-started-btn {
-      background-color: $purple-300;
-      color: $white;
-      margin-right: 10px;
-    }
+      .get-started-btn {
+        color: $white;
+      }
 
-    .see-components-btn {
-      background-color: $white;
+      .see-components-btn {
+        background-color: $white;
+      }
     }
   }
 

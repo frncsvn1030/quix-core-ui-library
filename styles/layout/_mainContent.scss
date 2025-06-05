@@ -4,11 +4,10 @@
 .main-content {
         padding-top: 8vw;
         padding-bottom: 8vw;
-
-    
+ 
     h2 {
-        @include font-style($poppins, 40px, $font-weight-semi-bold, $text-default);
-        @include responsive-font-size(36px, 28px);
+        @include font-style($poppins, 2.5rem, $font-weight-semi-bold, $text-default);
+        @include responsive-font-size(2rem, 1.75rem);
     }
 
     span {
@@ -16,8 +15,9 @@
     }
 
     p, li {
-        @include font-style($poppins, 18px, null, $text-muted);
-        @include responsive-font-size(16px, 14px);
+        @include font-style($poppins, 1.125rem, null, $text-muted);
+        @include responsive-font-size(1rem, 0.875rem);
+        
     }
 
     .icon-circle {

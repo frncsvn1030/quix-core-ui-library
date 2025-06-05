@@ -6,7 +6,11 @@
     padding: 30px 0 10px;
     font-family: $inter;
     font-size: 14px;
-    @include font-style($inter, 16px, null, $text-footer !important);
+    @include font-style($inter, 1rem, null, $text-footer !important);
+
+    @media screen and (max-width: 460px) {
+      font-size: 0.85rem;
+    }
   
     .footer-content {
       display: flex;
