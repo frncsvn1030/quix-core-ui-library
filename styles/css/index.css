@@ -572,6 +572,83 @@ body {
   font-size: 14px;
 }
 
+.table-wrapper {
+  border-radius: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: auto;
+  scrollbar-color: #c0bebf #fff;
+  mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+}
+.table-wrapper.no-mask {
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+.table-body {
+  background: #fff;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Segoe UI", sans-serif;
+}
+.custom-table th,
+.custom-table td {
+  text-align: left;
+  border-bottom: 1px dotted #e0e0e0;
+  padding: 0.6rem 1.25rem;
+  font-size: 13px;
+  color: #464649;
+}
+.custom-table th {
+  background-color: #F5F3FA;
+  font-weight: 600;
+  font-size: 14px;
+  color: #464649;
+  padding: 0.6rem 1rem;
+  position: sticky;
+  top: 0;
+}
+.custom-table code {
+  background: rgba(68, 13, 159, 0.05);
+  color: #673ab7;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+.custom-table .badge {
+  display: inline-block;
+  padding: 0px 9px;
+  font-size: 13px;
+  border-radius: 12px;
+  color: #fff;
+}
+.custom-table .badge i {
+  margin-right: 4px;
+}
+.custom-table .badge.component {
+  background-color: #F3F4F6;
+  color: #4B5563;
+}
+.custom-table .badge.style {
+  background-color: #EAF7EA;
+  color: #15803D;
+}
+.custom-table .badge.behavior {
+  background-color: #EAF6FD;
+  color: #0369A1;
+}
+.custom-table .badge.size {
+  background-color: #fef9e7;
+  color: #92400e;
+}
+.custom-table .disabled-row {
+  opacity: 0.4;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
