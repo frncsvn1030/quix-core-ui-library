@@ -18,7 +18,7 @@
 }
 
 .table-body {
-    background: #fff;
+    background: transparent;
 }
 
 .custom-table {
@@ -71,18 +71,18 @@
         }
 
         &.style {
-            background-color: #EAF7EA;
-            color: #15803D;
+            background-color: #E5F7E9;
+            color: #4CAF50;
         }
 
         &.behavior {
-            background-color: #EAF6FD;
-            color: #0369A1;
+            background-color: #E0F4FB;
+            color: #0284C7;
         }
 
         &.size {
-            background-color: #fef9e7;
-            color: #92400e;
+            background-color: #FEF5E7;
+            color: #B45309;
         }
     }
 

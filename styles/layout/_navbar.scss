@@ -15,10 +15,11 @@
     }
 
     li a {
-        font-family: $poppins;
+        font-family: $poppins !important;
     }
 
     .search {
+        background-color: transparent;
         border-radius: 999px;
     }
 }

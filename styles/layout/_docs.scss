@@ -131,6 +131,11 @@
   @include font-style($poppins, 38px, $font-weight-semi-bold, $text-default);
 }
 
+.uk-text-large {
+  color: $text-muted;
+}
+
+
 .section {
   margin-top: 48px;
 
@@ -152,6 +157,7 @@
     margin-top: 0;
     margin-bottom: 16px;
     font-size: 18px;
+    color: $text-muted;
   }
 }
 

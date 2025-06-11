@@ -179,10 +179,11 @@ body {
 }
 .navbar li a,
 .navbar-docs li a {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
 }
 .navbar .search,
 .navbar-docs .search {
+  background-color: transparent;
   border-radius: 999px;
 }
 
@@ -445,6 +446,10 @@ body {
   color: #18181B;
 }
 
+.uk-text-large {
+  color: #464649;
+}
+
 .section {
   margin-top: 48px;
 }
@@ -467,6 +472,7 @@ body {
   margin-top: 0;
   margin-bottom: 16px;
   font-size: 18px;
+  color: #464649;
 }
 
 .code-container {
@@ -587,7 +593,7 @@ body {
 }
 
 .table-body {
-  background: #fff;
+  background: transparent;
 }
 
 .custom-table {
@@ -634,16 +640,16 @@ body {
   color: #4B5563;
 }
 .custom-table .badge.style {
-  background-color: #EAF7EA;
-  color: #15803D;
+  background-color: #E5F7E9;
+  color: #4CAF50;
 }
 .custom-table .badge.behavior {
-  background-color: #EAF6FD;
-  color: #0369A1;
+  background-color: #E0F4FB;
+  color: #0284C7;
 }
 .custom-table .badge.size {
-  background-color: #fef9e7;
-  color: #92400e;
+  background-color: #FEF5E7;
+  color: #B45309;
 }
 .custom-table .disabled-row {
   opacity: 0.4;
