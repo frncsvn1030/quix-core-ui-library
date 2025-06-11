@@ -191,6 +191,36 @@ body {
   border-bottom: 1px dotted #e0e0e0;
 }
 
+.custom-modal {
+  padding: 10px !important;
+  border-radius: 0.5rem;
+}
+.custom-modal .custom-search-input {
+  border-radius: 0.3rem;
+  border: 2px solid #e0e0e0;
+}
+.custom-modal .custom-search-input:focus {
+  border: 2px solid rgba(68, 13, 159, 0.7);
+}
+.custom-modal .custom-search-meta {
+  color: #440D9F;
+  font-weight: 600;
+}
+.custom-modal .custom-search-li {
+  margin: 0 !important;
+  padding: 14px;
+}
+.custom-modal .custom-search-li:hover, .custom-modal .custom-search-li.persist-hover {
+  background-color: rgba(68, 13, 159, 0.1);
+  border-radius: 0.5rem;
+}
+.custom-modal .custom-search-li:hover .uk-icon-button, .custom-modal .custom-search-li.persist-hover .uk-icon-button {
+  background-color: #fff;
+}
+.custom-modal .custom-search-li .custom-term {
+  font-weight: 600;
+}
+
 .main-content {
   padding-top: 8vw;
   padding-bottom: 8vw;

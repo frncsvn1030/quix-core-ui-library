@@ -1,99 +1,298 @@
 const historyKey = "searchHistory";
+const valid = [
+  "button",
+  "accordion",
+  "card",
+  "slider",
+  "input-field",
+  "navbar",
+  "checkbox",
+];
 
+// Submit the search form
 function handleSearchSubmit(event) {
   event.preventDefault();
+
   const input = document.getElementById("search-input");
-  const query = input.value.trim().toLowerCase();
+  const term = input.value.trim().toLowerCase();
+  if (!term) return;
 
-  if (!query) return;
-
-  const validPages = ["button", "accordion", "card", "slider"]; // Extend as needed
-  if (!validPages.includes(query)) {
+  if (!valid.includes(term)) {
     document.getElementById(
       "main-content"
-    ).innerHTML = `<p>No content found for "${query}".</p>`;
+    ).innerHTML = `<p>No content found for "${term}".</p>`;
     return;
   }
 
-  // If on index.html, redirect to docs.html
-  if (
-    window.location.pathname.endsWith("/index.html") ||
-    window.location.pathname === "/"
-  ) {
-    window.location.href = `docs.html#${query}`;
-    return; // Stop further execution
-  }
+  goToPage(term);
+  saveToHistory(term);
+  resetSearchInterface(); // Reset and show updated history
 
-  // If already on docs.html, load the page as usual
-  if (window.location.hash.slice(1) === query) {
-    loadPage(query);
-  } else {
-    window.location.hash = query;
-  }
-
-  saveToHistory(query);
-  renderSearchHistory();
-  input.value = "";
   UIkit.modal("#search-modal").hide();
 }
+
+// Navigate or load the page based on the term
+function goToPage(term) {
+  const isHome =
+    window.location.pathname.endsWith("/index.html") ||
+    window.location.pathname === "/";
+  const currentHash = window.location.hash.slice(1);
+
+  if (isHome) {
+    window.location.href = `docs.html#${term}`;
+  } else if (currentHash === term) {
+    loadPage(term);
+  } else {
+    window.location.hash = term;
+  }
+}
+
+// Fill search input and navigate
 function fillSearch(term) {
-  const normalized = term.trim().toLowerCase();
-  if (!normalized) return;
+  if (!term.trim()) return;
 
-  if (
-    window.location.pathname.endsWith("/index.html") ||
-    window.location.pathname === "/"
-  ) {
-    window.location.href = `docs.html#${normalized}`;
-    return;
-  }
-
-  if (window.location.hash.slice(1) === normalized) {
-    loadPage(normalized);
-  } else {
-    window.location.hash = normalized;
-  }
+  const cleanTerm = term.trim().toLowerCase();
+  saveToHistory(cleanTerm); // Save to history when clicked
+  goToPage(cleanTerm);
+  resetSearchInterface(); // Reset and show updated history
 
   UIkit.modal("#search-modal").hide();
 }
 
-function saveToHistory(query) {
-  let history = JSON.parse(localStorage.getItem(historyKey)) || [];
-  if (!history.includes(query)) {
-    history.unshift(query);
-    if (history.length > 10) history = history.slice(0, 10);
-    localStorage.setItem(historyKey, JSON.stringify(history));
+// Reset search interface to show history
+function resetSearchInterface() {
+  const searchInput = document.getElementById("search-input");
+  const suggestionList = document.getElementById("search-suggestions");
+  const historyContainer = document.getElementById("search-history");
+
+  if (searchInput) searchInput.value = "";
+  if (suggestionList) {
+    suggestionList.innerHTML = "";
+    suggestionList.style.display = "none";
   }
+  if (historyContainer) historyContainer.style.display = "block";
+
+  renderSearchHistory(); // Update history display
 }
 
+// Save a term to localStorage history
+function saveToHistory(term) {
+  let history = getHistory();
+  const existingIndex = history.findIndex((item) => item.term === term);
+
+  if (existingIndex !== -1) {
+    const [existing] = history.splice(existingIndex, 1);
+    history.unshift(existing);
+  } else {
+    history.unshift({ term, starred: false });
+  }
+
+  if (history.length > 10) history = history.slice(0, 10);
+  localStorage.setItem(historyKey, JSON.stringify(history));
+}
+
+// Toggle star on/off
+function toggleStar(index) {
+  let history = getHistory();
+  history[index].starred = !history[index].starred;
+  localStorage.setItem(historyKey, JSON.stringify(history));
+  renderSearchHistory();
+}
+
+// Remove a single history item
+function removeItem(index) {
+  let history = getHistory();
+  history.splice(index, 1);
+  localStorage.setItem(historyKey, JSON.stringify(history));
+  renderSearchHistory();
+}
+
+// Retrieve history from localStorage
+function getHistory() {
+  return JSON.parse(localStorage.getItem(historyKey)) || [];
+}
+
+// Render the search history list
 function renderSearchHistory() {
   const container = document.getElementById("search-history");
-  const history = JSON.parse(localStorage.getItem(historyKey)) || [];
+  const history = getHistory();
 
-  container.innerHTML = ""; // Clear first
+  container.innerHTML = "";
 
   if (!history.length) {
     container.innerHTML = "<li class='uk-text-muted'>No history yet.</li>";
     return;
   }
 
-  history.forEach((term) => {
+  const recentItems = history.filter((item) => !item.starred);
+  const starredItems = history.filter((item) => item.starred);
+
+  function createHistoryItem(item, index) {
     const li = document.createElement("li");
-    const a = document.createElement("a");
-    a.href = "#";
-    a.textContent = term;
-    a.addEventListener("click", (e) => {
+    li.className = "custom-search-li uk-flex uk-flex-between uk-flex-middle";
+    li.style.cursor = "pointer";
+
+    li.onclick = (e) => {
+      if (e.target.closest(".uk-icon-button")) return;
+      fillSearch(item.term);
+    };
+
+    const text = document.createElement("div");
+    text.innerHTML = `
+      <div class="custom-term uk-link-text" style="text-transform: capitalize;">${item.term}</div>
+      <small class="uk-text-meta">Component</small>
+    `;
+
+    const actions = document.createElement("div");
+    actions.className = "uk-flex uk-flex-middle";
+
+    const star = document.createElement("a");
+    star.href = "#";
+    star.className = "uk-icon-button uk-margin-small-right";
+    star.style.textDecoration = "none";
+    star.style.fontSize = "1.3rem";
+    star.innerHTML = item.starred ? "&#9733;" : "&#9734;";
+    star.title = item.starred ? "Unstar" : "Star";
+    star.onclick = (e) => {
       e.preventDefault();
-      fillSearch(term);
+      toggleStar(index);
+    };
+
+    const del = document.createElement("a");
+    del.href = "#";
+    del.className = "uk-icon-button uk-text-danger";
+    del.style.textDecoration = "none";
+    del.style.fontSize = "1.4rem";
+    del.style.fontWeight = "600";
+    del.innerHTML = "&times;";
+    del.title = "Remove";
+    del.onclick = (e) => {
+      e.preventDefault();
+      removeItem(index);
+    };
+
+    actions.appendChild(star);
+    actions.appendChild(del);
+
+    li.appendChild(text);
+    li.appendChild(actions);
+
+    return li;
+  }
+
+  if (recentItems.length > 0) {
+    const recentHeader = document.createElement("li");
+    recentHeader.innerHTML =
+      "<h4 class='custom-search-meta uk-text-meta'>Recent</h4>";
+    container.appendChild(recentHeader);
+
+    recentItems.forEach((item) => {
+      const index = history.findIndex(
+        (h) => h.term === item.term && h.starred === item.starred
+      );
+      container.appendChild(createHistoryItem(item, index));
     });
-    li.appendChild(a);
-    container.appendChild(li);
+  }
+
+  if (starredItems.length > 0) {
+    const starredHeader = document.createElement("li");
+    starredHeader.innerHTML =
+      "<h4 class='custom-search-meta uk-text-meta'>Starred</h4>";
+    if (recentItems.length > 0) {
+      starredHeader.style.marginTop = "20px";
+    }
+    container.appendChild(starredHeader);
+
+    starredItems.forEach((item) => {
+      const index = history.findIndex(
+        (h) => h.term === item.term && h.starred === item.starred
+      );
+      container.appendChild(createHistoryItem(item, index));
+    });
+  }
+
+  let lastHovered = null;
+
+  document.querySelectorAll(".custom-search-li").forEach((li) => {
+    li.addEventListener("mouseenter", () => {
+      if (lastHovered && lastHovered !== li) {
+        lastHovered.classList.remove("persist-hover");
+      }
+      li.classList.add("persist-hover");
+      lastHovered = li;
+    });
+  });
+
+  UIkit.util.on("#search-modal", "hide", () => {
+    if (lastHovered) {
+      lastHovered.classList.remove("persist-hover");
+      lastHovered = null;
+    }
   });
 }
 
-function clearSearchHistory() {
-  localStorage.removeItem(historyKey);
-  renderSearchHistory();
+// Setup search suggestions (call once on page load)
+function setupSearchSuggestions() {
+  const searchInput = document.getElementById("search-input");
+  const suggestionList = document.getElementById("search-suggestions");
+  const historyContainer = document.getElementById("search-history");
+
+  if (!searchInput || searchInput.hasAttribute("data-init")) return;
+  searchInput.setAttribute("data-init", "true");
+
+  searchInput.addEventListener("input", () => {
+    const value = searchInput.value.trim().toLowerCase();
+    suggestionList.innerHTML = "";
+
+    if (!value) {
+      suggestionList.style.display = "none";
+      historyContainer.style.display = "block";
+      return;
+    }
+
+    historyContainer.style.display = "none";
+
+    // Show all matching suggestions regardless of history
+    const matches = valid.filter((term) => term.startsWith(value));
+
+    if (!matches.length) {
+      suggestionList.style.display = "none";
+      return;
+    }
+
+    suggestionList.style.display = "block";
+
+    matches.forEach((term) => {
+      const li = document.createElement("li");
+      li.className = "custom-search-li uk-flex uk-flex-between uk-flex-middle";
+      li.style.cursor = "pointer";
+
+      const textDiv = document.createElement("div");
+      textDiv.innerHTML = `
+        <div class="custom-term uk-link-text" style="text-transform: capitalize;">
+          ${term.charAt(0).toUpperCase() + term.slice(1)}
+        </div>
+        <small class="uk-text-meta">Component</small>
+      `;
+
+      li.appendChild(textDiv);
+      li.onclick = () => fillSearch(term);
+      suggestionList.appendChild(li);
+    });
+  });
 }
 
-UIkit.util.on("#search-modal", "beforeshow", renderSearchHistory);
+// Init on modal shown
+UIkit.util.on("#search-modal", "shown", () => {
+  resetSearchInterface(); // Always reset when modal opens
+});
+
+// Init on page load
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    if (document.getElementById("search-history")) {
+      renderSearchHistory();
+      setupSearchSuggestions();
+    }
+  }, 100);
+});

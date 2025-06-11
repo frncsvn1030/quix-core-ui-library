@@ -27,3 +27,42 @@
 .navbar-docs {
     border-bottom: 1px dotted $border-gray;
 }
+
+
+.custom-modal {
+    padding: 10px !important;
+    border-radius: .5rem;
+
+    .custom-search-input {
+        border-radius: .3rem;
+        border: 2px solid $border-gray;
+
+        &:focus {
+            border: 2px solid $purple-200;
+        }
+    }
+
+    .custom-search-meta {
+        color: $purple-300;
+        font-weight: 600;
+    }
+
+    .custom-search-li {
+        margin: 0 !important;
+        padding: 14px;
+
+        &:hover,
+        &.persist-hover {
+            background-color: $purple-50;
+            border-radius: .5rem;
+
+            .uk-icon-button {
+                background-color: #fff;
+            }
+        }
+
+        .custom-term {
+            font-weight: 600;
+        }
+    }
+}

@@ -32,25 +32,16 @@
 </nav>
 
 <!-- Modal for Search -->
-<div id="search-modal" uk-modal>
-  <div class="uk-modal-dialog uk-modal-body uk-width-1-1@s uk-width-1-2@m">
-    <button class="uk-modal-close-default" type="button" uk-close></button>
-    <h3 class="uk-modal-title">Search</h3>
+<div id="search-modal" class="search-modal" uk-modal>
+  <div class="custom-modal uk-modal-dialog uk-modal-body uk-width-1-2@m uk-width-1-4@l">
     <form onsubmit="handleSearchSubmit(event)">
       <div class="uk-margin">
-        <input id="search-input" class="uk-input" type="text" placeholder="Search components, pages, etc..."
+        <input id="search-input" class="uk-input custom-search-input" type="text" placeholder="Search documentation..."
           autofocus />
-      </div>
-      <div class="uk-margin">
-        <button class="qx-btn qx-btn-primary qx-btn-md" type="submit"> Search </button>
-        <button class="qx-btn qx-btn-primary-inverted qx-btn-md uk-align-right" onclick="clearSearchHistory()">Clear
-          History</button>
+        <ul id="search-suggestions" class="uk-list uk-margin-small-top"></ul>
       </div>
     </form>
 
-    <hr>
-
-    <h4>Search History</h4>
-    <ul id="search-history" class="uk-list uk-list-divider uk-margin-small-top"></ul>
+    <ul id="search-history" class="uk-list uk-margin-small-top"></ul>
   </div>
 </div>

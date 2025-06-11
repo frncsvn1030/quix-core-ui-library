@@ -82,7 +82,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const validPages = ["button", "accordion", "card", "slider"]; // Update with your valid page names
+  const validPages = [
+    "button",
+    "accordion",
+    "card",
+    "slider",
+    "input-field",
+    "navbar",
+    "checkbox",
+  ]; // Update with your valid page names
 
   window.addEventListener("hashchange", () => {
     const newHash = window.location.hash.substring(1);
