@@ -9,7 +9,6 @@ const valid = [
   "checkbox",
 ];
 
-// Submit the search form
 function handleSearchSubmit(event) {
   event.preventDefault();
 
@@ -31,7 +30,7 @@ function handleSearchSubmit(event) {
   UIkit.modal("#search-modal").hide();
 }
 
-// Navigate or load the page based on the term
+// navigate or load the page based on the term
 function goToPage(term) {
   const isHome =
     window.location.pathname.endsWith("/index.html") ||
@@ -47,19 +46,18 @@ function goToPage(term) {
   }
 }
 
-// Fill search input and navigate
 function fillSearch(term) {
   if (!term.trim()) return;
 
   const cleanTerm = term.trim().toLowerCase();
-  saveToHistory(cleanTerm); // Save to history when clicked
+  saveToHistory(cleanTerm); // save to history when clicked
   goToPage(cleanTerm);
-  resetSearchInterface(); // Reset and show updated history
+  resetSearchInterface(); // reset and show updated history
 
   UIkit.modal("#search-modal").hide();
 }
 
-// Reset search interface to show history
+// reset search interface to show history
 function resetSearchInterface() {
   const searchInput = document.getElementById("search-input");
   const suggestionList = document.getElementById("search-suggestions");
@@ -72,10 +70,10 @@ function resetSearchInterface() {
   }
   if (historyContainer) historyContainer.style.display = "block";
 
-  renderSearchHistory(); // Update history display
+  renderSearchHistory(); 
 }
 
-// Save a term to localStorage history
+// save a term to localStorage history
 function saveToHistory(term) {
   let history = getHistory();
   const existingIndex = history.findIndex((item) => item.term === term);
@@ -91,7 +89,7 @@ function saveToHistory(term) {
   localStorage.setItem(historyKey, JSON.stringify(history));
 }
 
-// Toggle star on/off
+// starred
 function toggleStar(index) {
   let history = getHistory();
   history[index].starred = !history[index].starred;
@@ -99,7 +97,7 @@ function toggleStar(index) {
   renderSearchHistory();
 }
 
-// Remove a single history item
+// delete 
 function removeItem(index) {
   let history = getHistory();
   history.splice(index, 1);
@@ -107,7 +105,7 @@ function removeItem(index) {
   renderSearchHistory();
 }
 
-// Retrieve history from localStorage
+// retrieve history from localStorage
 function getHistory() {
   return JSON.parse(localStorage.getItem(historyKey)) || [];
 }
@@ -231,7 +229,6 @@ function renderSearchHistory() {
   });
 }
 
-// Setup search suggestions (call once on page load)
 function setupSearchSuggestions() {
   const searchInput = document.getElementById("search-input");
   const suggestionList = document.getElementById("search-suggestions");
@@ -252,7 +249,7 @@ function setupSearchSuggestions() {
 
     historyContainer.style.display = "none";
 
-    // Show all matching suggestions regardless of history
+    // show all matching suggestions regardless of history
     const matches = valid.filter((term) => term.startsWith(value));
 
     if (!matches.length) {
@@ -282,12 +279,11 @@ function setupSearchSuggestions() {
   });
 }
 
-// Init on modal shown
+
 UIkit.util.on("#search-modal", "shown", () => {
-  resetSearchInterface(); // Always reset when modal opens
+  resetSearchInterface(); // always reset when modal opens
 });
 
-// Init on page load
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     if (document.getElementById("search-history")) {

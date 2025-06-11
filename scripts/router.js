@@ -14,7 +14,6 @@ function loadPage(name) {
       setTimeout(() => {
         if (window.initScrollAndProgress) initScrollAndProgress();
 
-        // Scroll to anchor (like #base) if present
         const hash = window.location.hash;
         if (hash && hash !== `#${name}`) {
           const el = document.querySelector(hash);
@@ -26,7 +25,6 @@ function loadPage(name) {
         }
       }, 50);
 
-      // Handle dynamic script loading (same as before)
       const oldScript = document.querySelector(
         `script[data-component="${name}"]`
       );
@@ -42,7 +40,7 @@ function loadPage(name) {
       main.innerHTML = `<p>Error loading page: ${err.message}</p>`;
     });
 
-  // Load sidebar
+  // load sidebar
   fetch(`components/sidebars/${name}-right.html`)
     .then((res) => {
       if (!res.ok) throw new Error("Sidebar not found");
@@ -51,7 +49,7 @@ function loadPage(name) {
     .then((html) => (sidebar.innerHTML = html))
     .catch(() => (sidebar.innerHTML = ""));
 
-  // Highlight sidebar option
+  // highlight sidebar option
   options.forEach((option) => {
     option.classList.remove("active");
     const optionName = option.textContent
@@ -90,18 +88,18 @@ document.addEventListener("DOMContentLoaded", () => {
     "input-field",
     "navbar",
     "checkbox",
-  ]; // Update with your valid page names
+  ]; 
 
   window.addEventListener("hashchange", () => {
     const newHash = window.location.hash.substring(1);
 
-    // If hash matches a valid page, load it
+    // if hash matches a valid page, load it
     if (validPages.includes(newHash)) {
       localStorage.setItem("currentPage", newHash);
       loadPage(newHash);
     }
-    // Else, assume it's an in-page anchor (like #base), let browser scroll handle it
+  
   });
-  // Make loadPage available globally
+  // make loadPage available globally
   window.loadPage = loadPage;
 });
