@@ -88,7 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "input-field",
     "navbar",
     "checkbox",
-  ]; 
+    "toggle-switch",
+    "table",
+  ];
 
   window.addEventListener("hashchange", () => {
     const newHash = window.location.hash.substring(1);
@@ -98,7 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("currentPage", newHash);
       loadPage(newHash);
     }
-  
   });
   // make loadPage available globally
   window.loadPage = loadPage;

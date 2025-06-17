@@ -7,7 +7,16 @@ const valid = [
   "input-field",
   "navbar",
   "checkbox",
+  "toggle-switch",
+  "table",
 ];
+
+function formatTerm(term) {
+  return term
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
 
 function handleSearchSubmit(event) {
   event.preventDefault();
@@ -70,7 +79,7 @@ function resetSearchInterface() {
   }
   if (historyContainer) historyContainer.style.display = "block";
 
-  renderSearchHistory(); 
+  renderSearchHistory();
 }
 
 // save a term to localStorage history
@@ -97,7 +106,7 @@ function toggleStar(index) {
   renderSearchHistory();
 }
 
-// delete 
+// delete
 function removeItem(index) {
   let history = getHistory();
   history.splice(index, 1);
@@ -131,25 +140,27 @@ function renderSearchHistory() {
     li.style.cursor = "pointer";
 
     li.onclick = (e) => {
-      if (e.target.closest(".uk-icon-button")) return;
+      if (e.target.closest(".custom-search-icon")) return;
       fillSearch(item.term);
     };
 
     const text = document.createElement("div");
     text.innerHTML = `
-      <div class="custom-term uk-link-text" style="text-transform: capitalize;">${item.term}</div>
-      <small class="uk-text-meta">Component</small>
-    `;
+    <div class="custom-term uk-link-text">${formatTerm(item.term)}</div>
+    <small class="uk-text-meta">Component</small>
+  `;
 
     const actions = document.createElement("div");
     actions.className = "uk-flex uk-flex-middle";
 
     const star = document.createElement("a");
     star.href = "#";
-    star.className = "uk-icon-button uk-margin-small-right";
+    star.className = "custom-search-icon uk-margin-xsmall-right";
     star.style.textDecoration = "none";
-    star.style.fontSize = "1.3rem";
-    star.innerHTML = item.starred ? "&#9733;" : "&#9734;";
+    star.style.fontSize = "1rem";
+    star.innerHTML = item.starred
+      ? '<i class="fas fa-star"></i>'
+      : '<i class="far fa-star"></i>';
     star.title = item.starred ? "Unstar" : "Star";
     star.onclick = (e) => {
       e.preventDefault();
@@ -158,14 +169,13 @@ function renderSearchHistory() {
 
     const del = document.createElement("a");
     del.href = "#";
-    del.className = "uk-icon-button uk-text-danger";
+    del.className = "custom-search-icon";
     del.style.textDecoration = "none";
-    del.style.fontSize = "1.4rem";
-    del.style.fontWeight = "600";
-    del.innerHTML = "&times;";
+    del.innerHTML = '<span uk-icon="icon: close"></span>';
     del.title = "Remove";
     del.onclick = (e) => {
       e.preventDefault();
+      e.stopPropagation();
       removeItem(index);
     };
 
@@ -266,8 +276,8 @@ function setupSearchSuggestions() {
 
       const textDiv = document.createElement("div");
       textDiv.innerHTML = `
-        <div class="custom-term uk-link-text" style="text-transform: capitalize;">
-          ${term.charAt(0).toUpperCase() + term.slice(1)}
+        <div class="custom-term uk-link-text">
+          ${formatTerm(term)}
         </div>
         <small class="uk-text-meta">Component</small>
       `;
@@ -278,7 +288,6 @@ function setupSearchSuggestions() {
     });
   });
 }
-
 
 UIkit.util.on("#search-modal", "shown", () => {
   resetSearchInterface(); // always reset when modal opens

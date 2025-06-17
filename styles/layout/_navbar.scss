@@ -21,6 +21,11 @@
     .search {
         background-color: transparent;
         border-radius: 999px;
+
+        &:hover,
+        &:focus {
+            border: 1px solid $purple-200;
+        }
     }
 }
 
@@ -30,8 +35,13 @@
 
 
 .custom-modal {
-    padding: 10px !important;
+    padding: 8px !important;
     border-radius: .5rem;
+
+    .search-list {
+        max-height: 500px;
+        overflow-y: auto;
+    }
 
     .custom-search-input {
         border-radius: .3rem;
@@ -45,24 +55,49 @@
     .custom-search-meta {
         color: $purple-300;
         font-weight: 600;
+        padding: 4px;
     }
 
     .custom-search-li {
         margin: 0 !important;
         padding: 14px;
 
+        .custom-term {
+            font-weight: $font-weight-semi-bold;
+        }
+
+        .custom-search-icon {
+            color: #5f5f5f;
+            transition: background-color 0.2s, color 0.2s;
+            border-radius: 999px;
+            padding: 3px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .uk-text-meta {
+            color: $text-muted;
+        }
+
         &:hover,
         &.persist-hover {
             background-color: $purple-50;
-            border-radius: .5rem;
+            border-radius: 0.5rem;
 
-            .uk-icon-button {
-                background-color: #fff;
+            .custom-term {
+                font-weight: 600;
+                color: $purple-400;
             }
-        }
 
-        .custom-term {
-            font-weight: 600;
+            .custom-search-icon {
+                color: $purple-300;
+
+                &:hover {
+                    background-color: rgba($purple-300, 0.1); // subtle purple circle
+                    cursor: pointer;
+                }
+            }
         }
     }
 }
