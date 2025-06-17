@@ -34,7 +34,7 @@ function handleSearchSubmit(event) {
 
   goToPage(term);
   saveToHistory(term);
-  resetSearchInterface(); // Reset and show updated history
+  resetSearchInterface(); // reset search input then show updated history
 
   UIkit.modal("#search-modal").hide();
 }
@@ -61,7 +61,7 @@ function fillSearch(term) {
   const cleanTerm = term.trim().toLowerCase();
   saveToHistory(cleanTerm); // save to history when clicked
   goToPage(cleanTerm);
-  resetSearchInterface(); // reset and show updated history
+  resetSearchInterface(); 
 
   UIkit.modal("#search-modal").hide();
 }
@@ -119,7 +119,7 @@ function getHistory() {
   return JSON.parse(localStorage.getItem(historyKey)) || [];
 }
 
-// Render the search history list
+// render search history list
 function renderSearchHistory() {
   const container = document.getElementById("search-history");
   const history = getHistory();
