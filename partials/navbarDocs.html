@@ -2,50 +2,60 @@
   <div class="uk-container uk-container-large">
     <div uk-navbar>
       <div class="uk-navbar-left">
-        <a class="uk-navbar-toggle uk-hidden@m" uk-toggle="target: #offcanvas-slide">
+        <a class="uk-navbar-toggle uk-hidden@m" uk-toggle="target: #offcanvas-slide" aria-label="Open menu">
           <span uk-navbar-toggle-icon></span>
         </a>
 
         <a class="uk-navbar-item uk-logo" href="index.html" aria-label="Back to Home">
-          <img src="./imgs/logo.png" alt="Quix Core UI Logo" style="height: 52px;">
+          <img src="./imgs/logo.png" alt="Quix Core UI Logo" class="navbar-logo">
         </a>
       </div>
 
       <div class="uk-navbar-center uk-visible@m">
-        <form action="javascript:void(0)">
-          <div class="uk-inline">
-            <span class="uk-form-icon" uk-icon="icon: search"></span>
-            <input class="search uk-input uk-width-1-1" type="text" placeholder="Search..." aria-label="Type keywords"
-              onclick="UIkit.modal('#search-modal').show()">
-          </div>
-        </form>
+        <ul class="uk-navbar-nav nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li class="uk-active"><a href="docs.html">Docs</a></li>
+        </ul>
       </div>
 
-      <div class="uk-navbar-right">
-        <ul class="uk-navbar-nav">
-          <li><a href="docs.html" uk-scroll>Documentation</a></li>
-          <li>
-            <a href="https://github.com/frncsvn1030/quix-core-ui-library.git" target="_blank"><img
-                src="./imgs/github-logo.png" alt="GitHub"
-                style="height: 23px; width: 23px; vertical-align: middle; margin-right: 6px;"></a>
-          </li>
-        </ul>
+      <div class="uk-navbar-right nav-actions">
+        <button type="button" class="nav-search" aria-label="Search documentation"
+          onclick="UIkit.modal('#search-modal').show()">
+          <span uk-icon="icon: search; ratio: 0.9"></span>
+          <span class="nav-search-text uk-visible@m">Search</span>
+          <kbd class="nav-kbd uk-visible@m">&#8984;K</kbd>
+        </button>
+
+        <a class="nav-icon-btn" href="https://github.com/frncsvn1030/quix-core-ui-library" target="_blank"
+          rel="noopener noreferrer" aria-label="GitHub repository">
+          <img src="./imgs/github-logo.png" alt="" class="navbar-github">
+        </a>
+
+        <a class="qx-btn qx-btn-sm qx-btn-primary qx-radius-pill nav-cta uk-visible@s" href="docs.html">Get Started</a>
       </div>
     </div>
   </div>
 </nav>
 
 <!-- Modal for Search -->
-<div id="search-modal" class="search-modal" uk-modal>
-  <div class="custom-modal uk-modal-dialog uk-modal-body uk-width-1-2@m uk-width-1-4@l">
-    <form onsubmit="handleSearchSubmit(event)">
-      <div class="uk-margin">
-        <input id="search-input" class="uk-input custom-search-input" type="text" placeholder="Search documentation..."
-          autofocus />
-        <ul id="search-suggestions" class="uk-list uk-margin-small-top"></ul>
-      </div>
+<div id="search-modal" class="search-modal uk-flex-top" uk-modal>
+  <div class="custom-modal uk-modal-dialog">
+    <form class="search-form" onsubmit="handleSearchSubmit(event)" autocomplete="off">
+      <span class="search-form-icon" uk-icon="icon: search"></span>
+      <input id="search-input" class="custom-search-input" type="text" placeholder="Search components..."
+        aria-label="Search components" autocomplete="off" />
+      <kbd class="search-esc">Esc</kbd>
     </form>
 
-    <ul id="search-history" class="search-list uk-list uk-margin-small-top"></ul>
+    <div class="search-body">
+      <div id="search-suggestions"></div>
+      <div id="search-history"></div>
+    </div>
+
+    <div class="search-footer" aria-hidden="true">
+      <span><kbd>&uarr;</kbd><kbd>&darr;</kbd> navigate</span>
+      <span><kbd>&crarr;</kbd> open</span>
+      <span><kbd>Esc</kbd> close</span>
+    </div>
   </div>
 </div>
