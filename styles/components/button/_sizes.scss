@@ -2,16 +2,19 @@
 @import '../../abstracts/mixins';
 
 .qx-btn-sm {
+  min-height: $control-height-sm;
   padding: $padding-sm;
   font-size: 14px;
 }
 
 .qx-btn-md {
+  min-height: $control-height-md;
   padding: $padding-md;
   font-size: 16px;
 }
 
 .qx-btn-lg {
+  min-height: $control-height-lg;
   padding: $padding-lg;
   font-size: 18px;
 }

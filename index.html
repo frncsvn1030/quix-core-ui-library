@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
 
     <!-- font awesome -->
@@ -33,38 +33,101 @@
 
 </head>
 
-<body>
+<body class="home">
     <!-- navbar -->
     <div id="navbar-container"></div>
 
     <!-- hero banner -->
-    <section class="banner with-background">
+    <section class="banner">
         <div class="uk-container">
-            <div class="banner-info uk-width-1-2@l"
-                uk-scrollspy="cls: uk-animation-slide-left; delay: 100; repeat: false">
-                <h1 class="uk-heading-small">
-                    Design Better, Develop Faster with
-                    <span>Quix Core UI</span>
-                </h1>
-                <p>Accelerate your development and elevate your designs with Quix Core UI. Access ready-to-use
-                    components for building exceptional interfaces faster.</p>
-                <div class="banner-btns">
-                    <a href="docs.html">
-                        <button class="qx-btn qx-btn-primary qx-btn-lg qx-radius-pill get-started-btn">
-                            <span uk-icon="icon: arrow-right; ratio: 1.2"></span>
-                            Get Started
-                        </button>
-                    </a>
-                    <button class="qx-btn qx-radius-pill qx-btn-lg see-components-btn"
-                        onclick="document.getElementById('components').scrollIntoView({ behavior: 'smooth' });">
-                        See Components
-                    </button>
+            <div class="uk-grid-large uk-flex-middle" uk-grid>
+                <div class="uk-width-1-2@l">
+                    <div class="banner-info" uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 100; repeat: false">
+                        <span class="banner-eyebrow">
+                            <span class="banner-eyebrow-dot"></span>
+                            Made by Qstrike interns
+                        </span>
+                        <h1>
+                            Design better, develop faster with
+                            <span class="scribble">Quix Core UI</span>
+                        </h1>
+                        <p>A friendly set of UI components we built, tested and polished ourselves, so you can skip the
+                            blank page and get to the fun part of your project.</p>
+                        <div class="banner-btns">
+                            <a href="docs.html" class="qx-btn qx-btn-primary qx-btn-lg qx-radius-pill get-started-btn">
+                                Get Started
+                                <span uk-icon="icon: arrow-right; ratio: 1.1"></span>
+                            </a>
+                            <a href="#components" class="qx-btn qx-btn-lg qx-radius-pill see-components-btn"
+                                uk-scroll>
+                                See Components
+                            </a>
+                        </div>
+                        <ul class="banner-points">
+                            <li><span uk-icon="icon: check; ratio: 0.9"></span> Copy &amp; paste</li>
+                            <li><span uk-icon="icon: check; ratio: 0.9"></span> Accessible</li>
+                            <li><span uk-icon="icon: check; ratio: 0.9"></span> Easy to customize</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="uk-width-1-2@l">
-                <div class="banner-image">
-                    <img src="./imgs/docs.png" alt="Quix Core UI">
+                <div class="uk-width-1-2@l">
+                    <div class="banner-showcase" aria-hidden="true">
+                        <div class="showcase-grid"></div>
+                        <div class="showcase-blob"></div>
+
+                        <!-- buttons -->
+                        <div class="showcase-card showcase-preview">
+                            <div class="showcase-header">
+                                <span class="showcase-dots"><i></i><i></i><i></i></span>
+                                <span class="showcase-title">Buttons</span>
+                            </div>
+                            <div class="showcase-body">
+                                <p class="showcase-label">Variants</p>
+                                <div class="showcase-row">
+                                    <span class="qx-btn qx-btn-sm qx-btn-primary qx-radius-md">Primary</span>
+                                    <span class="qx-btn qx-btn-sm qx-btn-secondary qx-radius-md">Secondary</span>
+                                </div>
+                                <p class="showcase-label">Outline</p>
+                                <div class="showcase-row">
+                                    <span class="qx-btn qx-btn-sm qx-btn-primary-outline qx-radius-md">Primary</span>
+                                    <span class="qx-btn qx-btn-sm qx-btn-error-outline qx-radius-md">Error</span>
+                                </div>
+                                <p class="showcase-label">Shapes</p>
+                                <div class="showcase-row">
+                                    <span class="qx-btn qx-btn-sm qx-btn-primary qx-radius-pill">Pill</span>
+                                    <span class="qx-btn qx-btn-sm qx-btn-primary-inverted qx-radius-lg">Inverted</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- toggles + checkbox -->
+                        <div class="showcase-card showcase-float showcase-controls">
+                            <div class="ctl"><span class="ctl-switch on"></span> Notifications</div>
+                            <div class="ctl"><span class="ctl-switch"></span> Dark mode</div>
+                            <div class="ctl"><span class="ctl-check"><span uk-icon="icon: check; ratio: 0.7"></span></span> Accept terms</div>
+                        </div>
+
+                        <!-- progress -->
+                        <div class="showcase-card showcase-float showcase-progress">
+                            <div class="prog-head"><span>Uploading</span><strong>72%</strong></div>
+                            <div class="prog-track"><span class="prog-fill"></span></div>
+                        </div>
+
+                        <!-- tabs -->
+                        <div class="showcase-card showcase-float showcase-tabs">
+                            <span class="tab active">All</span>
+                            <span class="tab">Actions</span>
+                            <span class="tab">Data</span>
+                        </div>
+
+                        <!-- code -->
+                        <div class="showcase-card showcase-float showcase-code">
+                            <pre><span class="c-tag">&lt;button</span> <span class="c-attr">class</span>=<span class="c-str">"qx-btn qx-btn-primary"</span><span class="c-tag">&gt;</span>
+  Get Started
+<span class="c-tag">&lt;/button&gt;</span></pre>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -74,136 +137,304 @@
     <section class="main-content">
         <div class="uk-container">
             <!-- features -->
-            <div class="uk-grid-large uk-child-width-1-2@s uk-flex-middle" uk-grid>
+            <div class="section-head">
+                <span class="section-eyebrow">What you get</span>
+                <h2>Good-looking interfaces shouldn't be <span class="scribble">complicated</span></h2>
+                <p>We kept things simple on purpose: clear class names, sensible defaults, and room to make it yours.</p>
+            </div>
+
+            <div class="feature-grid uk-child-width-1-1 uk-child-width-1-3@m uk-grid-medium" uk-grid
+                uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .feature-card; delay: 120; repeat: false">
                 <div>
-                    <div class="uk-flex uk-flex-center uk-flex-middle">
-                        <img src="./imgs/ui-sample.png" alt="UI Sample">
+                    <div class="feature-card">
+                        <span class="feature-icon"><span uk-icon="icon: bolt; ratio: 1.2"></span></span>
+                        <h3>Ready when you are</h3>
+                        <p>Pick a component, copy the snippet, and drop it in. No setup ritual, no guesswork.</p>
                     </div>
                 </div>
-
                 <div>
-                    <h2 class="uk-heading-small">
-                        Crafting Intuitive Interfaces Shouldn't Be
-                        <span>Complicated</span>
-                    </h2>
-                    <p>
-                        Craft beautiful, high-performance interfaces with components
-                        made for customization and ease.
-                    </p>
-                    <ul class="uk-list uk-list-large uk-margin-top">
-                        <li class="uk-flex">
-                            <span class="icon-circle uk-flex uk-flex-center uk-flex-middle">
-                                <span uk-icon="icon: check; ratio: 1.2"></span>
-                            </span>
-                            Professionally designed components that streamline your workflow while maintaining complete
-                            flexibility
-                        </li>
-                        <li class="uk-flex">
-                            <span class="icon-circle uk-flex uk-flex-center uk-flex-middle">
-                                <span uk-icon="icon: check; ratio: 1.2"></span>
-                            </span>
-                            Lightweight, accessible elements that help you deliver exceptional user experiences with
-                            minimal effort
-                        </li>
-                    </ul>
+                    <div class="feature-card">
+                        <span class="feature-icon"><span uk-icon="icon: check; ratio: 1.2"></span></span>
+                        <h3>Light and considerate</h3>
+                        <p>Small, accessible pieces that respect your users and don't weigh your page down.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="feature-card">
+                        <span class="feature-icon"><span uk-icon="icon: settings; ratio: 1.2"></span></span>
+                        <h3>Yours to tweak</h3>
+                        <p>Variants, sizes and shapes are just classes, so it's easy to make it fit your own design.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- story -->
+            <div class="story">
+                <div class="story-avatars" aria-hidden="true">
+                    <span>F</span><span>P</span><span>J</span>
+                </div>
+                <div class="story-text">
+                    <span class="story-kicker">A little backstory</span>
+                    <p>Quix Core UI was an internship project developed at <strong>Qstrike</strong> by three UI/UX interns:
+                        Francis, Princess, and Jonathan, with Francis leading the development.</p>
+                    <p>Our internship ended before we could finish all the components, so some pages are still
+                        unavailable. One year later, Francis has made a few updates to the homepage, but the overall
+                        theme and most of the website remain the same as they were during the internship.</p>
+                    <a class="story-link" href="https://github.com/frncsvn1030/quix-core-ui-library" target="_blank"
+                        rel="noopener noreferrer">See the project on GitHub
+                        <span uk-icon="icon: arrow-right; ratio: 0.9"></span></a>
                 </div>
             </div>
 
             <!-- components -->
             <div id="components" class="components"
                 uk-scrollspy="cls: uk-animation-fade; target: .component-card; delay: 200; repeat: false">
-                <h2 class="uk-text-center">
-                    Quix Core UI <span class="text-purple">Components</span>
-                    help you build website faster with ready-to-use design elements.
-                </h2>
+                <div class="section-head">
+                    <span class="section-eyebrow">Components</span>
+                    <h2>Take a look <span class="scribble">around</span></h2>
+                    <p>Browse by category and jump straight into the docs. <span id="components-progress">Some components were never completed.</span></p>
+                </div>
 
-                <div class="uk-flex uk-flex-center uk-margin-medium-top uk-visible@m">
-                    <ul class="component-tabs uk-tab uk-flex uk-border-rounded" uk-tab role="tablist">
-                        <li class="uk-active" data-filter="all"><a href="#">All Components</a></li>
-                        <li data-filter="actions"><a href="#">Actions</a></li>
-                        <li data-filter="data-display"><a href="#">Data Display</a></li>
-                        <li data-filter="data-input"><a href="#">Data Input</a></li>
-                        <li data-filter="navigation"><a href="#">Navigation</a></li>
-                        <li data-filter="feedback"><a href="#">Feedback</a></li>
+                <div class="component-tabs-wrap">
+                    <ul class="component-tabs filter-chips" role="tablist" aria-label="Filter components">
+                        <li class="uk-active" data-filter="all"><a href="#components" aria-current="true"><span uk-icon="icon: grid; ratio: 0.8"></span>All</a></li>
+                        <li data-filter="actions"><a href="#components"><span uk-icon="icon: bolt; ratio: 0.8"></span>Actions</a></li>
+                        <li data-filter="data-display"><a href="#components"><span uk-icon="icon: table; ratio: 0.8"></span>Data Display</a></li>
+                        <li data-filter="data-input"><a href="#components"><span uk-icon="icon: pencil; ratio: 0.8"></span>Data Input</a></li>
+                        <li data-filter="navigation"><a href="#components"><span uk-icon="icon: menu; ratio: 0.8"></span>Navigation</a></li>
+                        <li data-filter="feedback"><a href="#components"><span uk-icon="icon: bell; ratio: 0.8"></span>Feedback</a></li>
                     </ul>
                 </div>
 
-                <div class="uk-child-width-1-1 uk-child-width-1-3@m uk-child-width-1-2@s uk-grid-medium uk-grid-match uk-margin-medium-top"
+                <div class="uk-child-width-1-2 uk-child-width-1-3@m uk-grid-small uk-grid-medium@m uk-grid-match uk-margin-medium-top"
                     uk-grid>
-                    <a href="docs.html#accordion">
+                    <div class="component-link is-soon" aria-disabled="true">
                         <div class="component-card" data-group="data-display">
-                            <img src="./imgs/components/accordion.png" alt="Accordion Component" class="component-img">
-                            <p>Accordion</p>
+                            <div class="component-preview" aria-hidden="true">
+                                <div class="mini-accordion">
+                                    <div class="mini-acc-item open"><span class="mini-line w60"></span><span class="mini-chev up"></span></div>
+                                    <div class="mini-acc-body"><span class="mini-line w90"></span><span class="mini-line w50"></span></div>
+                                    <div class="mini-acc-item"><span class="mini-line w45"></span><span class="mini-chev"></span></div>
+                                    <div class="mini-acc-item"><span class="mini-line w55"></span><span class="mini-chev"></span></div>
+                                </div>
+                            </div>
+                            <div class="component-info">
+                                <div>
+                                    <p class="component-name">Accordion</p>
+                                    <span class="component-category">Data Display</span>
+                                </div>
+                                <span class="component-status soon">Not available</span>
+                            </div>
                         </div>
-                    </a>
-                    <a href="docs.html#button">
+                    </div>
+                    <a href="docs.html#button" class="component-link">
                         <div class="component-card" data-group="actions">
-                            <img src="./imgs/components/button.png" alt="Button Component" class="component-img">
-                            <p>Button</p>
+                            <div class="component-preview" aria-hidden="true">
+                                <div class="mini-buttons">
+                                    <span class="qx-btn qx-btn-sm qx-btn-primary qx-radius-md">Primary</span>
+                                    <span class="qx-btn qx-btn-sm qx-btn-primary-outline qx-radius-md">Outline</span>
+                                </div>
+                            </div>
+                            <div class="component-info">
+                                <div>
+                                    <p class="component-name">Button</p>
+                                    <span class="component-category">Actions</span>
+                                </div>
+                                <span class="component-status ready">Ready</span>
+                            </div>
                         </div>
                     </a>
-                    <a href="docs.html#card">
+                    <div class="component-link is-soon" aria-disabled="true">
                         <div class="component-card" data-group="data-display">
-                            <img src="./imgs/components/card.png" alt="Card Component" class="component-img">
-                            <p>Card</p>
+                            <div class="component-preview" aria-hidden="true">
+                                <div class="mini-card">
+                                    <span class="mini-card-img"></span>
+                                    <span class="mini-line w70 strong"></span>
+                                    <span class="mini-line w90"></span>
+                                    <span class="mini-line w60"></span>
+                                </div>
+                            </div>
+                            <div class="component-info">
+                                <div>
+                                    <p class="component-name">Card</p>
+                                    <span class="component-category">Data Display</span>
+                                </div>
+                                <span class="component-status soon">Not available</span>
+                            </div>
                         </div>
-                    </a>
-                    <a href="docs.html#checkbox">
+                    </div>
+                    <div class="component-link is-soon" aria-disabled="true">
                         <div class="component-card" data-group="data-input">
-                            <img src="./imgs/components/checkbox.png" alt="Checkbox Component" class="component-img">
-                            <p>Checkbox</p>
+                            <div class="component-preview" aria-hidden="true">
+                                <div class="mini-stack">
+                                    <div class="mini-row"><span class="mini-check on"><span uk-icon="icon: check; ratio: 0.6"></span></span><span class="mini-line w70"></span></div>
+                                    <div class="mini-row"><span class="mini-check"></span><span class="mini-line w55"></span></div>
+                                    <div class="mini-row"><span class="mini-check on"><span uk-icon="icon: check; ratio: 0.6"></span></span><span class="mini-line w65"></span></div>
+                                </div>
+                            </div>
+                            <div class="component-info">
+                                <div>
+                                    <p class="component-name">Checkbox</p>
+                                    <span class="component-category">Data Input</span>
+                                </div>
+                                <span class="component-status soon">Not available</span>
+                            </div>
                         </div>
-                    </a>
-                    <a href="docs.html#radio">
+                    </div>
+                    <div class="component-link is-soon" aria-disabled="true">
                         <div class="component-card" data-group="data-input">
-                            <img src="./imgs/components/radio.png" alt="Radio Component" class="component-img">
-                            <p>Radio</p>
+                            <div class="component-preview" aria-hidden="true">
+                                <div class="mini-stack">
+                                    <div class="mini-row"><span class="mini-radio on"></span><span class="mini-line w70"></span></div>
+                                    <div class="mini-row"><span class="mini-radio"></span><span class="mini-line w55"></span></div>
+                                    <div class="mini-row"><span class="mini-radio"></span><span class="mini-line w65"></span></div>
+                                </div>
+                            </div>
+                            <div class="component-info">
+                                <div>
+                                    <p class="component-name">Radio</p>
+                                    <span class="component-category">Data Input</span>
+                                </div>
+                                <span class="component-status soon">Not available</span>
+                            </div>
                         </div>
-                    </a>
-                    <a href="docs.html#input-field">
+                    </div>
+                    <div class="component-link is-soon" aria-disabled="true">
                         <div class="component-card" data-group="data-input">
-                            <img src="./imgs/components/input-field.png" alt="Input Field Component"
-                                class="component-img">
-                            <p>Input Field</p>
+                            <div class="component-preview" aria-hidden="true">
+                                <div class="mini-input-wrap">
+                                    <span class="mini-line w35 strong"></span>
+                                    <div class="mini-input focus"><span class="mini-line w50"></span><span class="mini-caret"></span></div>
+                                    <div class="mini-input"><span class="mini-line w40"></span></div>
+                                </div>
+                            </div>
+                            <div class="component-info">
+                                <div>
+                                    <p class="component-name">Input Field</p>
+                                    <span class="component-category">Data Input</span>
+                                </div>
+                                <span class="component-status soon">Not available</span>
+                            </div>
                         </div>
-                    </a>
-                    <a href="docs.html#navbar">
+                    </div>
+                    <div class="component-link is-soon" aria-disabled="true">
                         <div class="component-card" data-group="navigation">
-                            <img src="./imgs/components/navbar.png" alt="Navbar Component" class="component-img">
-                            <p>Navigation Bar</p>
+                            <div class="component-preview" aria-hidden="true">
+                                <div class="mini-navbar">
+                                    <span class="mini-logo"></span>
+                                    <span class="mini-links"><span class="mini-line w100"></span><span class="mini-line w100"></span><span class="mini-line w100"></span></span>
+                                    <span class="mini-pill"></span>
+                                </div>
+                            </div>
+                            <div class="component-info">
+                                <div>
+                                    <p class="component-name">Navigation Bar</p>
+                                    <span class="component-category">Navigation</span>
+                                </div>
+                                <span class="component-status soon">Not available</span>
+                            </div>
                         </div>
-                    </a>
-                    <a href="docs.html#progress">
+                    </div>
+                    <div class="component-link is-soon" aria-disabled="true">
                         <div class="component-card" data-group="feedback">
-                            <img src="./imgs/components/progress.png" alt="Progress Component" class="component-img">
-                            <p>Progress</p>
+                            <div class="component-preview" aria-hidden="true">
+                                <div class="mini-progress-wrap">
+                                    <div class="mini-progress-head"><span class="mini-line w35"></span><span class="mini-line w15 strong"></span></div>
+                                    <div class="mini-progress"><span style="width:68%"></span></div>
+                                    <div class="mini-progress soft"><span style="width:35%"></span></div>
+                                </div>
+                            </div>
+                            <div class="component-info">
+                                <div>
+                                    <p class="component-name">Progress</p>
+                                    <span class="component-category">Feedback</span>
+                                </div>
+                                <span class="component-status soon">Not available</span>
+                            </div>
                         </div>
-                    </a>
-                    <a href="docs.html#slider">
+                    </div>
+                    <div class="component-link is-soon" aria-disabled="true">
                         <div class="component-card" data-group="data-display">
-                            <img src="./imgs/components/slider.png" alt="Slider Component" class="component-img">
-                            <p>Slider</p>
+                            <div class="component-preview" aria-hidden="true">
+                                <div class="mini-slider">
+                                    <span class="mini-arrow"><span uk-icon="icon: chevron-left; ratio: 0.7"></span></span>
+                                    <span class="mini-slide"></span><span class="mini-slide active"></span><span class="mini-slide"></span>
+                                    <span class="mini-arrow"><span uk-icon="icon: chevron-right; ratio: 0.7"></span></span>
+                                </div>
+                            </div>
+                            <div class="component-info">
+                                <div>
+                                    <p class="component-name">Slider</p>
+                                    <span class="component-category">Data Display</span>
+                                </div>
+                                <span class="component-status soon">Not available</span>
+                            </div>
                         </div>
-                    </a>
-                    <a href="docs.html#tab">
+                    </div>
+                    <div class="component-link is-soon" aria-disabled="true">
                         <div class="component-card" data-group="navigation">
-                            <img src="./imgs/components/tab.png" alt="Tab Component" class="component-img">
-                            <p>Tab</p>
+                            <div class="component-preview" aria-hidden="true">
+                                <div class="mini-tabs">
+                                    <span class="mini-tab active">Tab one</span><span class="mini-tab">Tab two</span><span class="mini-tab">Tab three</span>
+                                </div>
+                            </div>
+                            <div class="component-info">
+                                <div>
+                                    <p class="component-name">Tab</p>
+                                    <span class="component-category">Navigation</span>
+                                </div>
+                                <span class="component-status soon">Not available</span>
+                            </div>
                         </div>
-                    </a>
-                    <a href="docs.html#table">
+                    </div>
+                    <div class="component-link is-soon" aria-disabled="true">
                         <div class="component-card" data-group="data-display">
-                            <img src="./imgs/components/table.png" alt="Table Component" class="component-img">
-                            <p>Table</p>
+                            <div class="component-preview" aria-hidden="true">
+                                <div class="mini-table">
+                                    <div class="mini-tr head"><span class="mini-line w80"></span><span class="mini-line w80"></span><span class="mini-line w80"></span></div>
+                                    <div class="mini-tr"><span class="mini-line w70"></span><span class="mini-line w50"></span><span class="mini-line w60"></span></div>
+                                    <div class="mini-tr"><span class="mini-line w60"></span><span class="mini-line w70"></span><span class="mini-line w40"></span></div>
+                                    <div class="mini-tr"><span class="mini-line w75"></span><span class="mini-line w45"></span><span class="mini-line w65"></span></div>
+                                </div>
+                            </div>
+                            <div class="component-info">
+                                <div>
+                                    <p class="component-name">Table</p>
+                                    <span class="component-category">Data Display</span>
+                                </div>
+                                <span class="component-status soon">Not available</span>
+                            </div>
                         </div>
-                    </a>
-                    <a href="docs.html#toggle">
+                    </div>
+                    <div class="component-link is-soon" aria-disabled="true">
                         <div class="component-card" data-group="data-input">
-                            <img src="./imgs/components/toggle.png" alt="Toggle Component" class="component-img">
-                            <p>Toggle</p>
+                            <div class="component-preview" aria-hidden="true">
+                                <div class="mini-stack">
+                                    <div class="mini-row"><span class="mini-switch on"></span><span class="mini-line w60"></span></div>
+                                    <div class="mini-row"><span class="mini-switch"></span><span class="mini-line w50"></span></div>
+                                    <div class="mini-row"><span class="mini-switch on"></span><span class="mini-line w65"></span></div>
+                                </div>
+                            </div>
+                            <div class="component-info">
+                                <div>
+                                    <p class="component-name">Toggle</p>
+                                    <span class="component-category">Data Input</span>
+                                </div>
+                                <span class="component-status soon">Not available</span>
+                            </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
+            </div>
+
+            <!-- cta -->
+            <div class="cta-band">
+                <h2>Come build something <span class="scribble">nice</span></h2>
+                <p>Start with the docs. And if you find a bug or have an idea, open an issue on GitHub.</p>
+                <a href="docs.html" class="qx-btn qx-btn-lg qx-btn-primary qx-radius-pill cta-btn">
+                    Start with the docs
+                    <span uk-icon="icon: arrow-right; ratio: 1.1"></span>
+                </a>
             </div>
         </div>
     </section>

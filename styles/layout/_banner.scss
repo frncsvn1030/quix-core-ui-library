@@ -3,128 +3,468 @@
 
 .banner {
   position: relative;
-  display: flex;
-  align-items: center;
   overflow: hidden;
-  min-height: 71.67vh;
-  padding: 80px 0;
-  background-color: $purple-50;
+  padding: $space-11 0;
+  background-color: $white;
+  background-image:
+    radial-gradient(60% 50% at 85% 10%, rgba($purple-300, 0.14) 0%, transparent 70%),
+    radial-gradient(50% 50% at 5% 90%, rgba($purple-300, 0.08) 0%, transparent 70%);
 
   @media (max-width: 1200px) {
-    min-height: 60vh;
-    padding: 60px 0;
+    padding: $space-10 0;
   }
 
   @media (max-width: 768px) {
-    min-height: 50vh;
-    padding: 50px 0;
+    padding: $space-9 0;
   }
 
   @media (max-width: 480px) {
-    min-height: 40vh;
-    padding: 40px 0;
+    padding: $space-8 0;
   }
 
-  &.with-background {
-    background-image: url('../../imgs/qstrike-logo.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 100px center;
-
-    @media (max-width: 1200px) {
-      background-position: center;
-    }
-
-    @media (max-width: 768px) {
-      background-position: center;
-      background-size: 650px auto;
-    }
+  // fade the hero background into the page instead of ending in a hard edge
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: $space-10;
+    background: linear-gradient(to bottom, rgba($white, 0), $white);
+    pointer-events: none;
+    z-index: 0;
   }
 
   .banner-info {
     position: relative;
     z-index: 2;
 
+    .banner-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: $space-2;
+      margin-bottom: $space-5;
+      padding: $space-1 $space-3;
+      border: 1px solid $purple-100;
+      border-radius: $border-radius-pill;
+      background-color: $purple-10;
+      @include font-style($inter, 13px, $font-weight-medium, $purple-300);
+
+      .banner-eyebrow-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: $purple-300;
+      }
+    }
+
     h1 {
-      @include font-style($poppins, 3rem, $font-weight-semi-bold, $text-default);
-      @include responsive-font-size(2.6rem, 2rem);
+      margin: 0 0 $space-4;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      @include font-style($inter, 3.5rem, $font-weight-bold, $text-default);
+
+      @media (max-width: 1200px) {
+        font-size: 3rem;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 2.25rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 2rem;
+      }
 
       span {
         @include text-purple;
       }
-
     }
 
     p {
-      @include font-style($poppins, 18px, null, $text-muted);
-      @include responsive-font-size(16px, 14px);
+      max-width: 520px;
+      margin: 0 0 $space-6;
+      line-height: 1.6;
+      @include font-style($inter, 18px, null, $text-muted);
+      @include responsive-font-size(16px, 15px);
     }
 
     .banner-btns {
-      display: inline-flex;
-      gap: 9px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: $space-3;
 
       .get-started-btn,
       .see-components-btn {
-        display: inline-block;
-        cursor: pointer;
-        text-transform: none !important;
-
-        @include font-style($poppins, 16px, $font-weight-medium, $text-default);
-
-        @media (max-width: 480px) {
-          height: 46px !important;
-          font-size: 0.875rem;
-        }
+        text-decoration: none;
+        text-transform: none;
+        @include font-style($inter, 16px, $font-weight-medium, $text-default);
       }
 
       .get-started-btn {
         color: $white;
+        box-shadow: $shadow-md;
       }
 
       .see-components-btn {
         background-color: $white;
+        border: 1px solid $border-gray;
+        box-shadow: $shadow-sm;
+
+        &:hover {
+          border-color: $purple-300;
+        }
+      }
+    }
+
+    .banner-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $space-2 $space-5;
+      margin: $space-6 0 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        display: inline-flex;
+        align-items: center;
+        gap: $space-2;
+        @include font-style($inter, 14px, $font-weight-medium, $text-muted);
+
+        [uk-icon] {
+          color: $purple-300;
+        }
       }
     }
   }
 
-  .banner-image {
-    position: absolute;
-    top: 40px;
-    bottom: 0;
-    right: -300px;
-    width: 100%;
-    max-width: 1100px;
+  .banner-showcase {
+    position: relative;
     z-index: 1;
-    transition: all 0.3s ease-in-out;
+    height: 500px;
 
-    @media (min-width: 1601px) and (max-width: 1900px) {
-      right: -500px;
-      max-width: 1300px;
+    // tablet + mobile: layered, alternating collage
+    @media (max-width: 1199px) {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      max-width: 480px;
+      margin: 0 auto;
+      padding-bottom: $space-3;
     }
 
-    @media (min-width: 1348px) and (max-width: 1600px) {
-      right: -600px;
-      max-width: 1230px;
+    // phones: smaller, tighter collage
+    @media (max-width: 640px) {
+      max-width: 380px;
+      margin: 0 auto;
+      zoom: 0.84;
     }
 
-    @media (min-width: 1201px) and (max-width: 1347px) {
-      right: -550px;
-      max-width: 1150px;
+    // dotted grid + glow backdrop
+    .showcase-grid {
+      position: absolute;
+      inset: -$space-6;
+      background-image: radial-gradient(rgba($purple-300, 0.22) 1.5px, transparent 1.5px);
+      background-size: $space-5 $space-5;
+      -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent 100%);
+      mask-image: radial-gradient(closest-side, #000 30%, transparent 100%);
     }
 
-    @media (max-width: 1200px) {
-      display: none;
+    .showcase-blob {
+      position: absolute;
+      top: 15%;
+      left: 20%;
+      width: 60%;
+      height: 60%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba($purple-300, 0.22), transparent 70%);
+      filter: blur(30px);
     }
 
-    img {
+    .showcase-grid,
+    .showcase-blob {
+      pointer-events: none;
+    }
+
+    .showcase-card {
+      position: absolute;
+      border: 1px solid $border-light-gray;
+      border-radius: $border-radius-xl;
+      background-color: rgba($white, 0.92);
+      box-shadow: $shadow-lg;
+      overflow: hidden;
+
+      @media (max-width: 1199px) {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+      }
+    }
+
+    // floating motion
+    .showcase-float {
+      animation: showcase-float 6s ease-in-out infinite;
+
+      &.showcase-progress { animation-delay: -1.5s; }
+      &.showcase-tabs { animation-delay: -3s; }
+      &.showcase-code { animation-delay: -4.5s; }
+
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
+    }
+
+    .showcase-preview {
+      top: $space-6;
+      left: 0;
+      width: 310px;
+      transform: rotate(-2deg);
+
+      @media (max-width: 1199px) {
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        align-self: flex-start;
+        width: 86%;
+      }
+    }
+
+    .showcase-controls {
+      top: 0;
+      right: 0;
+      width: 200px;
+      padding: $space-4;
+      display: flex;
+      flex-direction: column;
+      gap: $space-3;
+
+      @media (max-width: 1199px) {
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        align-self: flex-end;
+        width: 62%;
+        margin-top: -$space-5;
+        transform: rotate(2deg);
+      }
+    }
+
+    .showcase-progress {
+      top: 168px;
+      right: $space-3;
+      width: 210px;
+      padding: $space-4;
+
+      @media (max-width: 1199px) {
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        align-self: flex-start;
+        width: 70%;
+        margin-top: $space-3;
+        transform: rotate(-1.5deg);
+      }
+    }
+
+    .showcase-tabs {
+      top: 330px;
+      left: $space-8;
+      display: inline-flex;
       width: auto;
-      height: 100%;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      box-shadow:
-        -20px -15px 30px rgba($purple-300, 0.08),
-        0px 10px 30px rgba(255, 255, 255, 0.15);
+      padding: $space-1;
+      gap: $space-1;
+      border-radius: $border-radius-pill;
+
+      @media (max-width: 1199px) {
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        align-self: flex-end;
+        z-index: 2;
+        margin-top: $space-3;
+        margin-right: $space-2;
+      }
     }
+
+    .showcase-code {
+      right: 0;
+      bottom: 0;
+      max-width: 360px;
+      border-color: transparent;
+      background-color: $text-default;
+
+      @media (max-width: 1199px) {
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        align-self: flex-start;
+        width: 94%;
+        max-width: none;
+        margin-top: -$space-4;
+        transform: rotate(1deg);
+      }
+    }
+
+    // --- preview card
+    .showcase-header {
+      display: flex;
+      align-items: center;
+      gap: $space-3;
+      padding: $space-3 $space-4;
+      border-bottom: 1px solid $border-light-gray;
+      background-color: $light-gray;
+
+      .showcase-dots {
+        display: inline-flex;
+        gap: 6px;
+
+        i {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: $border-gray;
+        }
+      }
+
+      .showcase-title {
+        @include font-style($inter, 13px, $font-weight-medium, $text-muted);
+      }
+    }
+
+    .showcase-body {
+      padding: $space-4 $space-5 $space-5;
+
+      .showcase-label {
+        margin: 0 0 $space-2;
+        @include font-style($inter, 11px, $font-weight-semi-bold, $text-disabled);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .showcase-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $space-2;
+        margin-bottom: $space-4;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    // --- controls card
+    .ctl {
+      display: flex;
+      align-items: center;
+      gap: $space-3;
+      @include font-style($inter, 14px, $font-weight-medium, $text-default);
+    }
+
+    .ctl-switch {
+      position: relative;
+      width: 36px;
+      height: 20px;
+      border-radius: $border-radius-pill;
+      background-color: $border-gray;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: $white;
+        box-shadow: $shadow-sm;
+      }
+
+      &.on {
+        background-color: $purple-300;
+
+        &::after {
+          left: 18px;
+        }
+      }
+    }
+
+    .ctl-check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: $border-radius-sm;
+      background-color: $purple-300;
+      color: $white;
+    }
+
+    // --- progress card
+    .prog-head {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: $space-2;
+      @include font-style($inter, 13px, $font-weight-medium, $text-muted);
+
+      strong {
+        color: $text-default;
+      }
+    }
+
+    .prog-track {
+      height: 8px;
+      border-radius: $border-radius-pill;
+      background-color: $purple-50;
+      overflow: hidden;
+
+      .prog-fill {
+        display: block;
+        width: 72%;
+        height: 100%;
+        border-radius: $border-radius-pill;
+        background-color: $purple-300;
+      }
+    }
+
+    // --- tabs card
+    .tab {
+      padding: $space-2 $space-4;
+      border-radius: $border-radius-pill;
+      @include font-style($inter, 13px, $font-weight-medium, $text-muted);
+
+      &.active {
+        background-color: $purple-300;
+        color: $white;
+      }
+    }
+
+    // --- code card
+    .showcase-code pre {
+      margin: 0;
+      padding: $space-4 $space-5;
+      overflow-x: auto;
+      background: transparent;
+      border: 0;
+      @include font-style(null, 13px, null, $text-softest);
+      font-family: $mono;
+      line-height: 1.6;
+    }
+
+    .c-tag { color: #c4a8ff; }
+    .c-attr { color: #7cc4ff; }
+    .c-str { color: #8ee19b; }
   }
+}
+
+@keyframes showcase-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -8px; }
 }

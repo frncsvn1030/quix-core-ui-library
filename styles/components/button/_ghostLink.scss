@@ -1,0 +1,30 @@
+@import '../../abstracts/variables';
+@import '../../abstracts/mixins';
+
+// low emphasis: no fill until you hover
+.qx-btn-ghost {
+  color: $text-default;
+  background-color: transparent;
+
+  &:hover:not(:disabled):not(.qx-btn-disabled) {
+    background-color: $light-gray;
+  }
+
+  &:active:not(:disabled):not(.qx-btn-disabled) {
+    background-color: $border-gray;
+  }
+}
+
+// looks like a text link but keeps the button behavior
+.qx-btn-link {
+  min-height: auto;
+  padding: 0;
+  color: $purple-300;
+  background-color: transparent;
+
+  &:hover:not(:disabled):not(.qx-btn-disabled) {
+    color: $purple-400;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}

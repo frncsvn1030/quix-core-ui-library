@@ -1,73 +1,369 @@
-@import '../abstracts/variables';
-@import '../abstracts/mixins';
-
 .main-content {
-  padding-top: 8vw;
-  padding-bottom: 8vw;
+  padding-top: $space-5;
+  padding-bottom: $section-gap;
+  background-color: $white;
 
   h2 {
-    @include font-style($poppins, 2.5rem, $font-weight-semi-bold, $text-default);
+    margin: 0;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    @include font-style($inter, 2.5rem, $font-weight-bold, $text-default);
     @include responsive-font-size(2rem, 1.75rem);
-  }
 
-  span {
-    @include text-purple;
-  }
-
-  p,
-  li {
-    @include font-style($poppins, 1.125rem, null, $text-muted);
-    @include responsive-font-size(1rem, 0.875rem);
-
-  }
-
-  .icon-circle {
-    background-color: $purple-300;
-    border-radius: 50%;
-    width: 38px;
-    height: 38px;
-    min-width: 38px;
-    margin-right: 23px;
-
-    span[uk-icon] {
-      color: $white !important;
+    span {
+      white-space: nowrap;
+      @include text-purple;
     }
   }
 
+  h3 {
+    margin: 0 0 $space-2;
+    @include font-style($inter, 1.125rem, $font-weight-semi-bold, $text-default);
+  }
+
+  p {
+    @include font-style($inter, 1.125rem, null, $text-muted);
+    @include responsive-font-size(1rem, 0.9375rem);
+  }
+
+  .section-head {
+    max-width: 680px;
+    margin: 0 auto $space-8;
+    text-align: center;
+
+    p {
+      margin: $space-4 0 0;
+      line-height: 1.6;
+    }
+  }
+
+  .section-eyebrow {
+    display: inline-block;
+    margin-bottom: $space-4;
+    padding: $space-1 $space-3;
+    border: 1px solid $purple-100;
+    border-radius: $border-radius-pill;
+    background-color: $purple-10;
+    @include font-style($inter, 13px, $font-weight-medium, $purple-300);
+  }
+
+  // features
+  .feature-card {
+    height: 100%;
+    padding: $space-6 $space-5;
+    border: 1px solid $border-light-gray;
+    border-radius: $border-radius-xl;
+    background-color: $white;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: $purple-100;
+      box-shadow: $shadow-md;
+    }
+
+    .feature-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: $space-8;
+      height: $space-8;
+      margin-bottom: $space-4;
+      border-radius: $border-radius-lg;
+      background-color: $purple-50;
+      color: $purple-300;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  }
+
+  // components
   .components {
-    padding-top: 8vw;
+    padding-top: $section-gap;
+    scroll-margin-top: $space-7;
 
-    .component-card {
-      background-color: $white;
-      border-radius: 12px;
-      border: 1px solid $border-light-gray;
-      text-align: center;
-      transition: transform 0.3s ease;
-      box-shadow: 0 10px 20px rgba(150, 100, 255, 0.1);
+    .component-tabs-wrap {
+      margin: 0 0 $space-6;
+    }
 
-      .component-img {
-        border-radius: 12px 12px 0 0;
+    .filter-chips {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: $space-2;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        padding: 0;
+        margin: 0;
+
+        &::before {
+          display: none;
+        }
+
+        a {
+          display: inline-flex;
+          align-items: center;
+          gap: $space-2;
+          height: $control-height-sm + $space-1;
+          padding: 0 $space-4;
+          border: 1px solid $border-gray;
+          border-radius: $border-radius-pill;
+          background-color: $white;
+          white-space: nowrap;
+
+          @media (max-width: 639px) {
+            height: $control-height-sm;
+            padding: 0 $space-3;
+            gap: 6px;
+            font-size: 13px;
+
+            [uk-icon] {
+              display: none;
+            }
+          }
+          text-transform: none;
+          @include font-style($inter, 14px, $font-weight-medium, $text-muted);
+          transition: background-color 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+
+          &:hover {
+            border-color: $purple-100;
+            background-color: $purple-10;
+            color: $purple-300;
+          }
+
+          &:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba($purple-300, 0.3);
+          }
+        }
+
+        &.uk-active a {
+          border-color: $purple-300;
+          background-color: $purple-300;
+          color: $white;
+          box-shadow: $shadow-md;
+        }
       }
     }
 
-    .component-card:hover {
-      transform: translateY(-8px);
+    .tab-count {
+      min-width: 20px;
+      padding: 0 6px;
+      border-radius: $border-radius-pill;
+      background-color: rgba($black, 0.06);
+      font-size: 12px;
+      line-height: 20px;
+      text-align: center;
+    }
+
+    .filter-chips li.uk-active .tab-count {
+      background-color: rgba($white, 0.22);
+      color: $white;
     }
 
     a {
       text-decoration: none;
     }
 
+    .component-link {
+      display: block;
+      color: inherit;
+
+      &:focus-visible {
+        outline: none;
+
+        .component-card {
+          box-shadow: 0 0 0 3px rgba($purple-300, 0.4);
+        }
+      }
+    }
+
+    .component-card {
+      background-color: $white;
+      border-radius: $border-radius-lg;
+      border: 1px solid $border-light-gray;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+
+      &.is-entering {
+        animation: card-in 0.35s ease both;
+      }
+
+      .component-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $space-3;
+        padding: $space-3 $space-4;
+        border-top: 1px solid $border-light-gray;
+        text-align: left;
+      }
+
+      @media (max-width: 640px) {
+        .component-info {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: $space-2;
+          padding: $space-3;
+        }
+      }
+
+      .component-name {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.3;
+        font-weight: $font-weight-semi-bold;
+        color: $text-default;
+      }
+
+      .component-category {
+        display: block;
+        margin-top: 2px;
+        font-size: 13px;
+        color: $text-disabled;
+      }
+
+      .component-status {
+        flex-shrink: 0;
+        padding: 2px $space-2;
+        border-radius: $border-radius-pill;
+        font-size: 12px;
+        font-weight: $font-weight-medium;
+
+        &.ready {
+          background-color: $green-50;
+          color: $green-400;
+        }
+
+        &.soon {
+          background-color: $light-gray;
+          color: $text-muted;
+        }
+      }
+    }
+
+    a.component-link:hover .component-card {
+      transform: translateY(-4px);
+      border-color: $purple-100;
+      box-shadow: $shadow-md;
+    }
+
+    // not available yet
+    .is-soon {
+      cursor: default;
+
+    }
+  }
+
+  // backstory
+  .story {
+    display: flex;
+    align-items: center;
+    gap: $space-8;
+    margin-top: $section-gap;
+    padding: $space-8;
+    border-radius: $border-radius-xl;
+    background-color: $purple-10;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $space-5;
+      padding: $space-5;
+    }
+
+    .story-avatars {
+      display: flex;
+      flex-shrink: 0;
+
+      span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: $space-9;
+        height: $space-9;
+        margin-left: -$space-3;
+        border: 3px solid $white;
+        border-radius: 50%;
+        color: $white;
+        background-color: $purple-300;
+        @include font-style($inter, 1.5rem, $font-weight-bold, $white);
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:nth-child(2) { background-color: $teal-300; transform: rotate(-6deg); }
+        &:nth-child(3) { background-color: $orange-300; color: $text-default; transform: rotate(5deg); }
+        &:nth-child(4) { background-color: $purple-400; }
+      }
+    }
+
+    .story-kicker {
+      display: block;
+      margin-bottom: $space-2;
+      @include font-style($inter, 13px, $font-weight-semi-bold, $purple-300);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .story-text p {
+      margin: 0 0 $space-3;
+      font-size: 1.0625rem;
+      line-height: 1.7;
+
+      strong {
+        color: $text-default;
+      }
+    }
+
+    .story-link {
+      display: inline-flex;
+      align-items: center;
+      gap: $space-2;
+      @include font-style($inter, 1rem, $font-weight-medium, $purple-300);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // call to action
+  .cta-band {
+    margin-top: $section-gap;
+    padding: $space-9 $space-5;
+    border-radius: $border-radius-xl;
+    text-align: center;
+    background-color: $purple-10;
+    background-image: radial-gradient(60% 80% at 50% 0%, rgba($purple-300, 0.14), transparent 70%);
+
+    p {
+      margin: $space-3 0 $space-6;
+    }
+
+    .cta-btn {
+      color: $white;
+      text-decoration: none;
+      box-shadow: $shadow-md;
+    }
   }
 }
 
-
 .uk-tab {
   background-color: #F7F7F7;
-  border-radius: 8px;
+  border-radius: $border-radius-md;
   overflow: hidden;
   list-style: none;
-  padding: 4px !important;
+  padding: $space-1 !important;
 
   &::before,
   &::after {
@@ -76,10 +372,10 @@
 
   li {
     padding: 0;
-    border-radius: 6px;
+    border-radius: $border-radius-sm;
 
     a {
-      padding: 8px 10px;
+      padding: $space-2 $space-3;
       border: none;
       text-transform: none;
       text-decoration: none;
@@ -87,17 +383,42 @@
       &:hover {
         background-color: $white;
         color: $text-default;
-        border-radius: 3px;
+        border-radius: $border-radius-sm;
       }
     }
 
     &.uk-active a {
       background-color: $white;
-      border-radius: 3px;
+      border-radius: $border-radius-sm;
       color: $text-default;
       font-weight: $font-weight-medium;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       border: none;
+    }
+  }
+}
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+// home page: roomier side gutters, shared by navbar, sections and footer
+.home {
+  .uk-container,
+  .uk-container-large {
+    max-width: 1120px;
+    box-sizing: content-box;
+    padding-left: $space-5;
+    padding-right: $space-5;
+
+    @media (min-width: 640px) {
+      padding-left: $space-7;
+      padding-right: $space-7;
+    }
+
+    @media (min-width: 960px) {
+      padding-left: $space-9;
+      padding-right: $space-9;
     }
   }
 }
