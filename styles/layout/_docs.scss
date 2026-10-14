@@ -9,36 +9,38 @@
 .left-sidebar,
 .right-sidebar {
   position: sticky;
-  height: 100vh;
   top: 80px;
-  bottom: 100px;
-  padding: 2rem 0;
+  // fit the space below the navbar so the last links stay reachable by scrolling
+  height: calc(100vh - 80px);
+  height: calc(100dvh - 80px);
+  padding: $space-4 0 $space-6;
   overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 
 .left-sidebar {
-  border-right: 1px dotted $border-gray;
+  border-right: 1px solid $border-light-gray;
 
   ul {
 
     .all-components-btn a,
     li a {
       color: $text-muted;
-      font-size: 14px;
+      font-size: 13px;
       text-decoration: none;
-      padding-left: 10px;
+      padding: $space-2 $space-3;
 
       &:hover {
         @include font-style(null, null, $font-weight-medium, $text-default);
         background-color: $light-gray;
-        border-radius: 5px
+        border-radius: $border-radius-md
       }
 
       &.active {
         @include font-style(null, null, $font-weight-medium, $purple-400);
         background-color: $purple-50;
-        border-radius: 5px
+        border-radius: $border-radius-md
       }
 
 
@@ -46,19 +48,28 @@
 
     .uk-nav-header {
       @include font-style(null, null, $font-weight-medium, $text-default);
-      padding-left: 10px;
+      padding: $space-2 $space-3;
     }
   }
 }
 
 
 .right-sidebar {
-  border-left: 1px dotted $border-gray;
+  border-left: 1px solid $border-light-gray;
+
+  // the generated page sidebars add a large left margin, keep the panel close to its divider
+  > div {
+    margin-left: $space-5 !important;
+
+    // more breathing room from the divider on wide screens
+    @media (min-width: 1200px) {
+      margin-left: $space-9 !important;
+    }
+  }
 }
 
 .sidebar-progress-container {
   position: relative;
-  padding-left: 12px;
 
   .progress-track {
     position: absolute;
@@ -83,7 +94,11 @@
   }
 
   ul.uk-nav {
-    padding-left: 16px;
+    padding-left: $space-4;
+  }
+
+  .nav-link {
+    font-size: 13px;
   }
 
   .nav-link.active {
@@ -94,23 +109,24 @@
 
 .uk-nav-header {
   text-transform: capitalize !important;
+  font-size: 13px;
   font-weight: $font-weight-semi-bold;
 }
 
 
 .docs-content {
-  padding: 2rem 0;
+  padding: $space-4 0 $space-6;
 }
 
 @media (min-width: 1000px) {
 
   .left-sidebar,
   .right-sidebar {
-    padding: 2rem 0;
+    padding: $space-4 0 $space-6;
   }
 
   .docs-content {
-    padding: 2rem 3rem;
+    padding: $space-4 $space-7 $space-6;
   }
 }
 
@@ -118,77 +134,124 @@
 
   .left-sidebar,
   .right-sidebar {
-    padding: 3rem 0;
+    padding: $space-5 0 $space-6;
   }
 
   .docs-content {
-    padding: 3rem 5.5rem;
+    padding: $space-5 $space-9 $space-8;
+  }
+}
+
+// shown when a component page doesn't exist yet
+.docs-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // fill the area below the navbar so the message sits in the middle
+  min-height: calc(100vh - 220px);
+  text-align: center;
+
+  .docs-empty-icon {
+    margin-bottom: $space-4;
+    color: $purple-300;
+  }
+
+  .docs-empty-title {
+    margin: 0 0 $space-2;
+    line-height: 1.2;
+    @include font-style($inter, 26px, $font-weight-semi-bold, $text-default);
+  }
+
+  .docs-empty-text {
+    margin: 0;
+    @include font-style($inter, 15px, null, $text-muted);
   }
 }
 
 .header {
-  font-weight: $font-weight-semi-bold;
-  @include font-style($poppins, 38px, $font-weight-semi-bold, $text-default);
+  margin: 0 0 $space-2;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  @include font-style($inter, 30px, $font-weight-semi-bold, $text-default);
 }
 
-.uk-text-large {
+.docs-content .uk-text-large {
+  margin: 0 0 $space-6;
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: $font-weight-regular;
   color: $text-muted;
 }
 
 
 .section {
-  margin-top: 48px;
+  margin-top: $space-7;
 
   .hashtag {
     color: $purple-200;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
-    margin-right: 8px;
+    margin-right: $space-2;
     text-decoration: none;
     transition: color 0.2s;
   }
 
   h2 {
     margin: 0;
-    @include font-style($poppins, 26px, $font-weight-semi-bold, $text-default);
+    @include font-style($inter, 20px, $font-weight-semi-bold, $text-default);
+  }
+
+  p code {
+    font-family: $mono;
+    padding: 2px $space-2;
+    border-radius: $border-radius-sm;
+    background-color: $purple-10;
+    color: #673ab7;
+    font-size: 13px;
   }
 
   p {
     margin-top: 0;
-    margin-bottom: 16px;
-    font-size: 18px;
+    margin-bottom: $space-4;
+    font-size: 15px;
+    line-height: 1.6;
     color: $text-muted;
   }
 }
 
 .code-container {
-  margin: 25px 0;
+  margin: $space-5 0;
   border: 1px solid $border-gray;
-  border-radius: 6px;
+  border-radius: $border-radius-md;
   overflow: hidden;
 
   .code-preview {
-    padding: 12px 20px;
+    padding: $space-3 $space-5;
     background-color: $white;
     border-bottom: 1px solid $border-gray;
     font-weight: 500;
     display: flex;
     flex-wrap: wrap;
-    gap: 9px;
+    gap: $space-2;
   }
 
   .code-content-wrapper {
     position: relative;
   }
 
+  .code-content.is-pre {
+    white-space: pre;
+  }
+
   .code-content {
     overflow-x: auto;
     white-space: nowrap;
-    padding: 15px 20px;
+    padding: $space-4 $space-5;
     background-color: $purple-10;
     position: relative;
-    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    font-size: 14px;
+    font-family: $mono;
+    font-size: 13px;
 
     .code-tag {
       color: #673ab7;
@@ -205,27 +268,50 @@
 
   .copy-button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: $space-3;
+    right: $space-3;
 
     display: flex;
     align-items: center;
-    padding: 6px 10px;
+    padding: $space-1 $space-3;
 
     background-color: transparent !important;
     border: 1px solid $border-gray;
-    border-radius: 4px;
+    border-radius: $border-radius-sm;
 
     font-size: 14px;
     cursor: pointer;
-    @include font-style($poppins, 12px, $font-weight-semi-bold, $text-default);
+    @include font-style($inter, 12px, $font-weight-semi-bold, $text-default);
 
     &:hover {
       background-color: $purple-100 !important;
     }
 
     svg {
-      margin-right: 3px;
+      margin-right: $space-1;
+    }
+  }
+}
+
+// phones: Copy sits above the code instead of floating over long lines
+@media (max-width: 640px) {
+  .code-container {
+    .code-content-wrapper {
+      display: flex;
+      flex-direction: column;
+      background-color: $purple-10;
+    }
+
+    .copy-button {
+      position: static;
+      order: -1;
+      align-self: flex-end;
+      margin: $space-2 $space-2 0;
+    }
+
+    .code-content {
+      padding-top: $space-2;
+      background-color: transparent;
     }
   }
 }

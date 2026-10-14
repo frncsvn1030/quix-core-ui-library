@@ -1,3 +1,36 @@
+// every component listed in the docs menu
+const knownPages = [
+  "button",
+  "accordion",
+  "card",
+  "slider",
+  "table",
+  "checkbox",
+  "input-field",
+  "radio",
+  "toggle-switch",
+  "navbar",
+  "tab",
+  "progress",
+];
+
+function prettyName(slug) {
+  if (slug === "toggle-switch") return "Toggle & Switch";
+  return slug
+    .split("-")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
+function notAvailableHTML(name) {
+  return `
+    <div class="docs-empty">
+      <span class="docs-empty-icon" uk-icon="icon: clock; ratio: 1.6"></span>
+      <h1 class="docs-empty-title">${prettyName(name)}</h1>
+      <p class="docs-empty-text">This component was not completed.</p>
+    </div>`;
+}
+
 function loadPage(name) {
   const main = document.getElementById("main-content");
   const sidebar = document.getElementById("right-sidebar");
@@ -36,8 +69,8 @@ function loadPage(name) {
       script.dataset.component = name;
       document.body.appendChild(script);
     })
-    .catch((err) => {
-      main.innerHTML = `<p>Error loading page: ${err.message}</p>`;
+    .catch(() => {
+      main.innerHTML = notAvailableHTML(name);
     });
 
   // load sidebar
@@ -64,8 +97,9 @@ function loadPage(name) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const hash = window.location.hash;
-  const defaultPage = hash ? hash.substring(1).toLowerCase() : "button";
+  const hash = window.location.hash.substring(1).toLowerCase();
+  // a hash that isn't a component name is a section anchor, so open Button and scroll to it
+  const defaultPage = knownPages.includes(hash) ? hash : "button";
   loadPage(defaultPage);
 
   document.querySelectorAll(".option").forEach((option) => {
@@ -80,23 +114,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const validPages = [
-    "button",
-    "accordion",
-    "card",
-    "slider",
-    "input-field",
-    "navbar",
-    "checkbox",
-    "toggle-switch",
-    "table",
-  ];
-
   window.addEventListener("hashchange", () => {
     const newHash = window.location.hash.substring(1);
 
-    // if hash matches a valid page, load it
-    if (validPages.includes(newHash)) {
+    // only react to component pages, not in-page section anchors
+    if (knownPages.includes(newHash)) {
       localStorage.setItem("currentPage", newHash);
       loadPage(newHash);
     }

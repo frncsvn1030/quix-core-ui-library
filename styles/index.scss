@@ -13,12 +13,14 @@
 @import './layout/docs';
 @import './layout/offcanvasSidebar';
 @import './layout/tableStyle';
+@import './layout/componentPreviews';
 
 // button component
 @import './components/button/base';
 @import './components/button/solidVariant';
 @import './components/button/outlineVariant';
 @import './components/button/inverted';
+@import './components/button/ghostLink';
 @import './components/button/sizes';
 @import './components/button/shape';
 @import './components/button/fullWidth'
